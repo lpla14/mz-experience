@@ -702,7 +702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 77, y: -90}
+  m_AnchoredPosition: {x: 58.5, y: -90}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &444403156
@@ -1957,7 +1957,7 @@ Prefab:
     - target: {fileID: 224422339817939248, guid: 9d7e981d0dd81374fba5f2e9bb7eb7ec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 77
+      value: 58.5
       objectReference: {fileID: 0}
     - target: {fileID: 224422339817939248, guid: 9d7e981d0dd81374fba5f2e9bb7eb7ec,
         type: 2}
@@ -2401,7 +2401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc86d3f96d28c64eb81c83209e30b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: 
+  component: none
   enableVR: 0
 --- !u!1 &1255223512
 GameObject:
@@ -3299,7 +3299,7 @@ Prefab:
     - target: {fileID: 224422339817939248, guid: 9d7e981d0dd81374fba5f2e9bb7eb7ec,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 77
+      value: 58.5
       objectReference: {fileID: 0}
     - target: {fileID: 224422339817939248, guid: 9d7e981d0dd81374fba5f2e9bb7eb7ec,
         type: 2}
