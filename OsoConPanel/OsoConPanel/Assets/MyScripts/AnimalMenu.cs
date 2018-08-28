@@ -1,51 +1,71 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class AnimalMenu : MonoBehaviour
 {
-    public GameObject canvas;
-    public GameObject firstPerson;
+    public  GameObject    canvas;
+    public  GameObject    firstPerson;
    
-    RectTransform canvasRectTransform;
-    private GameObject botonInteractuar;
+    private RectTransform canvasRectTransform;
+    private bool          menuVisible;
 
-    // Use this for initialization
+    private GameObject    bInteractuar;
+	private GameObject    bComer;
+	private GameObject    bDormir;
+	private GameObject    bAcariciar;
+	
     void Start ()
     {
+        menuVisible         = false;
         canvasRectTransform = canvas.GetComponent<RectTransform>();
-        botonInteractuar = GameObject.Find("Button_Interactuar");
+		bInteractuar        = GameObject.Find("bInteractuar");
+		bComer 				= GameObject.Find("bComer");
+        bAcariciar          = GameObject.Find("bAcariciar");
+        //bVerInformacion
+        //bFingirMuerte
+        //bDespertar
+        bDormir             = GameObject.Find("bDormir");
+        //bCorrer
+        //bDeseleccionar
+        // bDeseleccionar.GetComponent<Button>().onClick.AddListener(
+        //                 delegate { MostrarMenuInteractuar(false); }
+        //                 );
+
+        bInteractuar.GetComponent<Button>().onClick.AddListener(
+                delegate { MostrarMenuInteractuar(true); }
+                );
+
+        //todo ver de setear los event trigger PointerEnter/PointerExit por script       
     }
 
     // Update is called once per frame
     void Update ()
     {
-       
-        if ( botonInteractuar != null && botonInteractuar.activeSelf )
+        if ( bInteractuar != null && bInteractuar.activeSelf)
         {
-            canvasRectTransform.localPosition = new Vector3(firstPerson.transform.localPosition.x, firstPerson.transform.localPosition.y + 1, firstPerson.transform.localPosition.z - 3);
-            
+			
+			canvasRectTransform.localPosition = new Vector3(firstPerson.transform.localPosition.x, firstPerson.transform.localPosition.y + 1, firstPerson.transform.localPosition.z - 3); 
+			
             //A
             if (Input.GetKeyDown(KeyCode.Joystick1Button3))
             {
-
+                // se activa on pointer enter del animal y se desactiva on pointer exit
+                bInteractuar.SetActive ( false );  
             }
 
-            //C
-            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
-            {
-
-            }
         }
-
-       
+	
     }
 
-    public void MostrarMenu()
+    private void MostrarMenuInteractuar( bool mostrarMenu )
     {
-        
-        
+        bInteractuar.SetActive ( !mostrarMenu );
+		
+		bComer.SetActive  ( mostrarMenu );
+		bDormir.SetActive ( mostrarMenu );
+		bAcariciar.SetActive( mostrarMenu );
+     
+		menuVisible = mostrarMenu;
     }
 
 }
