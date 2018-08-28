@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 95485088}
   - component: {fileID: 95485087}
   m_Layer: 0
-  m_Name: bDormir2
+  m_Name: bAcariciar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
