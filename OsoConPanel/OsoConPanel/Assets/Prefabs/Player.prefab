@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 4134033853089372}
   - component: {fileID: 65939904361211728}
   - component: {fileID: 114746056668087752}
+  - component: {fileID: 114363663483265004}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1052,6 +1053,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Interactuar
+--- !u!114 &114363663483265004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919970733162364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc86d3f96d28c64eb81c83209e30b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: cardboard
+  enableVR: 1
 --- !u!114 &114363911554114470
 MonoBehaviour:
   m_ObjectHideFlags: 1

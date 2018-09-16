@@ -798,7 +798,6 @@ GameObject:
   - component: {fileID: 255253261}
   - component: {fileID: 255253260}
   - component: {fileID: 255253259}
-  - component: {fileID: 255253263}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -875,19 +874,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &255253263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 255253258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc86d3f96d28c64eb81c83209e30b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  component: cardboard
-  enableVR: 1
 --- !u!1 &274473159
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,9 +3425,28 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114363663483265004, guid: 5da23109e9df7694cb0011dcf754978d, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 5da23109e9df7694cb0011dcf754978d, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1525774128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1919970733162364, guid: 5da23109e9df7694cb0011dcf754978d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1525774127}
+--- !u!114 &1525774129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525774128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc86d3f96d28c64eb81c83209e30b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: cardboard
+  enableVR: 1
 --- !u!1 &1569176449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100096, guid: 99376602f2eb1bc4bb5a0f8c26390ea5,
