@@ -3,29 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class PlayerMove : MonoBehaviour {
+public class PlayerMove : MonoBehaviour
+{
 
-    CharacterController charControl;
+    public bool moveForward;
+    private Transform vrHead;
+    private CharacterController charControl;
     public float walkSpeed;
 
-    void Awake()
+    void Start()
     {
         charControl = GetComponent<CharacterController>();
+
+        vrHead = Camera.main.transform;
     }
 
     void Update()
     {
         MovePlayer();
+
+        //if (Input.GetButtonDown("Vertical"))
+        //{
+        //    moveForward = !moveForward;
+        //}
+        //if (moveForward)
+        //{
+        //    Vector3 forward = vrHead.TransformDirection(Vector3.forward);
+        //    charControl.SimpleMove(forward * walkSpeed);
+        //}
     }
 
     void MovePlayer()
     {
         float horiz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
-        
+
         Vector3 moveDirSide = transform.right * vert * walkSpeed;
         Vector3 moveDirForward = transform.forward * horiz * walkSpeed;
-        
+
         charControl.SimpleMove(moveDirSide);
         charControl.SimpleMove(moveDirForward);
 
@@ -55,3 +70,4 @@ public class PlayerMove : MonoBehaviour {
 
     }
 }
+

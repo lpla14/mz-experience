@@ -48,7 +48,20 @@ public class ScrollDetailTexture : MonoBehaviour
 
 		if (mat != null)
 		{
-			Texture tex = mat.GetTexture("_DetailTex");
+
+            //// Create a new 2x2 texture ARGB32 (32 bit with alpha) and no mipmaps
+            //var texture = new Texture2D(2, 2, TextureFormat.ARGB32, false);
+
+            //// set the pixel values
+            //texture.SetPixel(0, 0, Color(1.0, 1.0, 1.0, 0.5));
+            //texture.SetPixel(1, 0, Color.clear);
+            //texture.SetPixel(0, 1, Color.white);
+            //texture.SetPixel(1, 1, Color.black);
+
+            //// Apply all SetPixel calls
+            //texture.Apply();
+
+            Texture tex = mat.GetTexture("_DetailTex");
 
 			if (tex != null)
 			{

@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AmbienteScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Desierto 3.unity
+    guid: f3b57575e8b446d48b760510200d0854
+  - enabled: 1
+    path: Assets/Scenes/Artico 1.unity
+    guid: c1c412f3c78506d4ca2b658bf42900b9
   m_configObjects: {}
