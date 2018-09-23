@@ -6,6 +6,7 @@ How to Import and Animate FBX file on Unity 5 (como concatenar animaciones)
 
 https://www.youtube.com/watch?v=GahpFmeHiy4
 
+# Pasar a modo game -> @+B
 
 # Referencias
 
