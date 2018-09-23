@@ -6,6 +6,10 @@ How to Import and Animate FBX file on Unity 5 (como concatenar animaciones)
 
 https://www.youtube.com/watch?v=GahpFmeHiy4
 
+# Fix tarda en compilar escena desierto:
+https://answers.unity.com/questions/1034587/511-clustering.html
+Window Rendering Lighting settings
+
 # Pasar a modo game -> @+B
 
 # Referencias
