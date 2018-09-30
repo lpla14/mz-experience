@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Botones : MonoBehaviour {
 
-    public const KeyCode BOTON_A  = KeyCode.Joystick1Button3;
-    public const KeyCode BOTON_B  = KeyCode.Joystick1Button0;
-    public const KeyCode BOTON_C  = KeyCode.Joystick1Button2;
-    public const KeyCode BOTON_D  = KeyCode.Joystick1Button1;
-    public const KeyCode BOTON_R1 = KeyCode.Joystick1Button5;
-    public const KeyCode BOTON_R2 = KeyCode.Joystick1Button4;
+    public const KeyCode BOTON_A = KeyCode.Joystick1Button3;
+    public const KeyCode BOTON_D = KeyCode.Joystick1Button1;
 
     public const string ID_BOTON_INTERACTUAR     = "bInteractuar";
     public const string ID_BOTON_COMER           = "bComer";
