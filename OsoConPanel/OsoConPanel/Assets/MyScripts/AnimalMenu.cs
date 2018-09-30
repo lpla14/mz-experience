@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -54,6 +56,11 @@ public class AnimalMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(Botones.BOTON_B))
+        {
+            ResetarParametros();
+        }
+
         if (bInteractuar != null && bInteractuar.activeSelf)
         {
             canvasRectTransform.localPosition = new Vector3(firstPerson.transform.localPosition.x, firstPerson.transform.localPosition.y + 1, firstPerson.transform.localPosition.z - 3);
@@ -66,15 +73,10 @@ public class AnimalMenu : MonoBehaviour
             }
         }
 
-        if (menuVisible && Input.GetKeyDown(Botones.BOTON_D))
+        if (!string.IsNullOrEmpty(botonSeleccionado) && Input.GetKeyDown(Botones.BOTON_R1))
         {
             MostrarMenu(false);
-        }
-
-        if (!string.IsNullOrEmpty(botonSeleccionado) && Input.GetKeyDown(Botones.BOTON_D))
-        {
-            MostrarMenu(false);
-            EjecutarAnimacion();
+            CambiarParametrosAnimator(botonSeleccionado);
         }
     }
 
@@ -90,6 +92,31 @@ public class AnimalMenu : MonoBehaviour
         bDeseleccionar .SetActive(mostrarMenu);
 
         menuVisible = mostrarMenu;
+    }
+
+    private void CambiarParametrosAnimator(string boton)
+    {
+        var parametro = AnimacionesAnimales.GetParametro(boton);
+
+        if (!string.IsNullOrEmpty(parametro))
+        {
+            animator.SetBool("idle", false);
+            animator.SetBool(parametro, true);
+
+            //Thread.Sleep(5000);
+            //ResetarParametros();
+        }
+    }
+
+    private void ResetarParametros()
+    {
+        Debug.Log("reset");
+        animator.SetBool("eat",   false);
+        animator.SetBool("sleep", false);
+        animator.SetBool("idle2", false);
+        animator.SetBool("run",   false);
+        animator.SetBool("dead",  false);
+        animator.SetBool("idle",  true );
     }
 
     private void OnPointerEnter_bDormir()
@@ -130,6 +157,8 @@ public class AnimalMenu : MonoBehaviour
 
     private void OnPointerEnter_bDeseleccionar()
     {
+        //test
+        botonSeleccionado = Botones.ID_BOTON_FINGIR_MUERTE;
         MostrarMenu(false);
     }
     
@@ -175,17 +204,14 @@ public class AnimalMenu : MonoBehaviour
         var bCorrerEvtTrigger         = bCorrer.GetComponent<EventTrigger>();
         var bDeseleccionarEvtTrigger  = bDeseleccionar.GetComponent<EventTrigger>();
 
-        AddEventTrigger(OnPointerEnter_bDormir, EventTriggerType.PointerEnter, bDormirEvtTrigger);
-
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bInteractuarEvtTrigger   );
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bComerEvtTrigger         );
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bAcariciarEvtTrigger     );
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bVerInformacionEvtTrigger);
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bFingirMuerteEvtTrigger  );
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bDespertarEvtTrigger     );
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bDormirEvtTrigger        );
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bCorrerEvtTrigger        );
-        AddEventTrigger(OnPointerExit, EventTriggerType.PointerExit, bDeseleccionarEvtTrigger );
+        AddEventTrigger(OnPointerEnter_bDormir,         EventTriggerType.PointerEnter, bDormirEvtTrigger);
+        AddEventTrigger(OnPointerEnter_bComer,          EventTriggerType.PointerEnter, bComerEvtTrigger         );
+        AddEventTrigger(OnPointerEnter_bAcariciar,      EventTriggerType.PointerEnter, bAcariciarEvtTrigger     );
+        AddEventTrigger(OnPointerEnter_bVerInformacion, EventTriggerType.PointerEnter, bVerInformacionEvtTrigger);
+        AddEventTrigger(OnPointerEnter_bFingirMuerte,   EventTriggerType.PointerEnter, bFingirMuerteEvtTrigger  );
+        AddEventTrigger(OnPointerEnter_bDespertar,      EventTriggerType.PointerEnter, bDespertarEvtTrigger     );
+        AddEventTrigger(OnPointerEnter_bCorrer,         EventTriggerType.PointerEnter, bCorrerEvtTrigger        );
+        AddEventTrigger(OnPointerEnter_bDeseleccionar,  EventTriggerType.PointerEnter, bDeseleccionarEvtTrigger );
 
         //todo setear los event trigger PointerEnter/PointerExit por script de bInteractuar  
     }
