@@ -48,7 +48,7 @@ public class AnimacionesAnimales : MonoBehaviour
         init = true;
     }
 
-    public static string GetNombreAnimacion(string boton, string animator)
+    /*public static string GetNombreAnimacion(string boton, string animator)
     {
         if (string.IsNullOrEmpty(boton) || string.IsNullOrEmpty(animator)) return null;
 
@@ -85,7 +85,7 @@ public class AnimacionesAnimales : MonoBehaviour
         }
 
         return null;
-    }
+    }*/
 
     public static string GetParametro(string botonID)
     {
