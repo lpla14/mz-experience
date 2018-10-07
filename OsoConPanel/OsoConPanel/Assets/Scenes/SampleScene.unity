@@ -492,8 +492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc86d3f96d28c64eb81c83209e30b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: none
-  enableVR: 0
+  component: cardboard
+  enableVR: 1
 --- !u!1 &404507944
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: AmbienteScene
+  sceneName: Bosque 2
 --- !u!1 &722363518
 GameObject:
   m_ObjectHideFlags: 0
