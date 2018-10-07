@@ -48,6 +48,8 @@ public class AnimalMenu : MonoBehaviour
         bCorrer             = GameObject.Find(Botones.ID_BOTON_CORRER         );
         bDeseleccionar      = GameObject.Find(Botones.ID_BOTON_DESELECCIONAR  );
 
+        bDespertar.GetComponent<Button>().interactable = false;
+
         MostrarMenu(false);
 
         AddMenuButtonsEventTriggers();
@@ -76,6 +78,28 @@ public class AnimalMenu : MonoBehaviour
         if (!string.IsNullOrEmpty(botonSeleccionado) && Input.GetKeyDown(Botones.BOTON_R1))
         {
             MostrarMenu(false);
+
+            if (botonSeleccionado.Equals(Botones.ID_BOTON_DORMIR))
+            {
+                bDormir.GetComponent<Button>().interactable = false;
+                bComer.GetComponent<Button>().interactable = false;
+                bAcariciar.GetComponent<Button>().interactable = false;
+                bFingirMuerte.GetComponent<Button>().interactable = false;
+                bCorrer.GetComponent<Button>().interactable = false;
+
+                bDespertar.GetComponent<Button>().interactable = true;
+            }
+            else if (botonSeleccionado.Equals(Botones.ID_BOTON_DESPERTAR))
+            {
+                bDormir.GetComponent<Button>().interactable = true;
+                bComer.GetComponent<Button>().interactable = true;
+                bAcariciar.GetComponent<Button>().interactable = true;
+                bFingirMuerte.GetComponent<Button>().interactable = true;
+                bCorrer.GetComponent<Button>().interactable = true;
+
+                bDespertar.GetComponent<Button>().interactable = false;
+            }
+
             CambiarParametrosAnimator(botonSeleccionado);
         }
     }
@@ -157,9 +181,7 @@ public class AnimalMenu : MonoBehaviour
 
     private void OnPointerEnter_bDeseleccionar()
     {
-        //test
-        botonSeleccionado = Botones.ID_BOTON_FINGIR_MUERTE;
-        MostrarMenu(false);
+        botonSeleccionado = Botones.ID_BOTON_DESELECCIONAR;
     }
     
 
@@ -168,7 +190,7 @@ public class AnimalMenu : MonoBehaviour
         botonSeleccionado = "";
     }
 
-    private void EjecutarAnimacion()
+    /*private void EjecutarAnimacion()
     {
         var nombreAnimacion = AnimacionesAnimales.GetNombreAnimacion(botonSeleccionado, animator.name);
 
@@ -177,7 +199,7 @@ public class AnimalMenu : MonoBehaviour
             Debug.Log(nombreAnimacion);
             animator.Play(nombreAnimacion);
         }
-    }
+    }*/
 
     private void AddEventTrigger(UnityAction action, EventTriggerType triggerType, EventTrigger eventTrigger)
     {
