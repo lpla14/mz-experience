@@ -146,12 +146,12 @@ public class AnimalMenu : MonoBehaviour
     }
 
     #region region pointer triggers
-    private void OnPointerEnter_bInteractuar()
+    private void OnPointerEnter_animator()
     {
         bInteractuar.gameObject.SetActive(true);
     }
 
-    private void OnPointerExit_bInteractuar()
+    private void OnPointerExit_animator()
     {
         bInteractuar.gameObject.SetActive(false);
     }
@@ -230,7 +230,7 @@ public class AnimalMenu : MonoBehaviour
 
     private void AddMenuButtonsEventTriggers()
     {
-        var bInteractuarEvtTrigger    = bInteractuar.GetComponent<EventTrigger>();
+        var animatorEvtTrigger        = animator.GetComponent<EventTrigger>();
         var bComerEvtTrigger          = bComer.GetComponent<EventTrigger>();
         var bAcariciarEvtTrigger      = bAcariciar.GetComponent<EventTrigger>();
         var bVerInformacionEvtTrigger = bVerInformacion.GetComponent<EventTrigger>();
@@ -240,8 +240,8 @@ public class AnimalMenu : MonoBehaviour
         var bCorrerEvtTrigger         = bCorrer.GetComponent<EventTrigger>();
         var bDeseleccionarEvtTrigger  = bDeseleccionar.GetComponent<EventTrigger>();
 
-        //AddEventTrigger(OnPointerEnter_bInteractuar,    EventTriggerType.PointerEnter, bInteractuarEvtTrigger);
-        //AddEventTrigger(OnPointerExit_bInteractuar,     EventTriggerType.PointerExit,  bInteractuarEvtTrigger);
+        AddEventTrigger(OnPointerEnter_animator,        EventTriggerType.PointerEnter, animatorEvtTrigger);
+        AddEventTrigger(OnPointerExit_animator,         EventTriggerType.PointerExit,  animatorEvtTrigger);
 
         AddEventTrigger(OnPointerEnter_bDormir,         EventTriggerType.PointerEnter, bDormirEvtTrigger        );
         AddEventTrigger(OnPointerEnter_bComer,          EventTriggerType.PointerEnter, bComerEvtTrigger         );
