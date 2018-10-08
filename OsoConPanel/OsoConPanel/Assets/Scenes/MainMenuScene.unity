@@ -146,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1.0543, y: 1.0543, z: 1.0543}
   m_Children: []
   m_Father: {fileID: 1603341842}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &490551544
 Animator:
@@ -277,7 +277,7 @@ Prefab:
     - target: {fileID: 224800656182277188, guid: 1ea75f7762b1f3d4aaa04f38585b6d68,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224800656182277188, guid: 1ea75f7762b1f3d4aaa04f38585b6d68,
         type: 2}
@@ -639,6 +639,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1229774786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229774787}
+  - component: {fileID: 1229774789}
+  - component: {fileID: 1229774788}
+  m_Layer: 0
+  m_Name: testVR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1229774787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229774786}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1480, y: 682, z: -1782}
+  m_LocalScale: {x: 1.0543, y: 1.0543, z: 1.0543}
+  m_Children: []
+  m_Father: {fileID: 1603341842}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1229774788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229774786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1661ebf1f6d56d4daa514cfe673cf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1229774789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229774786}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: MenuSeleccion
 --- !u!224 &1243404822 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224800656182277188, guid: 1ea75f7762b1f3d4aaa04f38585b6d68,
@@ -671,6 +724,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1229774787}
   - {fileID: 490551543}
   - {fileID: 1243404822}
   m_Father: {fileID: 0}
