@@ -89,8 +89,8 @@ public class GvrReticlePointer : GvrBasePointer {
     float min_inner_angle_radians = Mathf.Deg2Rad * RETICLE_MIN_INNER_ANGLE;
     float max_inner_angle_radians = Mathf.Deg2Rad * (RETICLE_MIN_INNER_ANGLE + RETICLE_GROWTH_ANGLE);
 
-    enterRadius = 2.0f * Mathf.Tan(min_inner_angle_radians);
-    exitRadius = 2.0f * Mathf.Tan(max_inner_angle_radians);
+    enterRadius = 1.0f * Mathf.Tan(min_inner_angle_radians);
+    exitRadius = 1.0f * Mathf.Tan(max_inner_angle_radians);
   }
 
   public void UpdateDiameters() {
