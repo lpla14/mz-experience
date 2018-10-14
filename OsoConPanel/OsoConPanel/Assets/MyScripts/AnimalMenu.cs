@@ -37,8 +37,6 @@ public class AnimalMenu : MonoBehaviour
     {
         animator          = GetComponent<Animator>();
 
-        animator.Play("Arm_bear|sleep_start");
-
         botonSeleccionado = "";
         nombreAnimacion = "";
 
