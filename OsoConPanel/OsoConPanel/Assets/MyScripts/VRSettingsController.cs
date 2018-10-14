@@ -15,9 +15,12 @@ public class VRSettingsController : MonoBehaviour {
 	
 	public IEnumerator ActivateVR ( string component, bool enableVR )
 	{
-		XRSettings.LoadDeviceByName(component);
-		yield return null;
-		XRSettings.enabled = enableVR;
+        if ( !XRSettings.loadedDeviceName.Equals("cardboard") )
+        {
+            XRSettings.LoadDeviceByName(component);
+            yield return null;
+            XRSettings.enabled = enableVR;
+        }
 	}
 	
 }
