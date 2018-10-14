@@ -21,6 +21,16 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         MovePlayer();
+
+        //if (Input.GetButtonDown("Vertical"))
+        //{
+        //    moveForward = !moveForward;
+        //}
+        //if (moveForward)
+        //{
+        //    Vector3 forward = vrHead.TransformDirection(Vector3.forward);
+        //    charControl.SimpleMove(forward * walkSpeed);
+        //}
     }
 
     void MovePlayer()
@@ -33,6 +43,31 @@ public class PlayerMove : MonoBehaviour
 
         charControl.SimpleMove(moveDirSide);
         charControl.SimpleMove(moveDirForward);
+
+        //float horizontalAxis = CrossPlatformInputManager.GetAxis("Horizontal");
+        //float verticalAxis = CrossPlatformInputManager.GetAxis("Vertical");
+
+        ////var camera = GameObject.Find("racterersonCharacter");
+        //var camera = gameObject.GetComponentInChildren<Camera>();
+
+
+        ////camera forward and right vectors:
+        //var forward = camera.transform.forward;
+        //var right = camera.transform.right;
+
+        ////project forward and right vectors on the horizontal plane (y = 0)
+        //forward.y = 0f;
+        //right.y = 0f;
+        //forward.Normalize();
+        //right.Normalize();
+
+        ////this is the direction in the world space we want to move:
+        //var desiredMoveDirection = forward * verticalAxis + right * horizontalAxis;
+
+        ////now we can apply the movement:
+        //transform.Translate(desiredMoveDirection * walkSpeed * Time.deltaTime);
+
+
     }
 }
 

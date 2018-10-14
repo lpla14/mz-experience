@@ -492,8 +492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc86d3f96d28c64eb81c83209e30b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: cardboard
-  enableVR: 1
+  component: none
+  enableVR: 0
 --- !u!1 &404507944
 GameObject:
   m_ObjectHideFlags: 0
