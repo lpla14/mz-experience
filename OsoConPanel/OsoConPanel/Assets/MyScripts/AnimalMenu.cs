@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -30,13 +30,20 @@ public class AnimalMenu : MonoBehaviour
     private GameObject   animal;
 
     private string botonSeleccionado;
+    private string nombreAnimacion;
+    private bool   dormido;
 
     void Start()
     {
         animator          = GetComponent<Animator>();
+
+        animator.Play("Arm_bear|sleep_start");
+
         botonSeleccionado = "";
+        nombreAnimacion = "";
 
         menuVisible         = false;
+        dormido             = false;
         canvasRectTransform = canvas.GetComponent<RectTransform>();
         bInteractuar        = GameObject.Find(Botones.ID_BOTON_INTERACTUAR    );
         bComer              = GameObject.Find(Botones.ID_BOTON_COMER          );
@@ -58,12 +65,6 @@ public class AnimalMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //todo quitar esto y hacer que luego de que ese ejecuta la animacion correspondiente vuelva a idle el animal
-        if (Input.GetKeyDown(Botones.BOTON_B))
-        {
-            ResetarParametros();
-        }
-
         if (bInteractuar != null && bInteractuar.activeSelf)
         {
             canvasRectTransform.localPosition = new Vector3(firstPerson.transform.localPosition.x, firstPerson.transform.localPosition.y + 1, firstPerson.transform.localPosition.z - 3);
@@ -76,12 +77,13 @@ public class AnimalMenu : MonoBehaviour
             }
         }
 
-        if (!string.IsNullOrEmpty(botonSeleccionado) && Input.GetKeyDown(Botones.BOTON_R1))
+        if (!string.IsNullOrEmpty(nombreAnimacion) && Input.GetKeyDown(Botones.BOTON_R1))
         {
             MostrarMenu(false);
 
-            if (botonSeleccionado.Equals(Botones.ID_BOTON_DORMIR))
+            if (nombreAnimacion.Equals("sleep_start"))
             {
+                dormido = true;
                 bDormir.GetComponent<Button>().interactable = false;
                 bComer.GetComponent<Button>().interactable = false;
                 bAcariciar.GetComponent<Button>().interactable = false;
@@ -90,8 +92,9 @@ public class AnimalMenu : MonoBehaviour
 
                 bDespertar.GetComponent<Button>().interactable = true;
             }
-            else if (botonSeleccionado.Equals(Botones.ID_BOTON_DESPERTAR))
+            else if (nombreAnimacion.Equals("sleep_end"))
             {
+                dormido = false;
                 bDormir.GetComponent<Button>().interactable = true;
                 bComer.GetComponent<Button>().interactable = true;
                 bAcariciar.GetComponent<Button>().interactable = true;
@@ -101,7 +104,14 @@ public class AnimalMenu : MonoBehaviour
                 bDespertar.GetComponent<Button>().interactable = false;
             }
 
-            CambiarParametrosAnimator(botonSeleccionado);
+            // Animaciones.Animales es el script que tiene los diccionarios (nombre de animaciones por animal, info de animales)
+            var nombreAnimator = AnimacionesAnimales.GetNombreAnimacion(animator.name);
+
+            if ( !string.IsNullOrEmpty( nombreAnimator ) )
+            {
+                animator.Play( nombreAnimator + "|" + nombreAnimacion);
+            }
+            
         }
     }
 
@@ -119,32 +129,6 @@ public class AnimalMenu : MonoBehaviour
         menuVisible = mostrarMenu;
     }
 
-    private void CambiarParametrosAnimator(string boton)
-    {
-        var parametro = AnimacionesAnimales.GetParametro(boton);
-
-        if (!string.IsNullOrEmpty(parametro))
-        {
-            animator.SetBool("idle", false);
-            animator.SetBool(parametro, true);
-
-            //todo
-            //Thread.Sleep(5000);
-            //ResetarParametros();
-        }
-    }
-
-    private void ResetarParametros()
-    {
-        Debug.Log("reset");
-        animator.SetBool("eat",   false);
-        animator.SetBool("sleep", false);
-        animator.SetBool("idle2", false);
-        animator.SetBool("run",   false);
-        animator.SetBool("dead",  false);
-        animator.SetBool("idle",  true );
-    }
-
     #region region pointer triggers
     private void OnPointerEnter_animator()
     {
@@ -153,67 +137,69 @@ public class AnimalMenu : MonoBehaviour
 
     private void OnPointerExit_animator()
     {
-        bInteractuar.gameObject.SetActive(false);
+        StartCoroutine(OcultarBotonInteractuar());
+    }
+
+    private void OnPointerExit_botones()
+    {
+        nombreAnimacion = "";
+    }
+
+    private void OnPointerEnter_bInteractuar()
+    {
+        nombreAnimacion = "";
+        bInteractuar.SetActive(false);
+        MostrarMenu(true);
     }
 
     private void OnPointerEnter_bDormir()
     {
-        botonSeleccionado = Botones.ID_BOTON_DORMIR;
+        nombreAnimacion = dormido ? "" : "sleep_start";
     }
 
     private void OnPointerEnter_bComer()
     {
-        botonSeleccionado = Botones.ID_BOTON_COMER;
+        nombreAnimacion = dormido ? "" : "eat";
     }
 
     private void OnPointerEnter_bAcariciar()
     {
-        botonSeleccionado = Botones.ID_BOTON_ACARICIAR;
+        nombreAnimacion = dormido ? "" : "idle_2"; //ver si vamos a poder acariciar solo cuando esta despierto o no
     }
 
     private void OnPointerEnter_bVerInformacion()
     {
-        //TODO
-        botonSeleccionado = Botones.ID_BOTON_VER_INFORMACION;
+        nombreAnimacion = "";
     }
 
     private void OnPointerEnter_bFingirMuerte()
     {
-        botonSeleccionado = Botones.ID_BOTON_FINGIR_MUERTE;
+        nombreAnimacion = dormido ? "" : "dead_1";
     }
 
     private void OnPointerEnter_bDespertar()
     {
-        botonSeleccionado = Botones.ID_BOTON_DESPERTAR;
+        nombreAnimacion = dormido ? "sleep_end" : "";
     }
 
     private void OnPointerEnter_bCorrer()
     {
-        botonSeleccionado = Botones.ID_BOTON_CORRER;
+        nombreAnimacion   = dormido ? "" : "run";
     }
 
     private void OnPointerEnter_bDeseleccionar()
     {
-        botonSeleccionado = Botones.ID_BOTON_DESELECCIONAR;
+        nombreAnimacion = "";
+        MostrarMenu(false);
     }
     
-
-    private void OnPointerExit()
-    {
-        botonSeleccionado = "";
-    }
     #endregion
 
-    /*private void EjecutarAnimacion()
+    IEnumerator OcultarBotonInteractuar()
     {
-        var nombreAnimacion = AnimacionesAnimales.GetNombreAnimacion(botonSeleccionado, animator.name);
-
-        if (!string.IsNullOrEmpty(nombreAnimacion))
-        {
-            Debug.Log(nombreAnimacion);
-            animator.Play(nombreAnimacion);
-        }
-    }*/
+        yield return new WaitForSeconds(5);
+        bInteractuar.gameObject.SetActive(false);
+    }
 
     private void AddEventTrigger(UnityAction action, EventTriggerType triggerType, EventTrigger eventTrigger)
     {
@@ -231,6 +217,7 @@ public class AnimalMenu : MonoBehaviour
     private void AddMenuButtonsEventTriggers()
     {
         var animatorEvtTrigger        = animator.GetComponent<EventTrigger>();
+        var bInteractuarEvtTrigger    = bInteractuar.GetComponent<EventTrigger>();
         var bComerEvtTrigger          = bComer.GetComponent<EventTrigger>();
         var bAcariciarEvtTrigger      = bAcariciar.GetComponent<EventTrigger>();
         var bVerInformacionEvtTrigger = bVerInformacion.GetComponent<EventTrigger>();
@@ -243,6 +230,7 @@ public class AnimalMenu : MonoBehaviour
         AddEventTrigger(OnPointerEnter_animator,        EventTriggerType.PointerEnter, animatorEvtTrigger);
         AddEventTrigger(OnPointerExit_animator,         EventTriggerType.PointerExit,  animatorEvtTrigger);
 
+        AddEventTrigger(OnPointerEnter_bInteractuar,    EventTriggerType.PointerEnter, bInteractuarEvtTrigger   );
         AddEventTrigger(OnPointerEnter_bDormir,         EventTriggerType.PointerEnter, bDormirEvtTrigger        );
         AddEventTrigger(OnPointerEnter_bComer,          EventTriggerType.PointerEnter, bComerEvtTrigger         );
         AddEventTrigger(OnPointerEnter_bAcariciar,      EventTriggerType.PointerEnter, bAcariciarEvtTrigger     );
@@ -250,6 +238,15 @@ public class AnimalMenu : MonoBehaviour
         AddEventTrigger(OnPointerEnter_bFingirMuerte,   EventTriggerType.PointerEnter, bFingirMuerteEvtTrigger  );
         AddEventTrigger(OnPointerEnter_bDespertar,      EventTriggerType.PointerEnter, bDespertarEvtTrigger     );
         AddEventTrigger(OnPointerEnter_bCorrer,         EventTriggerType.PointerEnter, bCorrerEvtTrigger        );
-        AddEventTrigger(OnPointerEnter_bDeseleccionar,  EventTriggerType.PointerEnter, bDeseleccionarEvtTrigger ); 
+        AddEventTrigger(OnPointerEnter_bDeseleccionar,  EventTriggerType.PointerEnter, bDeseleccionarEvtTrigger );
+
+        AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bDormirEvtTrigger         );
+        AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bComerEvtTrigger          );
+        AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bAcariciarEvtTrigger      );
+        AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bVerInformacionEvtTrigger );
+        AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bFingirMuerteEvtTrigger   );
+        AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bDespertarEvtTrigger      );
+        AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bCorrerEvtTrigger         );
+        AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bDeseleccionarEvtTrigger  );
     }
 }
