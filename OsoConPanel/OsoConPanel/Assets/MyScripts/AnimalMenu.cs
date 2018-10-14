@@ -58,6 +58,7 @@ public class AnimalMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //todo quitar esto y hacer que luego de que ese ejecuta la animacion correspondiente vuelva a idle el animal
         if (Input.GetKeyDown(Botones.BOTON_B))
         {
             ResetarParametros();
@@ -127,6 +128,7 @@ public class AnimalMenu : MonoBehaviour
             animator.SetBool("idle", false);
             animator.SetBool(parametro, true);
 
+            //todo
             //Thread.Sleep(5000);
             //ResetarParametros();
         }
@@ -141,6 +143,17 @@ public class AnimalMenu : MonoBehaviour
         animator.SetBool("run",   false);
         animator.SetBool("dead",  false);
         animator.SetBool("idle",  true );
+    }
+
+    #region region pointer triggers
+    private void OnPointerEnter_animator()
+    {
+        bInteractuar.gameObject.SetActive(true);
+    }
+
+    private void OnPointerExit_animator()
+    {
+        bInteractuar.gameObject.SetActive(false);
     }
 
     private void OnPointerEnter_bDormir()
@@ -189,6 +202,7 @@ public class AnimalMenu : MonoBehaviour
     {
         botonSeleccionado = "";
     }
+    #endregion
 
     /*private void EjecutarAnimacion()
     {
@@ -216,7 +230,7 @@ public class AnimalMenu : MonoBehaviour
 
     private void AddMenuButtonsEventTriggers()
     {
-        var bInteractuarEvtTrigger    = bInteractuar.GetComponent<EventTrigger>();
+        var animatorEvtTrigger        = animator.GetComponent<EventTrigger>();
         var bComerEvtTrigger          = bComer.GetComponent<EventTrigger>();
         var bAcariciarEvtTrigger      = bAcariciar.GetComponent<EventTrigger>();
         var bVerInformacionEvtTrigger = bVerInformacion.GetComponent<EventTrigger>();
@@ -226,15 +240,16 @@ public class AnimalMenu : MonoBehaviour
         var bCorrerEvtTrigger         = bCorrer.GetComponent<EventTrigger>();
         var bDeseleccionarEvtTrigger  = bDeseleccionar.GetComponent<EventTrigger>();
 
-        AddEventTrigger(OnPointerEnter_bDormir,         EventTriggerType.PointerEnter, bDormirEvtTrigger);
+        AddEventTrigger(OnPointerEnter_animator,        EventTriggerType.PointerEnter, animatorEvtTrigger);
+        AddEventTrigger(OnPointerExit_animator,         EventTriggerType.PointerExit,  animatorEvtTrigger);
+
+        AddEventTrigger(OnPointerEnter_bDormir,         EventTriggerType.PointerEnter, bDormirEvtTrigger        );
         AddEventTrigger(OnPointerEnter_bComer,          EventTriggerType.PointerEnter, bComerEvtTrigger         );
         AddEventTrigger(OnPointerEnter_bAcariciar,      EventTriggerType.PointerEnter, bAcariciarEvtTrigger     );
         AddEventTrigger(OnPointerEnter_bVerInformacion, EventTriggerType.PointerEnter, bVerInformacionEvtTrigger);
         AddEventTrigger(OnPointerEnter_bFingirMuerte,   EventTriggerType.PointerEnter, bFingirMuerteEvtTrigger  );
         AddEventTrigger(OnPointerEnter_bDespertar,      EventTriggerType.PointerEnter, bDespertarEvtTrigger     );
         AddEventTrigger(OnPointerEnter_bCorrer,         EventTriggerType.PointerEnter, bCorrerEvtTrigger        );
-        AddEventTrigger(OnPointerEnter_bDeseleccionar,  EventTriggerType.PointerEnter, bDeseleccionarEvtTrigger );
-
-        //todo setear los event trigger PointerEnter/PointerExit por script de bInteractuar  
+        AddEventTrigger(OnPointerEnter_bDeseleccionar,  EventTriggerType.PointerEnter, bDeseleccionarEvtTrigger ); 
     }
 }
