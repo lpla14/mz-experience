@@ -6,6 +6,7 @@ public class comer : MonoBehaviour {
     Animator bearAnimator;
     int AUX=0;
     // Use this for initialization
+
     void Start() {
         bearAnimator = GetComponentInParent<Animator>();
         bearAnimator.SetBool("eat", true);
