@@ -32413,6 +32413,7 @@ GameObject:
   - component: {fileID: 957809290}
   - component: {fileID: 957809293}
   - component: {fileID: 957809295}
+  - component: {fileID: 957809297}
   - component: {fileID: 957809294}
   - component: {fileID: 957809296}
   m_Layer: 0
@@ -32511,6 +32512,7 @@ MonoBehaviour:
   firstPerson: {fileID: 1297782335}
   animator: {fileID: 957809291}
   myCamera: {fileID: 2001337377}
+  dormido: 0
 --- !u!114 &957809295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32534,23 +32536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 957809294}
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -32566,9 +32551,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 957809294}
+          m_MethodName: MostrarBotonInteractuar
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &957809297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 957809288}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050d0e080ab15d146b810c6c70cb2cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mostrarMenu: 0
+  dormido: 0
 --- !u!1001 &958135130
 Prefab:
   m_ObjectHideFlags: 0
@@ -42222,6 +42231,7 @@ GameObject:
   - component: {fileID: 1182404704}
   - component: {fileID: 1182404708}
   - component: {fileID: 1182404703}
+  - component: {fileID: 1182404709}
   - component: {fileID: 1182404707}
   - component: {fileID: 1182404706}
   m_Layer: 0
@@ -42290,7 +42300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 1
+  - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -42303,16 +42313,10 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
         - m_Target: {fileID: 1182404707}
-          m_MethodName: set_enabled
+          m_MethodName: MostrarBotonInteractuar
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -42340,6 +42344,7 @@ MonoBehaviour:
   firstPerson: {fileID: 1297782335}
   animator: {fileID: 1182404704}
   myCamera: {fileID: 2001337377}
+  dormido: 0
 --- !u!54 &1182404708
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -42355,6 +42360,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1182404709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182404702}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050d0e080ab15d146b810c6c70cb2cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mostrarMenu: 0
+  dormido: 0
 --- !u!1001 &1183167183
 Prefab:
   m_ObjectHideFlags: 0
