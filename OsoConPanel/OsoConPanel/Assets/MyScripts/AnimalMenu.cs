@@ -36,11 +36,8 @@ public class AnimalMenu : MonoBehaviour
     void Start()
     {
         animator          = GetComponent<Animator>();
+        nombreAnimacion   = "";
 
-        botonSeleccionado = "";
-        nombreAnimacion = "";
-
-        menuVisible         = false;
         dormido             = false;
         canvasRectTransform = canvas.GetComponent<RectTransform>();
         bInteractuar        = GameObject.Find(Botones.ID_BOTON_INTERACTUAR    );
@@ -72,7 +69,9 @@ public class AnimalMenu : MonoBehaviour
             if (Input.GetKeyDown(Botones.BOTON_A))
             {
                 // se activa on pointer enter del animal y se desactiva on pointer exit
-                bInteractuar.SetActive(false);
+                //bInteractuar.SetActive(false);
+
+                MostrarBotonInteractuar(false);
                 MostrarMenu(true);
             }
         }
@@ -80,6 +79,12 @@ public class AnimalMenu : MonoBehaviour
         if (!string.IsNullOrEmpty(nombreAnimacion) && Input.GetKeyDown(Botones.BOTON_R1))
         {
             MostrarMenu(false);
+
+            if (nombreAnimacion.Equals("deseleccionar"))
+            {
+                nombreAnimacion = "";
+                return;
+            }
 
             if (nombreAnimacion.Equals("sleep_start"))
             {
@@ -116,15 +121,65 @@ public class AnimalMenu : MonoBehaviour
     }
 
     private void MostrarMenu(bool mostrarMenu)
-    {  
-        bComer         .SetActive(mostrarMenu);
-        bDormir        .SetActive(mostrarMenu);
-        bAcariciar     .SetActive(mostrarMenu);
-        bVerInformacion.SetActive(mostrarMenu);
-        bFingirMuerte  .SetActive(mostrarMenu);
-        bDespertar     .SetActive(mostrarMenu);
-        bCorrer        .SetActive(mostrarMenu);
-        bDeseleccionar .SetActive(mostrarMenu);
+    {
+        
+        var altura = 0;
+
+        if (mostrarMenu)
+        {
+            if (bComer.transform.localPosition.y != 90)
+            {
+                altura = -8000;
+            }
+        }
+        else
+        {
+            if (bComer.transform.localPosition.y == 90)
+            {
+                altura = 8000;
+            }
+        }
+
+        bComer.transform.localPosition = new Vector3( 
+            bComer.transform.localPosition.x, 
+            bComer.transform.localPosition.y + altura,
+            bComer.transform.localPosition.z );
+
+        bDormir.transform.localPosition = new Vector3(
+            bDormir.transform.localPosition.x,
+            bDormir.transform.localPosition.y + altura,
+            bDormir.transform.localPosition.z);
+
+        bAcariciar.transform.localPosition = new Vector3(
+            bAcariciar.transform.localPosition.x,
+            bAcariciar.transform.localPosition.y + altura,
+            bAcariciar.transform.localPosition.z);
+
+        bVerInformacion.transform.localPosition = new Vector3(
+           bVerInformacion.transform.localPosition.x,
+           bVerInformacion.transform.localPosition.y + altura,
+           bVerInformacion.transform.localPosition.z);
+
+
+        bFingirMuerte.transform.localPosition = new Vector3(
+           bFingirMuerte.transform.localPosition.x,
+           bFingirMuerte.transform.localPosition.y + altura,
+           bFingirMuerte.transform.localPosition.z);
+
+        bDespertar.transform.localPosition = new Vector3(
+            bDespertar.transform.localPosition.x,
+            bDespertar.transform.localPosition.y + altura,
+            bDespertar.transform.localPosition.z);
+
+        bCorrer.transform.localPosition = new Vector3(
+            bCorrer.transform.localPosition.x,
+            bCorrer.transform.localPosition.y + altura,
+            bCorrer.transform.localPosition.z);
+
+        bDeseleccionar.transform.localPosition = new Vector3(
+            bDeseleccionar.transform.localPosition.x,
+            bDeseleccionar.transform.localPosition.y + altura,
+            bDeseleccionar.transform.localPosition.z);
 
         menuVisible = mostrarMenu;
     }
@@ -132,11 +187,14 @@ public class AnimalMenu : MonoBehaviour
     #region region pointer triggers
     private void OnPointerEnter_animator()
     {
-        bInteractuar.gameObject.SetActive(true);
+        //bInteractuar.SetActive(true);
+
+        MostrarBotonInteractuar(true);
     }
 
     private void OnPointerExit_animator()
     {
+        //bInteractuar.SetActive(false);
         StartCoroutine(OcultarBotonInteractuar());
     }
 
@@ -148,7 +206,9 @@ public class AnimalMenu : MonoBehaviour
     private void OnPointerEnter_bInteractuar()
     {
         nombreAnimacion = "";
-        bInteractuar.SetActive(false);
+        //bInteractuar.SetActive(false);
+
+        MostrarBotonInteractuar(false);
         MostrarMenu(true);
     }
 
@@ -190,7 +250,6 @@ public class AnimalMenu : MonoBehaviour
     private void OnPointerEnter_bDeseleccionar()
     {
         nombreAnimacion = "";
-        MostrarMenu(false);
     }
     
     #endregion
@@ -198,7 +257,9 @@ public class AnimalMenu : MonoBehaviour
     IEnumerator OcultarBotonInteractuar()
     {
         yield return new WaitForSeconds(5);
-        bInteractuar.gameObject.SetActive(false);
+        //bInteractuar.SetActive(false);
+        MostrarBotonInteractuar(false);
+
     }
 
     private void AddEventTrigger(UnityAction action, EventTriggerType triggerType, EventTrigger eventTrigger)
@@ -249,4 +310,22 @@ public class AnimalMenu : MonoBehaviour
         AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bCorrerEvtTrigger         );
         AddEventTrigger(OnPointerExit_botones,          EventTriggerType.PointerExit, bDeseleccionarEvtTrigger  );
     }
+
+    public void exitMenu()
+    {
+        MostrarBotonInteractuar(false);
+        //bInteractuar.SetActive(false);
+        MostrarMenu(false);
+        nombreAnimacion = "";
+    }
+
+    private void MostrarBotonInteractuar(bool mostrar)
+    {
+        var altura = mostrar ? 0 : 8000;
+
+        bInteractuar.transform.localPosition = new Vector3(
+            bInteractuar.transform.localPosition.x,
+            altura,
+            bInteractuar.transform.localPosition.z);
+    }    
 }
