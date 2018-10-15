@@ -249,7 +249,7 @@ public class AnimalMenu : MonoBehaviour
 
     private void OnPointerEnter_bDeseleccionar()
     {
-        nombreAnimacion = "";
+        nombreAnimacion = "deseleccionar";
     }
     
     #endregion
