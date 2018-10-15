@@ -11,7 +11,7 @@ public class SettingsManager : MonoBehaviour {
 
     public void subirVol()
     {
-        if (volumeSlider.value < 0)
+        if (volumeSlider.value < 10)
         {
             volumeSlider.value += 10;
             audioMixer.SetFloat("volume",volumeSlider.value);
@@ -20,7 +20,7 @@ public class SettingsManager : MonoBehaviour {
 
     public void bajarVol()
     {
-        if (volumeSlider.value > -80)
+        if (volumeSlider.value > -50)
         {
             volumeSlider.value -= 10;
             audioMixer.SetFloat("volume", volumeSlider.value);
