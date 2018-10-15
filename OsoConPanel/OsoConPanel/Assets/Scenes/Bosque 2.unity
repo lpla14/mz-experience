@@ -28609,6 +28609,7 @@ MonoBehaviour:
   canvas: {fileID: 1472577421}
   firstPerson: {fileID: 1297782335}
   animator: {fileID: 957809291}
+  myCamera: {fileID: 2001337377}
 --- !u!114 &957809295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47350,6 +47351,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1858723976175338, guid: 5da23109e9df7694cb0011dcf754978d,
     type: 2}
   m_PrefabInternal: {fileID: 1525774127}
+--- !u!114 &1472577423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1472577421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fbe2e640808954e97182a7076b0a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1473508822
 Prefab:
   m_ObjectHideFlags: 0
@@ -49990,7 +50002,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4134033853089372, guid: 5da23109e9df7694cb0011dcf754978d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4134033853089372, guid: 5da23109e9df7694cb0011dcf754978d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -65326,6 +65338,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.73, y: 4.59, z: 0.71}
   m_Center: {x: -0.06255376, y: 2.395717, z: -0.011471748}
+--- !u!20 &2001337377 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20655709827802864, guid: 5da23109e9df7694cb0011dcf754978d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1525774127}
 --- !u!1001 &2002252331
 Prefab:
   m_ObjectHideFlags: 0

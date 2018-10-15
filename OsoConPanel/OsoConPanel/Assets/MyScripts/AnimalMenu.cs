@@ -11,7 +11,7 @@ public class AnimalMenu : MonoBehaviour
     public GameObject canvas;
     public GameObject firstPerson;
     public Animator   animator;
-
+    public Camera myCamera;
     private RectTransform canvasRectTransform;
     private bool          menuVisible;
 
@@ -62,10 +62,12 @@ public class AnimalMenu : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {    canvas.transform.position = new Vector3(transform.position.x, transform.position.y+3, transform.position.z);
+        //canvas.transform.position = new Vector3(transform.position.x + 2, transform.position.y + 2, transform.position.z);
+        canvas.transform.LookAt(myCamera.transform);
         if (bInteractuar != null && bInteractuar.activeSelf)
         {
-            canvasRectTransform.localPosition = new Vector3(firstPerson.transform.localPosition.x, firstPerson.transform.localPosition.y + 1, firstPerson.transform.localPosition.z - 3);
+           // canvasRectTransform.localPosition = new Vector3(firstPerson.transform.localPosition.x, firstPerson.transform.localPosition.y + 1, firstPerson.transform.localPosition.z - 3);
 
             if (Input.GetKeyDown(Botones.BOTON_A))
             {
