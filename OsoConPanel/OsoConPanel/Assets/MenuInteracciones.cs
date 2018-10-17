@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MenuInteracciones : MonoBehaviour {
+
     private GameObject bInteractuar;
     private GameObject bComer;
     private GameObject bAcariciar;
@@ -18,45 +19,41 @@ public class MenuInteracciones : MonoBehaviour {
 
     public bool mostrarMenu = false;
     public bool dormido;
-    private Animator animator;
+    public Animator animator;
+
+    public GameObject canvas;
+    public Camera myCamera;
+    public Transform animTransform;
 
     private string nombreAnimacion;
-
-
+    private bool init = false;
+    
     // Use this for initialization
     void Start () {
-
-        animator = GetComponent<Animator>();
-
-        bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
-        bComer = GameObject.Find(Botones.ID_BOTON_COMER);
-        bAcariciar = GameObject.Find(Botones.ID_BOTON_ACARICIAR);
-        bVerInformacion = GameObject.Find(Botones.ID_BOTON_VER_INFORMACION);
-        bFingirMuerte = GameObject.Find(Botones.ID_BOTON_FINGIR_MUERTE);
-        bDespertar = GameObject.Find(Botones.ID_BOTON_DESPERTAR);
-        bDormir = GameObject.Find(Botones.ID_BOTON_DORMIR);
-        bCorrer = GameObject.Find(Botones.ID_BOTON_CORRER);
-        bDeseleccionar = GameObject.Find(Botones.ID_BOTON_DESELECCIONAR);
-
-        bDespertar.GetComponent<Button>().interactable = false;
-
-        MostrarMenu(mostrarMenu);
-
-        AddMenuButtonsEventTriggers();
-
+        if (!init) Init();
     }
 
     // Update is called once per frame
     void Update () {
 
+        if (canvas != null && animTransform != null)
+        {
+            canvas.transform.position = new Vector3(animTransform.position.x, animTransform.position.y + 3, animTransform.position.z);
+
+            if (myCamera != null)
+            {
+                canvas.transform.LookAt(myCamera.transform);
+            }
+        }
+
         if (!string.IsNullOrEmpty(nombreAnimacion) && Input.GetKeyDown(KeyCode.K))
         {
-            Debug.Log(nombreAnimacion);
             MostrarMenu(false);
 
             if (nombreAnimacion.Equals("deseleccionar"))
             {
                 nombreAnimacion = "";
+                GetComponent<MenuInteracciones>().animator = null;
                 GetComponent<MenuInteracciones>().enabled = false;
             }
 
@@ -83,21 +80,53 @@ public class MenuInteracciones : MonoBehaviour {
                 bDespertar.GetComponent<Button>().interactable = false;
             }
 
-            // Animaciones.Animales es el script que tiene los diccionarios (nombre de animaciones por animal, info de animales)
-            var nombreAnimator = AnimacionesAnimales.GetNombreAnimacion(animator.name);
-            Debug.Log(animator.name + " " + nombreAnimator);
-            if (!string.IsNullOrEmpty(nombreAnimator))
-            {
-                animator.Play(nombreAnimator + "|" + nombreAnimacion);
+            if (animator != null)
+            { 
+                // Animaciones.Animales es el script que tiene los diccionarios (nombre de animaciones por animal, info de animales)
+                var nombreAnimator = AnimacionesAnimales.GetNombreAnimacion(animator.name);
+                
+                if (!string.IsNullOrEmpty(nombreAnimator))
+                {
+                    animator.Play(nombreAnimator + "|" + nombreAnimacion);
+                }
             }
 
             GetComponent<AnimalMenu>().dormido = dormido;
+            GetComponent<MenuInteracciones>().animator = null;
             GetComponent<MenuInteracciones>().enabled = false;
         }
     }
 
+    public void Init()
+    {
+        bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
+        bComer = GameObject.Find(Botones.ID_BOTON_COMER);
+        bAcariciar = GameObject.Find(Botones.ID_BOTON_ACARICIAR);
+        bVerInformacion = GameObject.Find(Botones.ID_BOTON_VER_INFORMACION);
+        bFingirMuerte = GameObject.Find(Botones.ID_BOTON_FINGIR_MUERTE);
+        bDespertar = GameObject.Find(Botones.ID_BOTON_DESPERTAR);
+        bDormir = GameObject.Find(Botones.ID_BOTON_DORMIR);
+        bCorrer = GameObject.Find(Botones.ID_BOTON_CORRER);
+        bDeseleccionar = GameObject.Find(Botones.ID_BOTON_DESELECCIONAR);
+
+        bDespertar.GetComponent<Button>().interactable = false;
+        
+        AddMenuButtonsEventTriggers();
+
+        init = true;
+
+        MostrarMenu(mostrarMenu);
+    }
+
+    public void SetAnimator(Animator animator)
+    {
+        this.animator = animator.GetComponent<Animator>();
+        this.animTransform = animator.transform;
+    }
+
     public void MostrarMenu(bool mostrarMenu)
     {
+        if (!init) Init();
 
         var altura = 0;
 
@@ -156,6 +185,8 @@ public class MenuInteracciones : MonoBehaviour {
             bDeseleccionar.transform.localPosition.x,
             bDeseleccionar.transform.localPosition.y + altura,
             bDeseleccionar.transform.localPosition.z);
+
+        this.mostrarMenu = mostrarMenu;
     }
 
     private void OnPointerEnter_bDormir()
@@ -222,7 +253,6 @@ public class MenuInteracciones : MonoBehaviour {
 
     private void AddMenuButtonsEventTriggers()
    {
-       
         var bComerEvtTrigger = bComer.GetComponent<EventTrigger>();
         var bAcariciarEvtTrigger = bAcariciar.GetComponent<EventTrigger>();
         var bVerInformacionEvtTrigger = bVerInformacion.GetComponent<EventTrigger>();

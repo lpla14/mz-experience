@@ -9,60 +9,66 @@ using UnityEngine.UI;
 public class AnimalMenu : MonoBehaviour
 {
     public GameObject canvas;
-    public GameObject firstPerson;
-    public Animator animator;
     public Camera myCamera;
-    private RectTransform canvasRectTransform;
+    public Animator animator;
+
+    private Transform animTransform;
 
     private GameObject bInteractuar;
-
+    
     public bool dormido;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
-
         dormido = false;
-        canvasRectTransform = canvas.GetComponent<RectTransform>();
         bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
 
         GetComponent<MenuInteracciones>().dormido = dormido;
         GetComponent<MenuInteracciones>().mostrarMenu = false;
+        GetComponent<MenuInteracciones>().animator = animator;
         GetComponent<MenuInteracciones>().enabled = true;
-
-        AddMenuButtonsEventTriggers();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        canvas.transform.position = new Vector3(transform.position.x, transform.position.y+3, transform.position.z);
-        canvas.transform.LookAt(myCamera.transform);
+        if (GetComponent<MenuInteracciones>().mostrarMenu) return;
+
+        if (canvas != null && animTransform != null)
+        {
+            canvas.transform.position = new Vector3(animTransform.position.x, animTransform.position.y + 3, animTransform.position.z);
+
+            if (myCamera != null)
+            {
+                canvas.transform.LookAt(myCamera.transform);
+            }
+        }
 
         if (bInteractuar != null && bInteractuar.activeSelf)
         {
-            //canvasRectTransform.localPosition = new Vector3(firstPerson.transform.localPosition.x, firstPerson.transform.localPosition.y + 1, firstPerson.transform.localPosition.z - 3);
-
             if (Input.GetKeyDown(KeyCode.P)/*Input.GetKeyDown(Botones.BOTON_A)*/)
             {
                 // se activa on pointer enter del animal y se desactiva on pointer exit
                 //bInteractuar.SetActive(false);
-
-
-
+                
                 MostrarBotonInteractuar(false);
 
-                GetComponent<MenuInteracciones>().dormido = dormido;
+                GetComponent<MenuInteracciones>().dormido     = dormido;
                 GetComponent<MenuInteracciones>().mostrarMenu = true;
-                GetComponent<MenuInteracciones>().enabled = true;
+                GetComponent<MenuInteracciones>().animator    = animator;
+                GetComponent<MenuInteracciones>().enabled     = true;
+                //GetComponent<MenuInteracciones>().canvas      = null;
+                //GetComponent<MenuInteracciones>().myCamera = null;
+                GetComponent<MenuInteracciones>().canvas      = canvas;
+                GetComponent<MenuInteracciones>().myCamera    = myCamera;
 
                 GetComponent<MenuInteracciones>().MostrarMenu(true);
 
+                GetComponent<AnimalMenu>().animator = null;
+                GetComponent<AnimalMenu>().enabled = false;
+
             }
         }
-
-
     }
 
     #region region pointer triggers
@@ -83,17 +89,14 @@ public class AnimalMenu : MonoBehaviour
     {
         //bInteractuar.SetActive(false);
     }
-
-
-
+    
     #endregion
 
     IEnumerator OcultarBotonInteractuar()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
         //bInteractuar.SetActive(false);
         MostrarBotonInteractuar(false);
-
     }
 
     private void AddEventTrigger(UnityAction action, EventTriggerType triggerType, EventTrigger eventTrigger)
@@ -109,20 +112,39 @@ public class AnimalMenu : MonoBehaviour
         eventTrigger.triggers.Add(entry);
     }
 
-    private void AddMenuButtonsEventTriggers()
+    public void AddMenuButtonsEventTriggers()
     {
-        var animatorEvtTrigger = animator.GetComponent<EventTrigger>();
-        var bInteractuarEvtTrigger = bInteractuar.GetComponent<EventTrigger>();
+        if (animator != null)
+        {
+            var animatorEvtTrigger = animator.GetComponent<EventTrigger>();
+            AddEventTrigger(OnPointerExit_animator, EventTriggerType.PointerExit, animatorEvtTrigger);
+        }
 
-        //AddEventTrigger(OnPointerEnter_animator,        EventTriggerType.PointerEnter, animatorEvtTrigger);
-        AddEventTrigger(OnPointerExit_animator, EventTriggerType.PointerExit, animatorEvtTrigger);
+        if (bInteractuar == null)
+        {
+            bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
+        }
 
-        AddEventTrigger(OnPointerEnter_bInteractuar, EventTriggerType.PointerEnter, bInteractuarEvtTrigger);
+        if (bInteractuar != null)
+        {
+            var bInteractuarEvtTrigger = bInteractuar.GetComponent<EventTrigger>();
+            AddEventTrigger(OnPointerEnter_bInteractuar, EventTriggerType.PointerEnter, bInteractuarEvtTrigger);
+        }
+    }
 
+    public void SetAnimator(Animator animator)
+    {
+        if (animator == null) return;
+
+        this.animator = animator.GetComponent<Animator>();
+        this.animTransform = animator.transform;
+        AddMenuButtonsEventTriggers();
     }
 
     public void MostrarBotonInteractuar(bool mostrar)
     {
+        if (GetComponent<MenuInteracciones>().mostrarMenu) return;
+
         var altura = mostrar ? 0 : 8000;
 
         if (bInteractuar == null)

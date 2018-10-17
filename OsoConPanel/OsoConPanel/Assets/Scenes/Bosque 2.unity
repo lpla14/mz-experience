@@ -32413,8 +32413,6 @@ GameObject:
   - component: {fileID: 957809290}
   - component: {fileID: 957809293}
   - component: {fileID: 957809295}
-  - component: {fileID: 957809297}
-  - component: {fileID: 957809294}
   - component: {fileID: 957809296}
   m_Layer: 0
   m_Name: Low_Bear_v01
@@ -32497,22 +32495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   morder: {fileID: 957809291}
---- !u!114 &957809294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 957809288}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc15ed17a9019db40974dc5ff81543bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1472577421}
-  firstPerson: {fileID: 1297782335}
-  animator: {fileID: 957809291}
-  myCamera: {fileID: 2001337377}
-  dormido: 0
 --- !u!114 &957809295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32540,7 +32522,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 957809294}
+        - m_Target: {fileID: 1962647417}
           m_MethodName: set_enabled
           m_Mode: 6
           m_Arguments:
@@ -32551,7 +32533,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 957809294}
+        - m_Target: {fileID: 1962647417}
+          m_MethodName: SetAnimator
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 957809291}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Animator, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1962647417}
           m_MethodName: MostrarBotonInteractuar
           m_Mode: 6
           m_Arguments:
@@ -32565,19 +32558,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &957809297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 957809288}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050d0e080ab15d146b810c6c70cb2cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mostrarMenu: 0
-  dormido: 0
 --- !u!1001 &958135130
 Prefab:
   m_ObjectHideFlags: 0
@@ -42231,8 +42211,6 @@ GameObject:
   - component: {fileID: 1182404704}
   - component: {fileID: 1182404708}
   - component: {fileID: 1182404703}
-  - component: {fileID: 1182404709}
-  - component: {fileID: 1182404707}
   - component: {fileID: 1182404706}
   m_Layer: 0
   m_Name: Low_Fox_v01
@@ -42304,7 +42282,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1182404707}
+        - m_Target: {fileID: 1962647417}
           m_MethodName: set_enabled
           m_Mode: 6
           m_Arguments:
@@ -42315,7 +42293,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 1182404707}
+        - m_Target: {fileID: 1962647417}
+          m_MethodName: SetAnimator
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1182404704}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Animator, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1962647417}
           m_MethodName: MostrarBotonInteractuar
           m_Mode: 6
           m_Arguments:
@@ -42329,22 +42318,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &1182404707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1182404702}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc15ed17a9019db40974dc5ff81543bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1472577421}
-  firstPerson: {fileID: 1297782335}
-  animator: {fileID: 1182404704}
-  myCamera: {fileID: 2001337377}
-  dormido: 0
 --- !u!54 &1182404708
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -42360,19 +42333,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1182404709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1182404702}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050d0e080ab15d146b810c6c70cb2cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mostrarMenu: 0
-  dormido: 0
 --- !u!1001 &1183167183
 Prefab:
   m_ObjectHideFlags: 0
@@ -45012,7 +44972,7 @@ Transform:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1249786278}
-  m_LocalRotation: {x: 0.609437, y: 0.25841683, z: 0.4149081, w: 0.62422633}
+  m_LocalRotation: {x: 0.609437, y: 0.25841686, z: 0.4149081, w: 0.6242264}
   m_LocalPosition: {x: -0.17427509, y: 0.14013182, z: 0.0694481}
   m_LocalScale: {x: 0.9999999, y: 1, z: 1}
   m_Children:
@@ -71671,6 +71631,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4418096446634750, guid: ed3868b2d2b33594cb3e42c293670d9f,
     type: 2}
   m_PrefabInternal: {fileID: 1961135757}
+--- !u!1 &1962647415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1962647418}
+  - component: {fileID: 1962647417}
+  - component: {fileID: 1962647416}
+  m_Layer: 0
+  m_Name: Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1962647416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1962647415}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050d0e080ab15d146b810c6c70cb2cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mostrarMenu: 0
+  dormido: 0
+  animator: {fileID: 0}
+  canvas: {fileID: 1472577421}
+  myCamera: {fileID: 2001337377}
+  animTransform: {fileID: 0}
+--- !u!114 &1962647417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1962647415}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc15ed17a9019db40974dc5ff81543bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1472577421}
+  myCamera: {fileID: 2001337377}
+  animator: {fileID: 0}
+  dormido: 0
+--- !u!4 &1962647418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1962647415}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -30.06, y: 0, z: 14.16}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1964707559
 Prefab:
   m_ObjectHideFlags: 0
