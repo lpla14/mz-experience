@@ -184,7 +184,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 30768442}
   m_OnClick:
     m_PersistentCalls:
@@ -464,7 +464,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4722245764040526, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 344
+      value: 491
       objectReference: {fileID: 0}
     - target: {fileID: 4722245764040526, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
       propertyPath: m_LocalPosition.y
@@ -472,7 +472,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4722245764040526, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 207
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 4722245764040526, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
       propertyPath: m_LocalRotation.x
@@ -514,7 +514,11 @@ Prefab:
       propertyPath: m_Name
       value: Giraffe
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 195996188556584748, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
+    - {fileID: 114765271900101312, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
+    - {fileID: 114227993138046618, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
+    - {fileID: 82767794718401554, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &270833789
@@ -605,10 +609,10 @@ GameObject:
   - component: {fileID: 402549600}
   - component: {fileID: 402549599}
   - component: {fileID: 402549598}
-  - component: {fileID: 402549597}
   - component: {fileID: 402549596}
   - component: {fileID: 402549595}
   - component: {fileID: 402549602}
+  - component: {fileID: 402549597}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -649,9 +653,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 402549594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8bf22276649954a89b7156a3536125, type: 3}
+  m_Script: {fileID: 11500000, guid: 63ae1d4bc8db5ce4f93ed19a063dcfba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muteSound: 0
+  objectPoolLength: 20
+  soundDistance: 7
+  logSounds: 0
 --- !u!114 &402549598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +760,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400072, guid: 1da70a8d9177e574c92dc1a6232ddba2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -233.4
+      value: -300.4
       objectReference: {fileID: 0}
     - target: {fileID: 400072, guid: 1da70a8d9177e574c92dc1a6232ddba2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -760,7 +768,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400072, guid: 1da70a8d9177e574c92dc1a6232ddba2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 111.1
+      value: 90.2
       objectReference: {fileID: 0}
     - target: {fileID: 400072, guid: 1da70a8d9177e574c92dc1a6232ddba2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2522,7 +2530,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4130865816386212, guid: d734b6aacb494e94d86ec5109c3a0cdf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 241
+      value: 331
       objectReference: {fileID: 0}
     - target: {fileID: 4130865816386212, guid: d734b6aacb494e94d86ec5109c3a0cdf, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2530,7 +2538,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4130865816386212, guid: d734b6aacb494e94d86ec5109c3a0cdf, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 95
+      value: 88
       objectReference: {fileID: 0}
     - target: {fileID: 4130865816386212, guid: d734b6aacb494e94d86ec5109c3a0cdf, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2642,7 +2650,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1496188072}
   m_OnClick:
     m_PersistentCalls:
@@ -2692,7 +2700,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4025478222779210, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -447
+      value: -552
       objectReference: {fileID: 0}
     - target: {fileID: 4025478222779210, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2742,7 +2750,15 @@ Prefab:
       propertyPath: m_Name
       value: Elephant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 82448226072829002, guid: d19dd43872ee43b4896d75d23e9db9e6,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7a1b1ea8255f2e64a9bd44816bb59987,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: 114372793518428314, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
+    - {fileID: 195809942537759200, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1559318261
@@ -3001,7 +3017,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1794363533}
   m_OnClick:
     m_PersistentCalls:
