@@ -10506,6 +10506,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 195725933101950138, guid: 3e862f40cc8ad65468baa9837635c9c8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114389504973745632, guid: 3e862f40cc8ad65468baa9837635c9c8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82636224857025800, guid: 3e862f40cc8ad65468baa9837635c9c8,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7a1b1ea8255f2e64a9bd44816bb59987,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e862f40cc8ad65468baa9837635c9c8, type: 2}
   m_IsPrefabAsset: 0
@@ -26862,6 +26878,22 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 82767794718401554, guid: 0d9eb53229fd4e4428e17f457310aada,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7a1b1ea8255f2e64a9bd44816bb59987,
+        type: 2}
+    - target: {fileID: 114765271900101312, guid: 0d9eb53229fd4e4428e17f457310aada,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195996188556584748, guid: 0d9eb53229fd4e4428e17f457310aada,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
   m_IsPrefabAsset: 0
@@ -32630,6 +32662,17 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1962647417}
+          m_MethodName: SetIdAnimal
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bear1
             m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 1962647417}
@@ -42403,6 +42446,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1962647417}
+          m_MethodName: SetIdAnimal
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: fox1
+            m_BoolArgument: 1
+          m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
@@ -47168,8 +47222,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -181.129, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 72.5}
-  m_SizeDelta: {x: 600, y: 100}
+  m_AnchoredPosition: {x: -5, y: 0}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1300754442
 MonoBehaviour:
@@ -51862,7 +51916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -180.84999, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -127.8}
+  m_AnchoredPosition: {x: 0, y: -120}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1418235513
@@ -70632,6 +70686,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 82448226072829002, guid: d19dd43872ee43b4896d75d23e9db9e6,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 7a1b1ea8255f2e64a9bd44816bb59987,
+        type: 2}
+    - target: {fileID: 195809942537759200, guid: d19dd43872ee43b4896d75d23e9db9e6,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114372793518428314, guid: d19dd43872ee43b4896d75d23e9db9e6,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
   m_IsPrefabAsset: 0
@@ -72119,6 +72189,8 @@ GameObject:
   - component: {fileID: 1962647418}
   - component: {fileID: 1962647417}
   - component: {fileID: 1962647416}
+  - component: {fileID: 1962647419}
+  - component: {fileID: 1962647420}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -72138,7 +72210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mostrarMenu: 0
-  dormido: 0
   animator: {fileID: 0}
   canvas: {fileID: 1472577421}
   myCamera: {fileID: 2001337377}
@@ -72157,7 +72228,7 @@ MonoBehaviour:
   canvas: {fileID: 1472577421}
   myCamera: {fileID: 2001337377}
   animator: {fileID: 0}
-  dormido: 0
+  idAnimal: 
 --- !u!4 &1962647418
 Transform:
   m_ObjectHideFlags: 0
@@ -72171,6 +72242,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1962647419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1962647415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ae1d4bc8db5ce4f93ed19a063dcfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muteSound: 0
+  objectPoolLength: 20
+  soundDistance: 7
+  logSounds: 0
+--- !u!114 &1962647420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1962647415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40855f7ff216b14ba6ee39655706724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1964707559
 Prefab:
   m_ObjectHideFlags: 0
