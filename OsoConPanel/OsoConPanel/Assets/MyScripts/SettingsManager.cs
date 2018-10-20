@@ -9,7 +9,7 @@ public class SettingsManager : MonoBehaviour {
     public Slider volumeSlider;
     public AudioMixer audioMixer;
 
-    public void SubirVol()
+    public void subirVol()
     {
         if (volumeSlider.value < 10)
         {
@@ -18,7 +18,7 @@ public class SettingsManager : MonoBehaviour {
         }
     }
 
-    public void BajarVol()
+    public void bajarVol()
     {
         if (volumeSlider.value > -50)
         {
@@ -27,7 +27,7 @@ public class SettingsManager : MonoBehaviour {
         }
     }
 
-    public void SetQuality(int qualityIndex)
+    public void setQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
 

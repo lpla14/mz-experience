@@ -1091,6 +1091,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569de702544af5640a5d0a5be8f24786, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1025253316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114557763894148378, guid: bb8a7fba6e7b0de4da3b4c5b61f7b768,
+    type: 2}
+  m_PrefabInternal: {fileID: 1258600374}
+  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
 --- !u!1001 &1047927993
 Prefab:
   m_ObjectHideFlags: 0
@@ -1359,22 +1365,6 @@ Prefab:
     - {fileID: 114669260532126726, guid: bb8a7fba6e7b0de4da3b4c5b61f7b768, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: bb8a7fba6e7b0de4da3b4c5b61f7b768, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1258600375 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1583148656563976, guid: bb8a7fba6e7b0de4da3b4c5b61f7b768,
-    type: 2}
-  m_PrefabInternal: {fileID: 1258600374}
---- !u!114 &1258600376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1258600375}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57586a3b37c34743995e197d2a2dba2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1261764918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,8 +2037,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: -6, y: -171}
   m_SizeDelta: {x: 500, y: 110}
+=======
+  m_AnchoredPosition: {x: 19, y: -189}
+  m_SizeDelta: {x: 400, y: 90}
+>>>>>>> 235fe7b9c5464c6b48ffaf43f70dfec30aa3edc5
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2108954104
 MonoBehaviour:
@@ -2141,7 +2136,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1258600376}
+        - m_Target: {fileID: 1025253316}
           m_MethodName: set_enabled
           m_Mode: 6
           m_Arguments:
@@ -2151,23 +2146,6 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1258600376}
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

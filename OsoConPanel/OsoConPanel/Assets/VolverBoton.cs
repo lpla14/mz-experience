@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveLoadScene : MonoBehaviour {
+public class VolverBoton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,10 +11,7 @@ public class ActiveLoadScene : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(Botones.BOTON_R1))
-        {
-            GetComponent<LoadScene>().enabled = true;
-        }
+     GetComponent<LoadScene>().enabled = true;
         
 	}
 }
