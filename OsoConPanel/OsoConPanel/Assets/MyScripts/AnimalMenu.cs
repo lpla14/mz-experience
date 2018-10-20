@@ -13,17 +13,14 @@ public class AnimalMenu : MonoBehaviour
     public Animator animator;
 
     private Transform animTransform;
-
     private GameObject bInteractuar;
-    
-    public bool dormido;
+
+    public string idAnimal;
 
     void Start()
     {
-        dormido = false;
         bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
 
-        GetComponent<MenuInteracciones>().dormido = dormido;
         GetComponent<MenuInteracciones>().mostrarMenu = false;
         GetComponent<MenuInteracciones>().animator = animator;
         GetComponent<MenuInteracciones>().enabled = true;
@@ -53,15 +50,13 @@ public class AnimalMenu : MonoBehaviour
                 
                 MostrarBotonInteractuar(false);
 
-                GetComponent<MenuInteracciones>().dormido     = dormido;
                 GetComponent<MenuInteracciones>().mostrarMenu = true;
                 GetComponent<MenuInteracciones>().animator    = animator;
                 GetComponent<MenuInteracciones>().enabled     = true;
-                //GetComponent<MenuInteracciones>().canvas      = null;
-                //GetComponent<MenuInteracciones>().myCamera = null;
                 GetComponent<MenuInteracciones>().canvas      = canvas;
                 GetComponent<MenuInteracciones>().myCamera    = myCamera;
 
+                GetComponent<MenuInteracciones>().SetIdAnimal(idAnimal);
                 GetComponent<MenuInteracciones>().MostrarMenu(true);
 
                 GetComponent<AnimalMenu>().animator = null;
@@ -141,6 +136,11 @@ public class AnimalMenu : MonoBehaviour
         AddMenuButtonsEventTriggers();
     }
 
+    public void SetIdAnimal(string id)
+    {
+        idAnimal = id;
+    }
+
     public void MostrarBotonInteractuar(bool mostrar)
     {
         if (GetComponent<MenuInteracciones>().mostrarMenu) return;
@@ -160,4 +160,5 @@ public class AnimalMenu : MonoBehaviour
             altura,
             bInteractuar.transform.localPosition.z);*/
     }
+
 }

@@ -20,7 +20,7 @@ public class MenuInteracciones : MonoBehaviour {
     private GameObject bVolver;
     
     public bool mostrarMenu = false;
-    public bool dormido;
+    
     public Animator animator;
 
     public GameObject canvas;
@@ -29,8 +29,10 @@ public class MenuInteracciones : MonoBehaviour {
 
     private string nombreAnimacion;
     private bool init = false;
+
+    private string idAnimal;
+
     
-    // Use this for initialization
     void Start () {
         if (!init) Init();
     }
@@ -53,6 +55,7 @@ public class MenuInteracciones : MonoBehaviour {
             MostrarMenu(false);
             bVolver.GetComponent<Button>().interactable = true;
             bDormir.GetComponent<Button>().enabled = true;
+
             if (nombreAnimacion.Equals("deseleccionar"))
             {
                 nombreAnimacion = "";
@@ -63,55 +66,42 @@ public class MenuInteracciones : MonoBehaviour {
             {
                 bInfo.SetActive(false);
                 bVolver.SetActive(false);
+
+                MostrarMenu(true);
             }
-            if (nombreAnimacion.Equals("verInfo"))
+            else if (nombreAnimacion.Equals("verInfo"))
             {
-                bInfo.SetActive(true);
-                bVolver.SetActive(true);
-                nombreAnimacion = "";
-                string info = buscarInfo(AnimacionesAnimales.GetNombreAnimacion(animator.name));
-                GameObject.Find("bInfo").GetComponentInChildren<Text>().text = info;
-      
-
+                 bInfo.SetActive(true);
+                 bVolver.SetActive(true);
+                 nombreAnimacion = "";
+                 string info = BuscarInfo(AnimacionesAnimales.GetNombreAnimacion(animator.name));
+                 GameObject.Find("bInfo").GetComponentInChildren<Text>().text = info;
             }
-
-            if (nombreAnimacion.Equals("sleep_start"))
+            else
             {
-                dormido = true;
-                bDormir.GetComponent<Button>().interactable = false;
-                bComer.GetComponent<Button>().interactable = false;
-                bAcariciar.GetComponent<Button>().interactable = false;
-                bFingirMuerte.GetComponent<Button>().interactable = false;
-                bCorrer.GetComponent<Button>().interactable = false;
-
-                bDespertar.GetComponent<Button>().interactable = true;
-            }
-            else if (nombreAnimacion.Equals("sleep_end"))
-            {
-                dormido = false;
-                bDormir.GetComponent<Button>().interactable = true;
-                bComer.GetComponent<Button>().interactable = true;
-                bAcariciar.GetComponent<Button>().interactable = true;
-                bFingirMuerte.GetComponent<Button>().interactable = true;
-                bCorrer.GetComponent<Button>().interactable = true;
-
-                bDespertar.GetComponent<Button>().interactable = false;
-            }
-
-            if (animator != null)
-            { 
-                // Animaciones.Animales es el script que tiene los diccionarios (nombre de animaciones por animal, info de animales)
-                var nombreAnimator = AnimacionesAnimales.GetNombreAnimacion(animator.name);
-                
-                if (!string.IsNullOrEmpty(nombreAnimator))
+                if (nombreAnimacion.Equals("sleep_start"))
                 {
-                    animator.Play(nombreAnimator + "|" + nombreAnimacion);
+                    GetComponent<EstadoAnimales>().SetDormido(idAnimal, true);
                 }
-            }
+                else if (nombreAnimacion.Equals("sleep_end"))
+                {
+                    GetComponent<EstadoAnimales>().SetDormido(idAnimal, false);
+                }
 
-            GetComponent<AnimalMenu>().dormido = dormido;
-            GetComponent<MenuInteracciones>().animator = null;
-            GetComponent<MenuInteracciones>().enabled = false;
+                if ( animator != null && !string.IsNullOrEmpty( nombreAnimacion ) )
+                {
+                    // Animaciones.Animales es el script que tiene los diccionarios (nombre de animaciones por animal, info de animales)
+                    var nombreAnimator = AnimacionesAnimales.GetNombreAnimacion(animator.name);
+
+                    if (!string.IsNullOrEmpty(nombreAnimator))
+                    {
+                        animator.Play(nombreAnimator + "|" + nombreAnimacion);
+                    }
+                }
+
+                GetComponent<MenuInteracciones>().animator = null;
+                GetComponent<MenuInteracciones>().enabled = false;
+            }
         }
     }
 
@@ -129,7 +119,6 @@ public class MenuInteracciones : MonoBehaviour {
         bInfo = GameObject.Find(Botones.ID_BOTON_INFO);
         bVolver = GameObject.Find(Botones.ID_BOTON_VOLVER);
 
-
         bDespertar.GetComponent<Button>().interactable = false;
         
         AddMenuButtonsEventTriggers();
@@ -145,46 +134,62 @@ public class MenuInteracciones : MonoBehaviour {
         this.animTransform = animator.transform;
     }
 
+    public void SetIdAnimal(string id)
+    {
+        idAnimal = id;
+    }
+
     public void MostrarMenu(bool mostrarMenu)
     {
         if (!init) Init();
 
-        var altura = 0;
-        
+        //var altura = 0;
+
+        //if (mostrarMenu)
+        //{
+        //    if (bComer.transform.localPosition.y != 90)
+        //    {
+        //        altura = -8000;
+        //    }
+        //}
+        //else
+        //{
+        //    if (bComer.transform.localPosition.y == 90)
+        //    {
+        //        altura = 8000;
+        //    }
+        //}
+
         if (mostrarMenu)
         {
-            if (bComer.transform.localPosition.y != 90)
-            {
-                altura = -8000;
-            }
+            var animalDormido = GetComponent<EstadoAnimales>().IsDormido(idAnimal);
+
+            bDormir.GetComponent<Button>().interactable       = !animalDormido;
+            bComer.GetComponent<Button>().interactable        = !animalDormido;
+            bAcariciar.GetComponent<Button>().interactable    = !animalDormido;
+            bFingirMuerte.GetComponent<Button>().interactable = !animalDormido;
+            bCorrer.GetComponent<Button>().interactable       = !animalDormido;
+
+            bDespertar.GetComponent<Button>().interactable    = animalDormido;
         }
-        else
-        {
-            if (bComer.transform.localPosition.y == 90)
-            {
-                altura = 8000;
-            }
-        }
+
         bComer.SetActive(mostrarMenu);
-
         bDormir.SetActive(mostrarMenu);
-
         bAcariciar.SetActive(mostrarMenu);
-
-        bVerInformacion.SetActive(mostrarMenu);
-
-
+        bVerInformacion.SetActive(mostrarMenu);        
         bFingirMuerte.SetActive(mostrarMenu);
-
         bDespertar.SetActive(mostrarMenu);
-
         bCorrer.SetActive(mostrarMenu);
-
         bDeseleccionar.SetActive(mostrarMenu);
-
         bInfo.SetActive(mostrarMenu);
-
         bVolver.SetActive(mostrarMenu);
+
+
+        bInfo.SetActive(false);
+        bVolver.SetActive(false);
+
+        this.mostrarMenu = mostrarMenu;
+
         /*
         bComer.transform.localPosition = new Vector3(
             bComer.transform.localPosition.x,
@@ -237,25 +242,23 @@ public class MenuInteracciones : MonoBehaviour {
             bVolver.transform.localPosition.y ,
             bVolver.transform.localPosition.z);
             */
-        bInfo.SetActive(false);
-        bVolver.SetActive(false);
-
-        this.mostrarMenu = mostrarMenu;
     }
 
+
+    #region pointer enter actions
     private void OnPointerEnter_bDormir()
     {
-        nombreAnimacion = dormido ? "" : "sleep_start";
+        nombreAnimacion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "sleep_start";
     }
 
     private void OnPointerEnter_bComer()
     {
-        nombreAnimacion = dormido ? "" : "eat";
+        nombreAnimacion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "eat";
     }
 
     private void OnPointerEnter_bAcariciar()
     {
-        nombreAnimacion = dormido ? "" : "idle_2"; //ver si vamos a poder acariciar solo cuando esta despierto o no
+        nombreAnimacion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "idle_2"; //ver si vamos a poder acariciar solo cuando esta despierto o no
     }
 
     private void OnPointerEnter_bVerInformacion()
@@ -265,17 +268,17 @@ public class MenuInteracciones : MonoBehaviour {
 
     private void OnPointerEnter_bFingirMuerte()
     {
-        nombreAnimacion = dormido ? "" : "dead_1";
+        nombreAnimacion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "dead_1";
     }
 
     private void OnPointerEnter_bDespertar()
     {
-        nombreAnimacion = dormido ? "sleep_end" : "";
+        nombreAnimacion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "sleep_end" : "";
     }
 
     private void OnPointerEnter_bCorrer()
     {
-        nombreAnimacion = dormido ? "" : "run";
+        nombreAnimacion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "run";
     }
 
     private void OnPointerEnter_bDeseleccionar()
@@ -299,6 +302,8 @@ public class MenuInteracciones : MonoBehaviour {
 
         //todo ver cuando desactivar este script
     }
+
+    #endregion pointer enter actions
 
     private void AddEventTrigger(UnityAction action, EventTriggerType triggerType, EventTrigger eventTrigger)
     {
@@ -350,7 +355,8 @@ public class MenuInteracciones : MonoBehaviour {
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bInfoEvtTrigger);
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bVolverEvtTrigger);
     }
-    public string buscarInfo(string animal) {
+
+    public string BuscarInfo(string animal) {
         string retorno="";
         switch (animal)
         {
