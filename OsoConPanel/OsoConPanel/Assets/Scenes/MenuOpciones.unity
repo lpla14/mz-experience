@@ -634,7 +634,6 @@ GameObject:
   - component: {fileID: 402549600}
   - component: {fileID: 402549599}
   - component: {fileID: 402549598}
-  - component: {fileID: 402549596}
   - component: {fileID: 402549595}
   - component: {fileID: 402549602}
   - component: {fileID: 402549597}
@@ -651,25 +650,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402549594}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fc86d3f96d28c64eb81c83209e30b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   component: cardboard
   enableVR: 1
---- !u!114 &402549596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 402549594}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: 
 --- !u!114 &402549597
 MonoBehaviour:
   m_ObjectHideFlags: 0
