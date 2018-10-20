@@ -15,8 +15,6 @@ public class AnimalMenu : MonoBehaviour
     private Transform animTransform;
     private GameObject bInteractuar;
 
-    public string idAnimal;
-
     void Start()
     {
         bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
@@ -56,7 +54,6 @@ public class AnimalMenu : MonoBehaviour
                 GetComponent<MenuInteracciones>().canvas      = canvas;
                 GetComponent<MenuInteracciones>().myCamera    = myCamera;
 
-                GetComponent<MenuInteracciones>().SetIdAnimal(idAnimal);
                 GetComponent<MenuInteracciones>().MostrarMenu(true);
 
                 GetComponent<AnimalMenu>().animator = null;
@@ -132,13 +129,9 @@ public class AnimalMenu : MonoBehaviour
         if (animator == null) return;
 
         this.animator = animator.GetComponent<Animator>();
+
         this.animTransform = animator.transform;
         AddMenuButtonsEventTriggers();
-    }
-
-    public void SetIdAnimal(string id)
-    {
-        idAnimal = id;
     }
 
     public void MostrarBotonInteractuar(bool mostrar)

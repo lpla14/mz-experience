@@ -25,11 +25,8 @@ public class MenuInteracciones : MonoBehaviour {
     public Camera myCamera;
     public Transform animTransform;
 
-    private string interaccion;
+    private int interaccion;
     private bool init = false;
-
-    private string idAnimal;
-
     
     void Start () {
         if (!init) Init();
@@ -48,59 +45,70 @@ public class MenuInteracciones : MonoBehaviour {
             }
         }
 
-        if (!string.IsNullOrEmpty(interaccion) && Input.GetKeyDown(KeyCode.K))
+        if ( interaccion > 0 && Input.GetKeyDown( KeyCode.K ) )
         {
             MostrarMenu(false);
             bVolver.GetComponent<Button>().interactable = true;
             bDormir.GetComponent<Button>().enabled = true;
 
-            if (interaccion.Equals("deseleccionar"))
+            if ( interaccion == AnimacionesAnimales.ACCION_DESELECCIONAR ) 
             {
-                interaccion = "";
+                interaccion = -1;
                 GetComponent<MenuInteracciones>().animator = null;
                 GetComponent<MenuInteracciones>().enabled = false;
             }
-            if (interaccion.Equals("volver"))
+            if ( interaccion == AnimacionesAnimales.ACCION_VOLVER_VER_INFO )
             {
                 bInfo.SetActive(false);
                 bVolver.SetActive(false);
 
                 MostrarMenu(true);
-                interaccion = "";
+                interaccion = -1;
             }
-            else if (interaccion.Equals("verInfo"))
+            else if (interaccion == AnimacionesAnimales.ACCION_VER_INFO)
             {
                  bInfo.SetActive(true);
                  bVolver.SetActive(true);
-                 interaccion = "";
-                 string info = BuscarInfo(AnimacionesAnimales.GetNombreAnimacion(animator.name));
+                 interaccion = -1;
+
+
+                // El animator name es el nombre del game object completo en unity. Ej "Low_Bear_v01", "Low_Bear_v01 (1)"
+                // En las funciones de buscarInfo del animal y GetNombreAnimacion, hay que usar el nombre base (para los dos osos sería "Low_Bear_v01")
+                // En esas funciones, hacer un split del animator.name, usando el espacio como caracter separador
+
+                string info = BuscarInfo(animator.name);
                  GameObject.Find("bInfo").GetComponentInChildren<Text>().text = info;
             }
             else
             {
-                if (interaccion.Equals("sleep_start"))
+                if (interaccion == AnimacionesAnimales.ACCION_DORMIR)
                 {
-                    GetComponent<EstadoAnimales>().SetDormido(idAnimal, true);
+                    GetComponent<EstadoAnimales>().SetDormido(animator.name, true);
                 }
-                else if (interaccion.Equals("sleep_end"))
+                else if (interaccion == AnimacionesAnimales.ACCION_DESPERTAR)
                 {
-                    GetComponent<EstadoAnimales>().SetDormido(idAnimal, false);
+                    GetComponent<EstadoAnimales>().SetDormido(animator.name, false);
                 }
 
-                if ( animator != null && !string.IsNullOrEmpty( interaccion ) )
+                if ( animator != null && interaccion > -1 )
                 {
                     // Animaciones.Animales es el script que tiene los diccionarios (nombre de animaciones por animal, info de animales)
+
+                    // El animator name es el nombre del game object completo en unity. Ej "Low_Bear_v01", "Low_Bear_v01 (1)"
+                    // En las funciones de buscarInfo del animal y GetNombreAnimacion, hay que usar el nombre base (para los dos osos sería "Low_Bear_v01")
+                    // En esas funciones, hacer un split del animator.name, usando el espacio como caracter separador
+
                     var nombreAnimacion = AnimacionesAnimales.GetNombreAnimacion(animator.name, interaccion);
 
                     if (!string.IsNullOrEmpty(nombreAnimacion))
                     {
-                        animator.Play(nombreAnimacion + "|" + interaccion);
+                        animator.Play(nombreAnimacion);
                     }
                 }
 
                 GetComponent<MenuInteracciones>().animator = null;
                 GetComponent<MenuInteracciones>().enabled = false;
-                interaccion = "";
+                interaccion = -1;
             }
         }
     }
@@ -130,14 +138,14 @@ public class MenuInteracciones : MonoBehaviour {
 
     public void SetAnimator(Animator animator)
     {
+        // El animator name es el nombre del game object completo en unity. Ej "Low_Bear_v01", "Low_Bear_v01 (1)"
+        // En las funciones de buscarInfo del animal y GetNombreAnimacion, hay que usar el nombre base (para los dos osos sería "Low_Bear_v01")
+        // En esas funciones, hacer un split del animator.name, usando el espacio como caracter separador
+
         this.animator = animator.GetComponent<Animator>();
         this.animTransform = animator.transform;
     }
 
-    public void SetIdAnimal(string id)
-    {
-        idAnimal = id;
-    }
 
     public void MostrarMenu(bool mostrarMenu)
     {
@@ -162,7 +170,10 @@ public class MenuInteracciones : MonoBehaviour {
 
         if (mostrarMenu)
         {
-            var animalDormido = GetComponent<EstadoAnimales>().IsDormido(idAnimal);
+            // El animator name es el nombre del game object completo en unity. Ej "Low_Bear_v01", "Low_Bear_v01 (1)"
+            // En las funciones de buscarInfo del animal y GetNombreAnimacion, hay que usar el nombre base (para los dos osos sería "Low_Bear_v01")
+            // En esas funciones, hacer un split del animator.name, usando el espacio como caracter separador
+            var animalDormido = GetComponent<EstadoAnimales>().IsDormido(animator.name);
 
             bDormir.GetComponent<Button>().interactable       = !animalDormido;
             bComer.GetComponent<Button>().interactable        = !animalDormido;
@@ -248,55 +259,55 @@ public class MenuInteracciones : MonoBehaviour {
     #region pointer enter actions
     private void OnPointerEnter_bDormir()
     {
-        interaccion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "sleep_start";
+        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? -1 : AnimacionesAnimales.ACCION_DORMIR;
     }
 
     private void OnPointerEnter_bComer()
     {
-        interaccion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "eat";
+        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? -1 : AnimacionesAnimales.ACCION_COMER;
     }
 
     private void OnPointerEnter_bAcariciar()
     {
-        interaccion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "idle_2"; //ver si vamos a poder acariciar solo cuando esta despierto o no
+        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? -1 : AnimacionesAnimales.ACCION_ACARICIAR ; //ver si vamos a poder acariciar solo cuando esta despierto o no
     }
 
     private void OnPointerEnter_bVerInformacion()
     {
-        interaccion = "verInfo";
+        interaccion = AnimacionesAnimales.ACCION_VER_INFO;
     }
 
     private void OnPointerEnter_bFingirMuerte()
     {
-        interaccion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "dead_1";
+        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? -1 : AnimacionesAnimales.ACCION_FINGIR_MUERTE;
     }
 
     private void OnPointerEnter_bDespertar()
     {
-        interaccion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "sleep_end" : "";
+        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? AnimacionesAnimales.ACCION_DESPERTAR: -1;
     }
 
     private void OnPointerEnter_bCorrer()
     {
-        interaccion = GetComponent<EstadoAnimales>().IsDormido(idAnimal) ? "" : "run";
+        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? -1 : AnimacionesAnimales.ACCION_CORRER;
     }
 
     private void OnPointerEnter_bDeseleccionar()
     {
-        interaccion = "deseleccionar";
+        interaccion = AnimacionesAnimales.ACCION_DESELECCIONAR;
     }
 
     private void OnPointerEnter_bInfo()
     {
-        interaccion = "";
+        interaccion = -1;
     }
     private void OnPointerEnter_bVolver()
     {
-        interaccion = "volver";
+        interaccion = AnimacionesAnimales.ACCION_VOLVER_VER_INFO;
     }
     private void OnPointerExit_botones()
     {
-        interaccion = "";
+        interaccion = -1;
         //MostrarMenu(false);
         //GetComponent<MenuInteracciones>().enabled = false;
 
@@ -342,8 +353,6 @@ public class MenuInteracciones : MonoBehaviour {
         AddEventTrigger(OnPointerEnter_bInfo, EventTriggerType.PointerEnter, bInfoEvtTrigger);
         AddEventTrigger(OnPointerEnter_bVolver, EventTriggerType.PointerEnter, bVolverEvtTrigger);
 
-
-
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bDormirEvtTrigger);
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bComerEvtTrigger);
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bAcariciarEvtTrigger);
@@ -357,13 +366,20 @@ public class MenuInteracciones : MonoBehaviour {
     }
 
     public string BuscarInfo(string animal) {
+
+        // El parametro animal es el nombre del game object completo en unity. Ej "Low_Bear_v01", "Low_Bear_v01 (1)"
+        // En las funciones de buscarInfo del animal y GetNombreAnimacion, hay que usar el nombre base (para los dos osos sería "Low_Bear_v01")
+        // En esas funciones, hacer un split, usando el espacio como caracter separador
+
+        var nombreBaseAnimator = animal.Split(' ')[0];
+
         string retorno="";
-        switch (animal)
+        switch (nombreBaseAnimator)
         {
-            case "Arm_bear":
+            case "Low_Bear_v01":
                 retorno = "soy un osito";
                 break;
-            case "Arm_fox":
+            case "Low_Fox_v01":
                 retorno="soy un zorro";
                 break;
             default:
