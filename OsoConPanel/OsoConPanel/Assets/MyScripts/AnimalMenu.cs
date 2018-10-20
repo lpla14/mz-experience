@@ -33,7 +33,7 @@ public class AnimalMenu : MonoBehaviour
     void Update()
     {
         if (GetComponent<MenuInteracciones>().mostrarMenu) return;
-
+        
         if (canvas != null && animTransform != null)
         {
             canvas.transform.position = new Vector3(animTransform.position.x, animTransform.position.y + 3, animTransform.position.z);
@@ -43,7 +43,7 @@ public class AnimalMenu : MonoBehaviour
                 canvas.transform.LookAt(myCamera.transform);
             }
         }
-
+        canvas.transform.LookAt(myCamera.transform);
         if (bInteractuar != null && bInteractuar.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.P)/*Input.GetKeyDown(Botones.BOTON_A)*/)
@@ -152,9 +152,12 @@ public class AnimalMenu : MonoBehaviour
             bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
         }
 
+        bInteractuar.SetActive(mostrar);
+        
+        /*
         bInteractuar.transform.localPosition = new Vector3(
             bInteractuar.transform.localPosition.x,
             altura,
-            bInteractuar.transform.localPosition.z);
+            bInteractuar.transform.localPosition.z);*/
     }
 }

@@ -16,7 +16,9 @@ public class MenuInteracciones : MonoBehaviour {
     private GameObject bDormir;
     private GameObject bCorrer;
     private GameObject bDeseleccionar;
-
+    private GameObject bInfo;
+    private GameObject bVolver;
+    
     public bool mostrarMenu = false;
     public bool dormido;
     public Animator animator;
@@ -49,12 +51,28 @@ public class MenuInteracciones : MonoBehaviour {
         if (!string.IsNullOrEmpty(nombreAnimacion) && Input.GetKeyDown(KeyCode.K))
         {
             MostrarMenu(false);
-
+            bVolver.GetComponent<Button>().interactable = true;
+            bDormir.GetComponent<Button>().enabled = true;
             if (nombreAnimacion.Equals("deseleccionar"))
             {
                 nombreAnimacion = "";
                 GetComponent<MenuInteracciones>().animator = null;
                 GetComponent<MenuInteracciones>().enabled = false;
+            }
+            if (nombreAnimacion.Equals("volver"))
+            {
+                bInfo.SetActive(false);
+                bVolver.SetActive(false);
+            }
+            if (nombreAnimacion.Equals("verInfo"))
+            {
+                bInfo.SetActive(true);
+                bVolver.SetActive(true);
+                nombreAnimacion = "";
+                string info = buscarInfo(AnimacionesAnimales.GetNombreAnimacion(animator.name));
+                GameObject.Find("bInfo").GetComponentInChildren<Text>().text = info;
+      
+
             }
 
             if (nombreAnimacion.Equals("sleep_start"))
@@ -108,6 +126,9 @@ public class MenuInteracciones : MonoBehaviour {
         bDormir = GameObject.Find(Botones.ID_BOTON_DORMIR);
         bCorrer = GameObject.Find(Botones.ID_BOTON_CORRER);
         bDeseleccionar = GameObject.Find(Botones.ID_BOTON_DESELECCIONAR);
+        bInfo = GameObject.Find(Botones.ID_BOTON_INFO);
+        bVolver = GameObject.Find(Botones.ID_BOTON_VOLVER);
+
 
         bDespertar.GetComponent<Button>().interactable = false;
         
@@ -129,7 +150,7 @@ public class MenuInteracciones : MonoBehaviour {
         if (!init) Init();
 
         var altura = 0;
-
+        
         if (mostrarMenu)
         {
             if (bComer.transform.localPosition.y != 90)
@@ -144,7 +165,27 @@ public class MenuInteracciones : MonoBehaviour {
                 altura = 8000;
             }
         }
+        bComer.SetActive(mostrarMenu);
 
+        bDormir.SetActive(mostrarMenu);
+
+        bAcariciar.SetActive(mostrarMenu);
+
+        bVerInformacion.SetActive(mostrarMenu);
+
+
+        bFingirMuerte.SetActive(mostrarMenu);
+
+        bDespertar.SetActive(mostrarMenu);
+
+        bCorrer.SetActive(mostrarMenu);
+
+        bDeseleccionar.SetActive(mostrarMenu);
+
+        bInfo.SetActive(mostrarMenu);
+
+        bVolver.SetActive(mostrarMenu);
+        /*
         bComer.transform.localPosition = new Vector3(
             bComer.transform.localPosition.x,
             bComer.transform.localPosition.y + altura,
@@ -162,7 +203,7 @@ public class MenuInteracciones : MonoBehaviour {
 
         bVerInformacion.transform.localPosition = new Vector3(
            bVerInformacion.transform.localPosition.x,
-           bVerInformacion.transform.localPosition.y + altura,
+           bVerInformacion.transform.localPosition.y,
            bVerInformacion.transform.localPosition.z);
 
 
@@ -186,6 +227,19 @@ public class MenuInteracciones : MonoBehaviour {
             bDeseleccionar.transform.localPosition.y + altura,
             bDeseleccionar.transform.localPosition.z);
 
+        bInfo.transform.localPosition = new Vector3(
+             bInfo.transform.localPosition.x,
+            bInfo.transform.localPosition.y ,
+             bInfo.transform.localPosition.z);
+
+        bVolver.transform.localPosition = new Vector3(
+            bVolver.transform.localPosition.x,
+            bVolver.transform.localPosition.y ,
+            bVolver.transform.localPosition.z);
+            */
+        bInfo.SetActive(false);
+        bVolver.SetActive(false);
+
         this.mostrarMenu = mostrarMenu;
     }
 
@@ -206,7 +260,7 @@ public class MenuInteracciones : MonoBehaviour {
 
     private void OnPointerEnter_bVerInformacion()
     {
-        nombreAnimacion = "";
+        nombreAnimacion = "verInfo";
     }
 
     private void OnPointerEnter_bFingirMuerte()
@@ -229,6 +283,14 @@ public class MenuInteracciones : MonoBehaviour {
         nombreAnimacion = "deseleccionar";
     }
 
+    private void OnPointerEnter_bInfo()
+    {
+        nombreAnimacion = "";
+    }
+    private void OnPointerEnter_bVolver()
+    {
+        nombreAnimacion = "volver";
+    }
     private void OnPointerExit_botones()
     {
         nombreAnimacion = "";
@@ -261,6 +323,8 @@ public class MenuInteracciones : MonoBehaviour {
         var bDormirEvtTrigger = bDormir.GetComponent<EventTrigger>();
         var bCorrerEvtTrigger = bCorrer.GetComponent<EventTrigger>();
         var bDeseleccionarEvtTrigger = bDeseleccionar.GetComponent<EventTrigger>();
+        var bInfoEvtTrigger = bInfo.GetComponent<EventTrigger>();
+        var bVolverEvtTrigger = bVolver.GetComponent<EventTrigger>();
 
         AddEventTrigger(OnPointerEnter_bDormir, EventTriggerType.PointerEnter, bDormirEvtTrigger);
         AddEventTrigger(OnPointerEnter_bComer, EventTriggerType.PointerEnter, bComerEvtTrigger);
@@ -270,6 +334,10 @@ public class MenuInteracciones : MonoBehaviour {
         AddEventTrigger(OnPointerEnter_bDespertar, EventTriggerType.PointerEnter, bDespertarEvtTrigger);
         AddEventTrigger(OnPointerEnter_bCorrer, EventTriggerType.PointerEnter, bCorrerEvtTrigger);
         AddEventTrigger(OnPointerEnter_bDeseleccionar, EventTriggerType.PointerEnter, bDeseleccionarEvtTrigger);
+        AddEventTrigger(OnPointerEnter_bInfo, EventTriggerType.PointerEnter, bInfoEvtTrigger);
+        AddEventTrigger(OnPointerEnter_bVolver, EventTriggerType.PointerEnter, bVolverEvtTrigger);
+
+
 
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bDormirEvtTrigger);
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bComerEvtTrigger);
@@ -279,5 +347,24 @@ public class MenuInteracciones : MonoBehaviour {
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bDespertarEvtTrigger);
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bCorrerEvtTrigger);
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bDeseleccionarEvtTrigger);
+        AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bInfoEvtTrigger);
+        AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bVolverEvtTrigger);
+    }
+    public string buscarInfo(string animal) {
+        string retorno="";
+        switch (animal)
+        {
+            case "Arm_bear":
+                retorno = "soy un osito";
+                break;
+            case "Arm_fox":
+                retorno="soy un zorro";
+                break;
+            default:
+                retorno="nada";
+                break;
+        }
+
+        return retorno;
     }
 }

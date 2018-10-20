@@ -19,5 +19,7 @@ public class Botones : MonoBehaviour {
     public const string ID_BOTON_DESPERTAR       = "bDespertar";
     public const string ID_BOTON_DORMIR          = "bDormir";
     public const string ID_BOTON_CORRER          = "bCorrer";
-    public const string ID_BOTON_DESELECCIONAR   = "bDeseleccionar"; 
+    public const string ID_BOTON_DESELECCIONAR   = "bDeseleccionar";
+    public const string ID_BOTON_INFO            = "bInfo";
+    public const string ID_BOTON_VOLVER          = "bVolver";
 }

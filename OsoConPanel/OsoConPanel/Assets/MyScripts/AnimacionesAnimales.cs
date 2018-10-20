@@ -25,6 +25,7 @@ public class AnimacionesAnimales : MonoBehaviour
         // (Low_Bear_v01) "Arm_bear|sleep_start"
         // todo ver como se llaman las animaciones de los animales del nuevo paquete de assets. pasarlas a este formato
         mapAnimatorAnimal.Add("Low_Bear_v01", "Arm_bear");
+        mapAnimatorAnimal.Add("Low_Fox_v01", "Arm_fox");
 
         //TO DO: AGREGAR TODOS LOS NOMBRES DE ANIMALES 
 
