@@ -355,10 +355,46 @@ public class MenuInteracciones : MonoBehaviour {
         switch (animal)
         {
             case "Arm_bear":
-                retorno = "soy un osito";
+                retorno =  "\n" +
+                           "  Especie : Canis lupus.\n" +
+                           "  Habitad :  Norteamérica, Eurasia y el Oriente Medio.\n" +
+                           "  Dieta : Carne de otros animales, como cerdos, ciervos, cabras, ovejas,depende del \n" +
+                           "  habitad. Incluso pueden comer animales marinos como focas o pescados.\n" +
+                           "  Caracteristicas : La altura varía entre los 60 y los 90 centímetros hasta el hombro,\n" +
+                           "  y tienen un peso de entre 32 y 70 kilos.\n" +
+                           "  Observaciones : Aunque está clasificada como una especie poco amenazada para su \n" +
+                           "  extinción, en algunas regiones, incluyendo la parte continental de los \n" +
+                           "  Estados Unidos de América, la especie está listada como en peligro o amenazada.\n" +
+                           "  Los lobos son cazados en muchas áreas del mundo por la amenaza que representan para\n" +
+                           "  el ganado, así como por deporte.\n" +
+                           "  Habitos : Los lobos suelen organizarse en manadas siguiendo una estricta jerarquía \n" +
+                           "  social. La manada la lideran el macho reproductor y la hembra reproductora. \n";
                 break;
             case "Arm_fox":
                 retorno="soy un zorro";
+                break;
+            case "Arm_boar":
+                retorno = "soy un zorro";
+                break;
+            case "Arm_calf":
+                retorno = "soy un zorro";
+                break;
+            case "Arm_doe":
+                retorno = "soy un zorro";
+                break;
+            case "Arm_hare":
+                retorno = "soy un zorro";
+                break;
+            case "Arm_Moose":
+                retorno = "soy un zorro";
+                break;
+            case "Armature_wolf":
+                retorno = "Especie : Canis lupus\n" +
+                          "Habitad :  Norteamérica, Eurasia y el Oriente Medio\n " +
+                          "Dieta : Carne de otros animales, como cerdos, ciervos, cabras, ovejas,depende del habitad.\n Incluso pueden comer animales marinos como focas o pescados." +
+                          "Caracteristicas : La altura varía entre los 60 y los 90 centímetros hasta el hombro, y tienen un peso de entre 32 y 70 kilos\n" +
+                          "Observaciones : Aunque está clasificada como una especie poco amenazada para su extinción, en algunas regiones, incluyendo la\n parte continental de los Estados Unidos de América, la especie está listada como en peligro o amenazada. Los lobos son cazados en muchas áreas del mundo por la amenaza que representan para el ganado,\n así como por deporte." +
+                          "Habitos : Los lobos suelen organizarse en manadas siguiendo una estricta jerarquía social.\n La manada la lideran dos individuos que están en lo más alto de la jerarquía social: el macho reproductor y la hembra reproductora. ";
                 break;
             default:
                 retorno="nada";
