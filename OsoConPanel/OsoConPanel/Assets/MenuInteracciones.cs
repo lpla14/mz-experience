@@ -408,10 +408,36 @@ public class MenuInteracciones : MonoBehaviour {
                             "  para dar a luz, criar a los recién nacidos y para almacenar comida.\n";
                 break;
             case "Low_Moose_bull_v01":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                            "  Nombre : Alces alces.\n" +
+                            "  Especie : Cervidae.\n" +
+                            "  Sexo : Macho.\n" +
+                            "  Habitad : Bosques de Rusia, Polonia, República Checa, Alemania, Alaska, Canadá y el\n" +
+                            "  norte de los Estados Unidos.\n" +
+                            "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
+                            "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                            "  Fisico : Altura de 1,50 a 2,15 m (con cornamenta 2,50 a 3,50 m), peso de 350 a 450 kgl y\n" +
+                            "  largo del cuerpo de 2,40 a 3,10 m.\n" +
+                            "  Observaciones : Una especie se considera bajo preocupación menor.\n" +
+                            "  Los alces se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
+                            "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos. Los alces\n" +
+                            "  permanecen fieles a sus territorios, que por otra parte no defienden de ningún modo.\n";
                 break;
             case "Low_Moose_cow_v01":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                             "  Nombre : Alces alces.\n" +
+                             "  Especie : Cervidae.\n" +
+                             "  Sexo : Hembra.\n" +
+                             "  Habitad : Bosques de Rusia, Polonia, República Checa, Alemania, Alaska, Canadá y el\n" +
+                             "  norte de los Estados Unidos.\n" +
+                             "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
+                             "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                             "  Fisico : Altura de 1,50 a 2,15 m (no tienen astas), peso de 350 a 450 kgl y\n" +
+                             "  largo del cuerpo de 2,40 a 3,10 m.\n" +
+                             "  Observaciones : Una especie se considera bajo preocupación menor.\n" +
+                             "  Los alces se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
+                             "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos. Los alces\n" +
+                             "  permanecen fieles a sus territorios, que por otra parte no defienden de ningún modo.\n";
                 break;
             case "Low_PolarBear_v01":
                 retorno = "\n" +
@@ -430,13 +456,51 @@ public class MenuInteracciones : MonoBehaviour {
                            "  aprendiendo a buscar comida y a resguardarse de los machos adultos.\n";
                 break;
             case "Low_Hare_v01":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                              "  Nombre : Conejo Comun.\n" +
+                              "  Especie : Oryctolagus Cuniculus.\n" +
+                              "  Habitad : Europa, Rusia, Estados Unidos, Chile, Australia (donde son una la plaga ).\n" +
+                              "  Dieta : Es herbívoro, ingiere plantas, arbustos, matorrales,  raíces, semillas y bulbos.\n" +
+                              "  Fisico : El conejo salvaje mide de 34 a 50 cm, las orejas miden de 4 a 8 cm. Su peso varía\n" +
+                              "  de 1,2 a 2,5 kg. Posee una piel de color pardo para evitar a sus depredadores\n" +
+                              "  Observaciones : Los dientes de un conejo (sus incisivos, crecen sin cesar), debe\n" +
+                              "  desgastarlos con el fin de evitar que se vuelvan demasiado largos (lo que podría herirle).\n" +
+                              "  Son cazadas por zorros, gatos salvajes, águilas (entre otros depredadores).\n" +
+                              "  Habitos : Animal de hábitos nocturnos y crepusculares. Son muy silenciosos pero emiten\n" +
+                              "  fuertes chillidos cuando están asustados o heridos.Golpean el suelo con sus patas traseras,\n" +
+                              "  y lo pueden hacer varias veces dependiendo de lo exaltados que estén, cuando se enfadan.\n";
                 break;
             case "Low_doe_v01":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                              "  Nombre : Ciervo o Venado.\n" +
+                              "  Especie : Cervidae.\n" +
+                              "  Sexo : Hembra.\n" +
+                              "  Habitad : Bosques de Europa, Asia, América, norte de África y algunas zonas árticas.\n" +
+                              "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
+                              "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                              "  Fisico : Altura de 1,30 a 1,90 m (no tienen astas), peso entre 30 y 200 kg.\n" +
+                              "  largo del cuerpo de 1,60 a 2,00 m.\n" +
+                              "  Observaciones : Preocupacion menor. Es victima de la caza deportiva. El ciervo común\n" +
+                              "  es presa de múltiples carnívoros (linces, lobos, osos, leopardos y pumas). Los las crias\n" +
+                              "  son cazadas por zorros, gatos salvajes y águilas.\n" +
+                              "  Los venados se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
+                              "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos.\n";
                 break;
             case "Low_Stag_v01":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                              "  Nombre : Ciervo o Venado.\n" +
+                              "  Especie : Cervidae.\n" +
+                              "  Sexo : Macho.\n" +
+                              "  Habitad : Bosques de Europa, Asia, América, norte de África y algunas zonas árticas.\n" +
+                              "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
+                              "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                              "  Fisico : Altura de 1,50 a 2,10 m (con astas), peso entre 30 y 200 kg.\n" +
+                              "  largo del cuerpo de 1,60 a 2,50 m.\n" +
+                              "  Observaciones : Preocupacion menor. Es victima de la caza deportiva. El ciervo común\n" +
+                              "  es presa de múltiples carnívoros (linces, lobos, osos, leopardos y pumas). Los las crias\n" +
+                              "  son cazadas por zorros, gatos salvajes y águilas.\n" +
+                              "  Los venados se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
+                              "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos.\n";
                 break;
             case "Horse":
                 retorno = "soy un zorro";
