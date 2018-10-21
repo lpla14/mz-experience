@@ -372,7 +372,7 @@ public class MenuInteracciones : MonoBehaviour {
         // En esas funciones, hacer un split, usando el espacio como caracter separador
 
         var nombreBaseAnimator = animal.Split(' ')[0];
-
+        //soy solo un comentario para probar el branch
         string retorno="";
         switch (nombreBaseAnimator)
         {
@@ -381,6 +381,9 @@ public class MenuInteracciones : MonoBehaviour {
                 break;
             case "Low_Fox_v01":
                 retorno="soy un zorro";
+                break;
+            case "Low_Moose_bull_v01":
+                retorno = "soy un zorro";
                 break;
             default:
                 retorno="nada";

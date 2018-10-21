@@ -121,9 +121,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.65712464
+  m_TransitionDuration: 2.85538
   m_TransitionOffset: 0
-  m_ExitTime: 0.086958095
+  m_ExitTime: 0.08695809
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -221,30 +221,6 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.85
   m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &1101894812363577938
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: isHowling
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102427124759074650}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.4215736
-  m_TransitionOffset: 0
-  m_ExitTime: 0.01758539
-  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -429,8 +405,8 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Howl
-  m_Speed: 2
+  m_Name: Wolf_Howl
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101175250767069872}
@@ -485,7 +461,6 @@ AnimatorState:
   m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 1101894812363577938}
   - {fileID: 1101487541758669988}
   - {fileID: 1101125427316812830}
   - {fileID: 1101165421043848836}
@@ -545,22 +520,22 @@ AnimatorStateMachine:
     m_Position: {x: 264, y: 96, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102427124759074650}
-    m_Position: {x: 132, y: 300, z: 0}
+    m_Position: {x: 636, y: -252, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102103098463771278}
-    m_Position: {x: 408, y: -132, z: 0}
+    m_Position: {x: 444, y: -276, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102989411904675992}
-    m_Position: {x: 624, y: -48, z: 0}
+    m_Position: {x: 396, y: -132, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102227130444981380}
-    m_Position: {x: 432, y: 276, z: 0}
+    m_Position: {x: 228, y: -264, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102275075139256338}
     m_Position: {x: 180, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102588728518039664}
-    m_Position: {x: 636.91113, y: 203.86914, z: 0}
+    m_Position: {x: 600, y: -144, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
