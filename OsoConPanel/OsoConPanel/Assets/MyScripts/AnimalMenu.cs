@@ -28,17 +28,18 @@ public class AnimalMenu : MonoBehaviour
     void Update()
     {
         if (GetComponent<MenuInteracciones>().mostrarMenu) return;
+
         
         if (canvas != null && animTransform != null)
         {
-            canvas.transform.position = new Vector3(animTransform.position.x, animTransform.position.y + 3, animTransform.position.z);
+            canvas.transform.position = new Vector3(animTransform.position.x + 2, animTransform.position.y + 3, animTransform.position.z);
 
             if (myCamera != null)
             {
                 canvas.transform.LookAt(myCamera.transform);
             }
         }
-        canvas.transform.LookAt(myCamera.transform);
+        
         if (bInteractuar != null && bInteractuar.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.P)/*Input.GetKeyDown(Botones.BOTON_A)*/)

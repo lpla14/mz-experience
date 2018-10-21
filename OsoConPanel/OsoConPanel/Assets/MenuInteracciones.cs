@@ -17,6 +17,7 @@ public class MenuInteracciones : MonoBehaviour {
     private GameObject bInfo;
     private GameObject bVolver;
     
+    
     public bool mostrarMenu = false;
     
     public Animator animator;
@@ -34,10 +35,11 @@ public class MenuInteracciones : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
+        //dejando esta linea afuera el canvas se actualiza su posision
+       canvas.transform.LookAt(myCamera.transform);
         if (canvas != null && animTransform != null)
         {
-            canvas.transform.position = new Vector3(animTransform.position.x, animTransform.position.y + 3, animTransform.position.z);
+            canvas.transform.position = new Vector3(animTransform.position.x + 2, animTransform.position.y + 3, animTransform.position.z);
 
             if (myCamera != null)
             {
@@ -64,10 +66,12 @@ public class MenuInteracciones : MonoBehaviour {
 
                 MostrarMenu(true);
                 interaccion = -1;
+                
             }
             else if (interaccion == AnimacionesAnimales.ACCION_VER_INFO)
-            {
-                 bInfo.SetActive(true);
+            {   
+                
+                bInfo.SetActive(true);
                  bVolver.SetActive(true);
                  interaccion = -1;
 
@@ -503,7 +507,20 @@ public class MenuInteracciones : MonoBehaviour {
                               "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos.\n";
                 break;
             case "Horse":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                            "  Nombre : Caballo .\n" +
+                            "  Especie : Equus ferus caballus.\n" +
+                            "  Habitad : Cualquier lugar con clima calido y templado,Ej. Estados Unidos, China, México,\n" +
+                            "  Brasil, Argentina, Colombia, Rusia, Kazajistán, Rumania, Alemania, Francia, etc.\n" +
+                            "  Dieta : Son herbívoros, con una dieta de hierba y otros materiales vegetales\n" +
+                            "  Fisico : Altura de 1,40 a 1,80 metros, con un peso de 380kg a 1000kg\n" +
+                            "  Observaciones : Se usan para practicas deportivas, desfiles, para terapia de chicos con\n" +
+                            "  capacidades distintas y eran usados como medio de transporte y herramientas militares.\n" +
+                            "  Habitos : Suelen ser curiosos, y cuando se asustan suelen investigar sobre la causa de\n" +
+                            "  su miedo y no siempre huyen. Han desarrollado velocidad, agilidad, resistencia y estado de\n" +
+                            "  alerta. Aunque por la cría selectiva algunas razas son más dóciles.\n" +
+                            "  Son animales sociales, establecen vínculos con individuos de su especie y con otros animales,\n" +
+                            "  incluidos los humanos";
                 break;
             case "Elephant":
                 retorno = "\n" +
@@ -568,10 +585,33 @@ public class MenuInteracciones : MonoBehaviour {
                          "  subterráneas.\n";
                 break;
             case "Spider":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                         "  Nombre : Araña  del Desierto.\n" +
+                         "  Especie : Cerbalus aravensis.\n" +
+                         "  Habitad : Dunas de Samaria, en la zona desértica de Aravá (Israel).\n" +
+                         "  Dieta : Su alimento habitual son los insectos y otras arañas, pero algunas se\n" +
+                         "  han visto comiendo ciempiés, cochinillas, e incluso pequeñas lagartijas.\n" +
+                         "  Fisico : Su tamaño pueden alcanzar los 14 cm de longitud, convirtiéndola en la\n" +
+                         "  araña más grande en su clase en Oriente Medio.\n" +
+                         "  Observaciones : La araña se encuentra en peligro de extinción. Su hábitat que está\n" +
+                         "  en peligro de desaparecer ya que es un reducto que, debido a la ocupación territorial\n" +
+                         "  del humano, es usado para la agricultura.\n" +
+                         "  Habitos : cuando las arañas pelean entre ellas, si reciben una picadura en una\n" +
+                         "  extremidad estás se la amputan para evitar que el veneno llegue al resto del cuerpo.\n";
                 break;
             case "Snake":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                         "  Nombre : Cobra egipcia.\n" +
+                         "  Especie : Naja haje.\n" +
+                         "  Habitad : En desiertos y semidesiertos pastizales, en África del Norte.\n" +
+                         "  Dieta : Se alimenta de ratas, ratones, lagartijas y pájaros. Utiliza veneno\n" +
+                         "  inyectado a través de sus colmillos retráctiles para matar y digerir a su presa.\n" +
+                         "  Fisico : Esta cobra puede medir hasta 2,5 metros de longitud.\n" +
+                         "  Observaciones : La mayoría de las mordeduras ocurren cuando la serpiente de\n" +
+                         "  cascabel se pisa accidentalmente o es intencionalmente acosada.\n" +
+                         "  Habitos : Esta serpiente es muy territorial, atacando a cualquier amenaza para\n" +
+                         "  su territorio. Las hembras suelen poner entre 8 y 20 huevos en cada puesta. Los\n" +
+                         "  huevos eclosionan en un período de incubación de 60 días.\n";
                 break;
             default:
                 retorno="nada";
