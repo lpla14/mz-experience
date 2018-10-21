@@ -17,6 +17,7 @@ public class MenuInteracciones : MonoBehaviour {
     private GameObject bInfo;
     private GameObject bVolver;
     
+    
     public bool mostrarMenu = false;
     
     public Animator animator;
@@ -34,10 +35,11 @@ public class MenuInteracciones : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
+        //dejando esta linea afuera el canvas se actualiza su posision
+       canvas.transform.LookAt(myCamera.transform);
         if (canvas != null && animTransform != null)
         {
-            canvas.transform.position = new Vector3(animTransform.position.x, animTransform.position.y + 3, animTransform.position.z);
+            canvas.transform.position = new Vector3(animTransform.position.x + 2, animTransform.position.y + 3, animTransform.position.z);
 
             if (myCamera != null)
             {
@@ -64,10 +66,12 @@ public class MenuInteracciones : MonoBehaviour {
 
                 MostrarMenu(true);
                 interaccion = -1;
+                
             }
             else if (interaccion == AnimacionesAnimales.ACCION_VER_INFO)
-            {
-                 bInfo.SetActive(true);
+            {   
+                
+                bInfo.SetActive(true);
                  bVolver.SetActive(true);
                  interaccion = -1;
 
@@ -377,13 +381,237 @@ public class MenuInteracciones : MonoBehaviour {
         switch (nombreBaseAnimator)
         {
             case "Low_Bear_v01":
-                retorno = "soy un osito";
+                retorno = "\n" +
+                            "  Nombre : Oso Grizzly.\n" +
+                            "  Especie : Ursidae.\n" +
+                            "  Habitad : Zonas de Europa, Asia templada y norte de América.\n" +
+                            "  Dieta : Son omnívoros, comen vegetacion, pero también la carroña.\n" +
+                            "  Prefieren la miel pero cazan pequeños vertebrados, insectos y salmones.\n" +
+                            "  Fisico : Miden entre 1 y 2,8 m de longitud total y tienen una masa de promedio\n" +
+                            "  de 780 kg, Las patas son cortas y poderosas, pueden ser muy ágiles. El pelaje es\n" +
+                            "  largo y espeso, y generalmente marrón o negro.\n" +
+                            "  Observaciones : Una especie se considera bajo preocupación menor.\n" +
+                            "  Habitos : Pasan el invierno hibernando, guardando en los tejidos adiposos un 75% de\n" +
+                            "  la energía obtenida de los alimentos. Ingiere hierbas y tierra para formar un tapon\n" +
+                            "  para que los alimentos se vayan amontonando, en el intestino grueso, de esta forma no\n" +
+                            " deben ir al baño mientras hibernan, al despertarse de hibernar lo expulsan.\n";
                 break;
             case "Low_Fox_v01":
-                retorno="soy un zorro";
+                retorno = "\n" +
+                            "  Nombre : Zorro Rojo.\n" +
+                            "  Especie : Vulpes vulpes.\n" +
+                            "  Habitad : Bosques de Europa, Asia, norte de América y Australia.\n" +
+                            "  Dieta : Invertebrados(como los insectos, lombrices, cangrejos y moluscos) y pequeños\n" +
+                            "  mamíferos (como roedores, conejos y topos), aves, huevos, anfibios, reptiles y peces.\n" +
+                            "  Fisico : pesan de 3.6 a 7.6 kg. La longitud va de 46 a 90 cm y con una cola de unos 55cm.\n" +
+                            "  Observaciones : Una especie se considera bajo preocupación menor. En cautividad pueden \n" +
+                            "  vivir hasta los doce años, pero en la naturaleza no suelen sobrepasar los tres.\n" +
+                            "  Son cazados por su piel para hacer todo tipo de prendas.\n" +
+                            "  Habitos : Están más activos al anochecer, generalmente son cazadores solitarios. Si \n" +
+                            "  consigue más comida de la que puede comer, la enterrará para más tarde. Viven en guaridas,\n" +
+                            "  para dar a luz, criar a los recién nacidos y para almacenar comida.\n";
                 break;
             case "Low_Moose_bull_v01":
-                retorno = "soy un zorro";
+                retorno = "\n" +
+                            "  Nombre : Alces alces.\n" +
+                            "  Especie : Cervidae.\n" +
+                            "  Sexo : Macho.\n" +
+                            "  Habitad : Bosques de Rusia, Polonia, República Checa, Alemania, Alaska, Canadá y el\n" +
+                            "  norte de los Estados Unidos.\n" +
+                            "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
+                            "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                            "  Fisico : Altura de 1,50 a 2,15 m (con cornamenta 2,50 a 3,50 m), peso de 350 a 450 kgl y\n" +
+                            "  largo del cuerpo de 2,40 a 3,10 m.\n" +
+                            "  Observaciones : Una especie se considera bajo preocupación menor.\n" +
+                            "  Los alces se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
+                            "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos. Los alces\n" +
+                            "  permanecen fieles a sus territorios, que por otra parte no defienden de ningún modo.\n";
+                break;
+            case "Low_Moose_cow_v01":
+                retorno = "\n" +
+                             "  Nombre : Alces alces.\n" +
+                             "  Especie : Cervidae.\n" +
+                             "  Sexo : Hembra.\n" +
+                             "  Habitad : Bosques de Rusia, Polonia, República Checa, Alemania, Alaska, Canadá y el\n" +
+                             "  norte de los Estados Unidos.\n" +
+                             "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
+                             "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                             "  Fisico : Altura de 1,50 a 2,15 m (no tienen astas), peso de 350 a 450 kgl y\n" +
+                             "  largo del cuerpo de 2,40 a 3,10 m.\n" +
+                             "  Observaciones : Una especie se considera bajo preocupación menor.\n" +
+                             "  Los alces se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
+                             "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos. Los alces\n" +
+                             "  permanecen fieles a sus territorios, que por otra parte no defienden de ningún modo.\n";
+                break;
+            case "Low_PolarBear_v01":
+                retorno = "\n" +
+                           "  Nombre : Oso Polar.\n" +
+                           "  Especie : Ursidae.\n" +
+                           "  Habitad : Zona polar y heladas  como el Artico.\n" +
+                           "  Dieta : Se alimenta de animales árticos, como crías de focas y renos.\n" +
+                           "  No toman agua, ya que en su ambiente es salada y ácida, lo reemplazan\n" +
+                           "  con la sangre de sus presas.\n" +
+                           "  Fisico : Tienen una gruesa capa de grasa subcutánea y un denso pelaje,\n" +
+                           "  que no es blanco, sino translúcido (pelos huecos, al estar llenos de\n " +
+                           "  aire, son un buen aislante térmico).\n" +
+                           "  Observaciones : Su numero se ha reducido en al menos un 30 % debido a la caza.\n" +
+                           "  Habitos : Solo las hembras preñadas buscan refugio (aunque no hibernan), dando a\n" +
+                           "  luz una o dos crías. Al nacer pesan 700 g, no tienen ningún diente, son ciegas\n" +
+                           "  aprendiendo a buscar comida y a resguardarse de los machos adultos.\n";
+                break;
+            case "Low_Hare_v01":
+                retorno = "\n" +
+                              "  Nombre : Conejo Comun.\n" +
+                              "  Especie : Oryctolagus Cuniculus.\n" +
+                              "  Habitad : Europa, Rusia, Estados Unidos, Chile, Australia (donde son una la plaga ).\n" +
+                              "  Dieta : Es herbívoro, ingiere plantas, arbustos, matorrales,  raíces, semillas y bulbos.\n" +
+                              "  Fisico : El conejo salvaje mide de 34 a 50 cm, las orejas miden de 4 a 8 cm. Su peso varía\n" +
+                              "  de 1,2 a 2,5 kg. Posee una piel de color pardo para evitar a sus depredadores\n" +
+                              "  Observaciones : Los dientes de un conejo (sus incisivos, crecen sin cesar), debe\n" +
+                              "  desgastarlos con el fin de evitar que se vuelvan demasiado largos (lo que podría herirle).\n" +
+                              "  Son cazadas por zorros, gatos salvajes, águilas (entre otros depredadores).\n" +
+                              "  Habitos : Animal de hábitos nocturnos y crepusculares. Son muy silenciosos pero emiten\n" +
+                              "  fuertes chillidos cuando están asustados o heridos.Golpean el suelo con sus patas traseras,\n" +
+                              "  y lo pueden hacer varias veces dependiendo de lo exaltados que estén, cuando se enfadan.\n";
+                break;
+            case "Low_doe_v01":
+                retorno = "\n" +
+                              "  Nombre : Ciervo o Venado.\n" +
+                              "  Especie : Cervidae.\n" +
+                              "  Sexo : Hembra.\n" +
+                              "  Habitad : Bosques de Europa, Asia, América, norte de África y algunas zonas árticas.\n" +
+                              "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
+                              "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                              "  Fisico : Altura de 1,30 a 1,90 m (no tienen astas), peso entre 30 y 200 kg.\n" +
+                              "  largo del cuerpo de 1,60 a 2,00 m.\n" +
+                              "  Observaciones : Preocupacion menor. Es victima de la caza deportiva. El ciervo común\n" +
+                              "  es presa de múltiples carnívoros (linces, lobos, osos, leopardos y pumas). Los las crias\n" +
+                              "  son cazadas por zorros, gatos salvajes y águilas.\n" +
+                              "  Los venados se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
+                              "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos.\n";
+                break;
+            case "Low_Stag_v01":
+                retorno = "\n" +
+                              "  Nombre : Ciervo o Venado.\n" +
+                              "  Especie : Cervidae.\n" +
+                              "  Sexo : Macho.\n" +
+                              "  Habitad : Bosques de Europa, Asia, América, norte de África y algunas zonas árticas.\n" +
+                              "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
+                              "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                              "  Fisico : Altura de 1,50 a 2,10 m (con astas), peso entre 30 y 200 kg.\n" +
+                              "  largo del cuerpo de 1,60 a 2,50 m.\n" +
+                              "  Observaciones : Preocupacion menor. Es victima de la caza deportiva. El ciervo común\n" +
+                              "  es presa de múltiples carnívoros (linces, lobos, osos, leopardos y pumas). Los las crias\n" +
+                              "  son cazadas por zorros, gatos salvajes y águilas.\n" +
+                              "  Los venados se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
+                              "  Habitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos.\n";
+                break;
+            case "Horse":
+                retorno = "\n" +
+                            "  Nombre : Caballo .\n" +
+                            "  Especie : Equus ferus caballus.\n" +
+                            "  Habitad : Cualquier lugar con clima calido y templado,Ej. Estados Unidos, China, México,\n" +
+                            "  Brasil, Argentina, Colombia, Rusia, Kazajistán, Rumania, Alemania, Francia, etc.\n" +
+                            "  Dieta : Son herbívoros, con una dieta de hierba y otros materiales vegetales\n" +
+                            "  Fisico : Altura de 1,40 a 1,80 metros, con un peso de 380kg a 1000kg\n" +
+                            "  Observaciones : Se usan para practicas deportivas, desfiles, para terapia de chicos con\n" +
+                            "  capacidades distintas y eran usados como medio de transporte y herramientas militares.\n" +
+                            "  Habitos : Suelen ser curiosos, y cuando se asustan suelen investigar sobre la causa de\n" +
+                            "  su miedo y no siempre huyen. Han desarrollado velocidad, agilidad, resistencia y estado de\n" +
+                            "  alerta. Aunque por la cría selectiva algunas razas son más dóciles.\n" +
+                            "  Son animales sociales, establecen vínculos con individuos de su especie y con otros animales,\n" +
+                            "  incluidos los humanos";
+                break;
+            case "Elephant":
+                retorno = "\n" +
+                            "  Nombre : Elefante africano de Sabana.\n" +
+                            "  Especie : Proboscídeos.\n" +
+                            "  Habitad : Pequeñas zonas de Africa.\n" +
+                            "  Dieta : Son animales herbívoros, comen hierbas y hojas de árboles o arbustos.\n" +
+                            "  Fisico : Alcanzan 6 a 7 metros de longitud y de 3 a 3,5 metros de altura,\n" +
+                            "  con un peso de 5,4 a 6 toneladas. Poseen 2 colmillos en la mandíbula superior\n" +
+                            "  Observaciones : Una especie se considera vulnerable. Se ha perseguido por sus valiosos\n" +
+                            "  colmillos. Por suerte, goza actualmente de proteccion, los gobiernos africanos imponen\n" +
+                            "  cada vez penas más duras contra el furtivismo.​ Los cazadores que matan a estos animales\n" +
+                            "  tienen que pagar una multa de 10.000 € y se les retira la licencia de caza.\n" +
+                            "  Habitos : Las manadas están formadas por hembras emparentadas y sus crías, dirigidas por\n"+
+                            "  la hembra de mayor edad. Las acompaña algún macho adulto, los machos suelen llevar una \n" +
+                            "  vida solitaria, no obstante, tampoco se alejan en exceso de su familia y la reconocen \n" +
+                            "  perfectamente cuando vuelven a encontrarla.\n" ;
+                break;
+            case "Giraffe":
+                retorno = "\n" +
+                          "  Nombre : Jirafa.\n" +
+                          "  Especie : Giraffa camelopardalis.\n" +
+                          "  Habitad : De Africa, se extiende de Chad( norte) hasta Sudáfrica, y Niger.\n" +
+                          "  Dieta : Las ramas de los árboles, arbustos, hierbas y frutas.\n" +
+                          "  Fisico : Las jirafas adultas pueden alcanzar una altura de 5–6 m (los machos\n" +
+                          "  adultos son más grandes que las hembras).​ Un peso promedio de 1192 kg(macho)\n" +
+                          "  y 828 kg(hembra). \n" +
+                          "  Observaciones : clasificarla como una especie vulnerable, aunque se observo\n" +
+                          "  una disminución de la población de hasta el 40 % en el período 1985-2015.\n" +
+                          "  Habitos : Tienen pocos vínculos sociales fuertes y las agrupaciones suelen\n" +
+                          "  cambiar de miembros cada pocas horas, los más estables están compuestos de\n" +
+                          "  las madres y sus crías. Las jirafas no son territoriales.\n";
+                break;
+            case "Wolf":
+                retorno = "\n" + 
+                          "  Nombre : Lobo.\n" +
+                          "  Especie : Canis Lupus.\n" +
+                          "  Habitad : Norteamérica, Eurasia y el Oriente Medio.\n" +
+                          "  Dieta : Carne de otros animales, como cerdos, ciervos, cabras, ovejas\n" +
+                          "  pueden comer animales marinos, como foca o pescado.\n" +
+                          "  Fisico : La altura varía entre los 60 y los 90 centímetros hasta el \n" +
+                          "  hombro, y tienen un peso de entre 32 y 70 kilos.\n" +
+                          "  Observaciones : Especie poco amenazada. son cazados por ser una amenaza\n" +
+                          "  para el ganado y por deporte.\n" +
+                          "  Habitos : Se organizan en manadas(de esto depende el exito a la hora de\n" +
+                          "  cazar), la manada la lideran dos individuos: el macho reproductor y la\n" +
+                          "  hembra reproductora.\n";
+                break;
+            case "Penguin":
+                retorno = "\n" +
+                         "  Nombre : Pingüino.\n" +
+                         "  Especie : Spheniscidae.\n" +
+                         "  Habitad : Viajan por las costas de la Antártida, Nueva Zelanda, sur de\n" +
+                         "  Australia, Sudáfrica, Perú, Chile y la Patagonia Argentina.\n" +
+                         "  Dieta : Se alimentan de peces y cefalópodos o plancton\n" +
+                         "  Fisico : Aves no voladoras adaptadas al buceo propulsado por las alas.\n" +
+                         "  El tiempo maximo bajo el agua sin respirar es de 18 minutos. Corriendo\n" +
+                         "  alcanzan velocidades hasta 60 km/h, su vel. normal es de entre 5 a 10km/h.\n" +
+                         "  Observaciones : Especie amenazadas o vulnerables.\n" +
+                         "  Habitos : Los pingüinos se comunican a través de su graznido, normalmente\n" +
+                         "  solo tienen un pichon. Sus nidos son sencillos y algunas veces anidan galerías\n" +
+                         "  subterráneas.\n";
+                break;
+            case "Spider":
+                retorno = "\n" +
+                         "  Nombre : Araña  del Desierto.\n" +
+                         "  Especie : Cerbalus aravensis.\n" +
+                         "  Habitad : Dunas de Samaria, en la zona desértica de Aravá (Israel).\n" +
+                         "  Dieta : Su alimento habitual son los insectos y otras arañas, pero algunas se\n" +
+                         "  han visto comiendo ciempiés, cochinillas, e incluso pequeñas lagartijas.\n" +
+                         "  Fisico : Su tamaño pueden alcanzar los 14 cm de longitud, convirtiéndola en la\n" +
+                         "  araña más grande en su clase en Oriente Medio.\n" +
+                         "  Observaciones : La araña se encuentra en peligro de extinción. Su hábitat que está\n" +
+                         "  en peligro de desaparecer ya que es un reducto que, debido a la ocupación territorial\n" +
+                         "  del humano, es usado para la agricultura.\n" +
+                         "  Habitos : cuando las arañas pelean entre ellas, si reciben una picadura en una\n" +
+                         "  extremidad estás se la amputan para evitar que el veneno llegue al resto del cuerpo.\n";
+                break;
+            case "Snake":
+                retorno = "\n" +
+                         "  Nombre : Cobra egipcia.\n" +
+                         "  Especie : Naja haje.\n" +
+                         "  Habitad : En desiertos y semidesiertos pastizales, en África del Norte.\n" +
+                         "  Dieta : Se alimenta de ratas, ratones, lagartijas y pájaros. Utiliza veneno\n" +
+                         "  inyectado a través de sus colmillos retráctiles para matar y digerir a su presa.\n" +
+                         "  Fisico : Esta cobra puede medir hasta 2,5 metros de longitud.\n" +
+                         "  Observaciones : La mayoría de las mordeduras ocurren cuando la serpiente de\n" +
+                         "  cascabel se pisa accidentalmente o es intencionalmente acosada.\n" +
+                         "  Habitos : Esta serpiente es muy territorial, atacando a cualquier amenaza para\n" +
+                         "  su territorio. Las hembras suelen poner entre 8 y 20 huevos en cada puesta. Los\n" +
+                         "  huevos eclosionan en un período de incubación de 60 días.\n";
                 break;
             default:
                 retorno="nada";
