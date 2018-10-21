@@ -382,6 +382,9 @@ public class MenuInteracciones : MonoBehaviour {
             case "Low_Fox_v01":
                 retorno="soy un zorro";
                 break;
+            case "Low_Moose_bull_v01":
+                retorno = "soy un zorro";
+                break;
             default:
                 retorno="nada";
                 break;
