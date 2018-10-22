@@ -620,7 +620,7 @@ public class MenuInteracciones : MonoBehaviour {
 
     public void OcultarPanelInfo(string nombreAnimal)
     {
-        if (AnimacionesAnimales.mostrandoInformacionAnimal != nombreAnimal && bInfo.activeSelf)
+        if (AnimacionesAnimales.mostrandoInformacionAnimal != nombreAnimal && bInfo != null && bInfo.activeSelf)
         {
             bInfo.SetActive(false);
             bVolver.SetActive(false);
