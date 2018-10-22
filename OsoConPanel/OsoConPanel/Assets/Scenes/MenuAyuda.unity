@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -271,7 +271,6 @@ GameObject:
   m_Component:
   - component: {fileID: 77997254}
   - component: {fileID: 77997258}
-  - component: {fileID: 77997257}
   - component: {fileID: 77997256}
   - component: {fileID: 77997259}
   m_Layer: 0
@@ -312,22 +311,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   maxRaycastHits: 64
---- !u!54 &77997257
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 54970708969687920, guid: 5da23109e9df7694cb0011dcf754978d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 77997253}
-  serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!143 &77997258
 CharacterController:
   m_ObjectHideFlags: 0
@@ -432,7 +415,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 226041422}
-  - component: {fileID: 226041425}
   - component: {fileID: 226041424}
   - component: {fileID: 226041423}
   m_Layer: 0
@@ -483,18 +465,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   component: cardboard
   enableVR: 1
---- !u!114 &226041425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114746056668087752, guid: 5da23109e9df7694cb0011dcf754978d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 226041421}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6907bb9fd9f6740a55700c389d0d51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &242238061
 GameObject:
   m_ObjectHideFlags: 0
