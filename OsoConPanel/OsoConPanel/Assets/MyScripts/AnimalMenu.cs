@@ -32,7 +32,7 @@ public class AnimalMenu : MonoBehaviour
         
         if (canvas != null && animTransform != null)
         {
-            canvas.transform.position = new Vector3(animTransform.position.x + 2, animTransform.position.y + 3, animTransform.position.z);
+            canvas.transform.position = new Vector3(animTransform.position.x + 1 , animTransform.position.y + 3, animTransform.position.z);
 
             if (myCamera != null)
             {
@@ -87,7 +87,7 @@ public class AnimalMenu : MonoBehaviour
 
     IEnumerator OcultarBotonInteractuar()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(10);
         //bInteractuar.SetActive(false);
         MostrarBotonInteractuar(false);
     }
@@ -125,14 +125,22 @@ public class AnimalMenu : MonoBehaviour
         }
     }
 
-    public void SetAnimator(Animator animator)
+    public void Init(Animator animator)
     {
-        if (animator == null) return;
+        var nombreAnimal = "";
 
-        this.animator = animator.GetComponent<Animator>();
+        if (animator != null)
+        { 
+            this.animator = animator.GetComponent<Animator>();
 
-        this.animTransform = animator.transform;
-        AddMenuButtonsEventTriggers();
+            nombreAnimal = animator.name;
+
+            this.animTransform = animator.transform;
+            AddMenuButtonsEventTriggers();
+        }
+
+        GetComponent<MenuInteracciones>().OcultarPanelInfo(nombreAnimal);
+        MostrarBotonInteractuar(true);
     }
 
     public void MostrarBotonInteractuar(bool mostrar)

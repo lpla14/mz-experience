@@ -17,7 +17,6 @@ public class MenuInteracciones : MonoBehaviour {
     private GameObject bInfo;
     private GameObject bVolver;
     
-    
     public bool mostrarMenu = false;
     
     public Animator animator;
@@ -46,8 +45,8 @@ public class MenuInteracciones : MonoBehaviour {
                 canvas.transform.LookAt(myCamera.transform);
             }
         }
-
-        if ( interaccion > 0 && Input.GetKeyDown( KeyCode.K ) )
+        
+        if ( interaccion > -1 && ( Input.GetKeyDown( KeyCode.P ) || Input.GetKeyDown(Botones.BOTON_R1 ) ) )
         {
             MostrarMenu(false);
             bVolver.GetComponent<Button>().interactable = true;
@@ -66,22 +65,21 @@ public class MenuInteracciones : MonoBehaviour {
 
                 MostrarMenu(true);
                 interaccion = -1;
-                
+
+                AnimacionesAnimales.mostrandoInformacionAnimal = animator.name;
             }
             else if (interaccion == AnimacionesAnimales.ACCION_VER_INFO)
             {   
-                
                 bInfo.SetActive(true);
-                 bVolver.SetActive(true);
-                 interaccion = -1;
-
+                bVolver.SetActive(true);
+                interaccion = -1;
 
                 // El animator name es el nombre del game object completo en unity. Ej "Low_Bear_v01", "Low_Bear_v01 (1)"
                 // En las funciones de buscarInfo del animal y GetNombreAnimacion, hay que usar el nombre base (para los dos osos sería "Low_Bear_v01")
                 // En esas funciones, hacer un split del animator.name, usando el espacio como caracter separador
 
                 string info = BuscarInfo(animator.name);
-                 GameObject.Find("bInfo").GetComponentInChildren<Text>().text = info;
+                GameObject.Find("bInfo").GetComponentInChildren<Text>().text = info;
             }
             else
             {
@@ -198,8 +196,7 @@ public class MenuInteracciones : MonoBehaviour {
         bDeseleccionar.SetActive(mostrarMenu);
         bInfo.SetActive(mostrarMenu);
         bVolver.SetActive(mostrarMenu);
-
-
+        
         bInfo.SetActive(false);
         bVolver.SetActive(false);
 
@@ -619,5 +616,17 @@ public class MenuInteracciones : MonoBehaviour {
         }
 
         return retorno;
+    }
+
+    public void OcultarPanelInfo(string nombreAnimal)
+    {
+        if (AnimacionesAnimales.mostrandoInformacionAnimal != nombreAnimal && bInfo.activeSelf)
+        {
+            bInfo.SetActive(false);
+            bVolver.SetActive(false);
+        }
+
+        this.enabled = false;
+
     }
 }

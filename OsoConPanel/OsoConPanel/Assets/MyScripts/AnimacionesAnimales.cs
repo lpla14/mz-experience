@@ -19,6 +19,8 @@ public class AnimacionesAnimales : MonoBehaviour
     public static int ACCION_DESELECCIONAR   = 7;
     public static int ACCION_VOLVER_VER_INFO = 8;
 
+    public static string mostrandoInformacionAnimal = "";
+
     void Start()
     {
         Init();
