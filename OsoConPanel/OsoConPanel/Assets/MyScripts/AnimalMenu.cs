@@ -42,7 +42,7 @@ public class AnimalMenu : MonoBehaviour
         
         if (bInteractuar != null && bInteractuar.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.P)/*Input.GetKeyDown(Botones.BOTON_A)*/)
+            if (Input.GetKeyDown(KeyCode.T)/*Input.GetKeyDown(Botones.BOTON_A)*/)
             {
                 // se activa on pointer enter del animal y se desactiva on pointer exit
                 //bInteractuar.SetActive(false);

@@ -46,7 +46,7 @@ public class MenuInteracciones : MonoBehaviour {
             }
         }
         
-        if ( interaccion > -1 && ( Input.GetKeyDown( KeyCode.P ) || Input.GetKeyDown(Botones.BOTON_R1 ) ) )
+        if ( interaccion > -1 && ( Input.GetKeyDown( KeyCode.T ) || Input.GetKeyDown(Botones.BOTON_R1 ) ) )
         {
             MostrarMenu(false);
             bVolver.GetComponent<Button>().interactable = true;
@@ -393,6 +393,21 @@ public class MenuInteracciones : MonoBehaviour {
                             "  para que los alimentos se vayan amontonando, en el intestino grueso, de esta forma no\n" +
                             " deben ir al baño mientras hibernan, al despertarse de hibernar lo expulsan.\n";
                 break;
+            case "Low_Boar_v01":
+                retorno = "\n" +
+                            "  Nombre : Jabalí.\n" +
+                            "  Especie : Sus scrofa.\n" +
+                            "  Habitad : Su distribución original se corresponde con gran parte de Eurasia y norte de\n" +
+                            "  África, ha sido introducido por el hombre en América y Oceanía.\n" +
+                            "  Dieta : Son omnívoros, comen vegetacion, pero también la carroña.\n" +
+                            "  Prefieren la miel pero cazan pequeños vertebrados, insectos y salmones.\n" +
+                            "  Fisico : 90 cm - 160 cm de longitud total, los machos pesan entre 70 y 90 kg, las\n" +
+                            "  hembras entre 40 y 65 kg (puede llegar a alcanzar los 145 kg). \n" +
+                            "  Observaciones : Una especie se considera bajo preocupación menor.\n" +
+                            "  Habitos : Los baños de barro desempeñan un importante papel, considerándose\n" +
+                            "  que tienen varias funciones. Así aseguran su regulación térmica, ya que el jabalí\n" +
+                            "  no suda al tener las glándulas sudoríparas atrofiadas.\n";
+                break;
             case "Low_Fox_v01":
                 retorno = "\n" +
                             "  Nombre : Zorro Rojo.\n" +
@@ -407,6 +422,22 @@ public class MenuInteracciones : MonoBehaviour {
                             "  Habitos : Están más activos al anochecer, generalmente son cazadores solitarios. Si \n" +
                             "  consigue más comida de la que puede comer, la enterrará para más tarde. Viven en guaridas,\n" +
                             "  para dar a luz, criar a los recién nacidos y para almacenar comida.\n";
+                break;
+            case "Low_Coyote_v01":
+                retorno = "\n" +
+                            "  Nombre : Coyote.\n" +
+                            "  Especie : Canis latrans.\n" +
+                            "  Habitad : Solo se encuentran en América del Norte, América Central y recientemente\n" +
+                            "  América del Sur( desde Canadá hasta Colombia).\n" +
+                            "  Dieta : Es omnívoro, y se adapta a las fuentes disponibles, incluyendo frutas, hierbas y\n" +
+                            "  otros vegetales. Cazan solos, mamíferos pequeños (EJ. musarañas) o pequeños insectos. \n" +
+                            "  Fisico : Mide menos de 60 cm de altura, y su color varía desde el gris hasta el canela,\n" +
+                            "  a veces con un tinte rojizo. Las orejas y el hocico del coyote parecen largos en relación\n" +
+                            "  al tamaño de su cabeza. Pesa entre 10 y 25 kg, promediando 15\n" +
+                            "  Observaciones : Una especie se considera bajo preocupación menor.\n" +
+                            "  Habitos : Cazan solos o en parejas monógamas, tienen camadas de 4 a 6 cachorros. \n" +
+                            "  El aullido es engañoso debido a las características del sonido, puede parecer que el coyote\n" +
+                            "  está en un lugar, cuando realmente se encuentra en otra parte\n";
                 break;
             case "Low_Moose_bull_v01":
                 retorno = "\n" +
