@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class volverAmbiente1 : MonoBehaviour
+public class volverAmbiente : MonoBehaviour
 {
 
     // Use this for initialization
@@ -16,7 +16,7 @@ public class volverAmbiente1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(Botones.BOTON_R1))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             var a = FindObjectOfType<LoadScenePausa>();
             Debug.Log(a.ambiente);

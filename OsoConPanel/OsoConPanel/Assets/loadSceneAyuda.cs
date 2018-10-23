@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbrirMenuPausa : MonoBehaviour {
+public class loadSceneAyuda : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
