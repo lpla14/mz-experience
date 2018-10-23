@@ -41,6 +41,15 @@ public class AnimacionesAnimales : MonoBehaviour
             { ACCION_DORMIR,        "Arm_bear|sleep_start" },
             { ACCION_CORRER,        "Arm_bear|run"         }
         });
+        mapAnimaciones.Add("Low_Boar_v01", new Dictionary<int, string>
+        {
+            { ACCION_COMER,         "Arm_boar|eat_2"         },
+            { ACCION_ACARICIAR,     "Arm_bear|idle_2"        },
+            { ACCION_FINGIR_MUERTE, "Arm_boar|die"           },
+            { ACCION_DESPERTAR,     "Arm_boar|up"            },
+            { ACCION_DORMIR,        "Arm_boar|down"          },
+            { ACCION_CORRER,        "Arm_bear|run"           }
+        });
         mapAnimaciones.Add("Low_PolarBear_v01", new Dictionary<int, string>
         {
             { ACCION_COMER,         "Arm_bear|eat"         },
@@ -52,6 +61,15 @@ public class AnimacionesAnimales : MonoBehaviour
         });
 
         mapAnimaciones.Add("Low_Fox_v01", new Dictionary<int, string>
+        {
+            { ACCION_COMER,         "Arm_fox|eat_1"       },
+            { ACCION_ACARICIAR,     "Arm_fox|hate"        },
+            { ACCION_FINGIR_MUERTE, "Arm_fox|dead"        },
+            { ACCION_DESPERTAR,     "Arm_fox|sleep_end"   },
+            { ACCION_DORMIR,        "Arm_fox|sleep_start" },
+            { ACCION_CORRER,        "Arm_fox|run"         }
+        });
+        mapAnimaciones.Add("Low_Coyote_v01", new Dictionary<int, string>
         {
             { ACCION_COMER,         "Arm_fox|eat_1"       },
             { ACCION_ACARICIAR,     "Arm_fox|hate"        },
