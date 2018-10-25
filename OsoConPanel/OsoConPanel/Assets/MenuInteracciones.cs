@@ -25,7 +25,7 @@ public class MenuInteracciones : MonoBehaviour {
     public Camera myCamera;
     public Transform animTransform;
 
-    private int interaccion;
+    private int interaccion = -1;
     private bool init = false;
     
     void Start () {
@@ -69,7 +69,24 @@ public class MenuInteracciones : MonoBehaviour {
                 AnimacionesAnimales.mostrandoInformacionAnimal = animator.name;
             }
             else if (interaccion == AnimacionesAnimales.ACCION_VER_INFO)
-            {   
+            {
+                //bInfo y bVolver estan debajo del plano al cargar la escena
+                if (bInfo.transform.localPosition.y == -1000)
+                {
+                    bInfo.transform.localPosition = new Vector3(
+                        bInfo.transform.localPosition.x,
+                        37,
+                        bInfo.transform.localPosition.z);
+                }
+
+                if (bVolver.transform.localPosition.y == -1000)
+                {
+                    bVolver.transform.localPosition = new Vector3(
+                        bVolver.transform.localPosition.x,
+                        -120,
+                        bVolver.transform.localPosition.z);
+                }
+ 
                 bInfo.SetActive(true);
                 bVolver.SetActive(true);
                 interaccion = -1;
