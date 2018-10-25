@@ -45,7 +45,21 @@ public class MenuInteracciones : MonoBehaviour {
                 canvas.transform.LookAt(myCamera.transform);
             }
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetKeyDown(Botones.BOTON_R2))
+        {
+            if (bInfo.activeSelf)
+            {
+                ActionVolverVerInfo();
+            }
+            else
+            {
+                MostrarMenu(false);
+                ActionDeseleccionar();
+            }
+            
+        }
+
         if ( interaccion > -1 && ( Input.GetKeyDown( KeyCode.T ) || Input.GetKeyDown(Botones.BOTON_R1 ) ) )
         {
             MostrarMenu(false);
@@ -54,19 +68,11 @@ public class MenuInteracciones : MonoBehaviour {
 
             if ( interaccion == AnimacionesAnimales.ACCION_DESELECCIONAR ) 
             {
-                interaccion = -1;
-                GetComponent<MenuInteracciones>().animator = null;
-                GetComponent<MenuInteracciones>().enabled = false;
+                ActionDeseleccionar();
             }
             if ( interaccion == AnimacionesAnimales.ACCION_VOLVER_VER_INFO )
             {
-                bInfo.SetActive(false);
-                bVolver.SetActive(false);
-
-                MostrarMenu(true);
-                interaccion = -1;
-
-                AnimacionesAnimales.mostrandoInformacionAnimal = animator.name;
+                ActionVolverVerInfo();
             }
             else if (interaccion == AnimacionesAnimales.ACCION_VER_INFO)
             {
@@ -130,6 +136,24 @@ public class MenuInteracciones : MonoBehaviour {
                 interaccion = -1;
             }
         }
+    }
+    
+    public void ActionDeseleccionar()
+    {
+        interaccion = -1;
+        GetComponent<MenuInteracciones>().animator = null;
+        GetComponent<MenuInteracciones>().enabled = false;
+    }
+
+    public void ActionVolverVerInfo()
+    {
+        bInfo.SetActive(false);
+        bVolver.SetActive(false);
+
+        MostrarMenu(true);
+        interaccion = -1;
+
+        AnimacionesAnimales.mostrandoInformacionAnimal = animator.name;
     }
 
     public void Init()
