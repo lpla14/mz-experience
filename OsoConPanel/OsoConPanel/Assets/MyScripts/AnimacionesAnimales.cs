@@ -128,27 +128,27 @@ public class AnimacionesAnimales : MonoBehaviour
             { ACCION_DORMIR,        "sleep_start" },
             { ACCION_CORRER,        "run"         }
         });
-        //ver como reemplazar dormir y despertarse del caballo
+        //ver como reemplazar dormir y despertarse del caballo//done
         mapAnimaciones.Add("Horse", new Dictionary<int, string>
         {
             { ACCION_COMER,         "Horse_Eating"       },
-            { ACCION_ACARICIAR,     "Horse_Hate"        },
+            { ACCION_ACARICIAR,     "Horse_StepBack"        },
             { ACCION_FINGIR_MUERTE, "Horse_Dead"        },
-            { ACCION_DESPERTAR,     "Horse_sleep_end"   },
-            { ACCION_DORMIR,        "Horse_sleep_start" },
+            { ACCION_DESPERTAR,     "Horse_Idle"   },
+            { ACCION_DORMIR,        "Horse_sleep" },
             { ACCION_CORRER,        "Horse_Run"         }
         });
-        //ver como reemplazar dormir y despertarse del elefante
+        //ver como reemplazar dormir y despertarse del elefante//done but wake up is awful
         mapAnimaciones.Add("Elephant", new Dictionary<int, string>
         {
             { ACCION_COMER,         "Elephant_Water"       },
             { ACCION_ACARICIAR,     "Elephant_Attack"        },
             { ACCION_FINGIR_MUERTE, "Elephant_Death"        },
-            { ACCION_DESPERTAR,     "Elephant_sleep_end"   },
-            { ACCION_DORMIR,        "Elephant_sleep_start" },
+            { ACCION_DESPERTAR,     "Elephant_wakeup"   },
+            { ACCION_DORMIR,        "Elephant_sleep" },
             { ACCION_CORRER,        "Elephant_Run"         }
         });
-        //ver como reemplazar dormir, acariciar, y despertarse del giraffe
+        //ver como reemplazar dormir, acariciar, y despertarse del giraffe//done but wake up is awful
         mapAnimaciones.Add("Giraffe", new Dictionary<int, string>
         {
             { ACCION_COMER,         "Giraffe_Eating"       },
@@ -168,7 +168,7 @@ public class AnimacionesAnimales : MonoBehaviour
             { ACCION_DORMIR,        "Wolf_sleep_start" },
             { ACCION_CORRER,        "Wolf_Run"         }
         });
-        //ver como reemplazar dormir, y despertarse del penguin
+        //ver como reemplazar dormir, y despertarse del penguin//done
         mapAnimaciones.Add("Penguin", new Dictionary<int, string>
         {
             { ACCION_COMER,         "Penguin_Shake"       },
@@ -176,7 +176,7 @@ public class AnimacionesAnimales : MonoBehaviour
             { ACCION_FINGIR_MUERTE, "Penguin_Death"        },
             { ACCION_DESPERTAR,     "Penguin_end"   },
             { ACCION_DORMIR,        "Penguin_start" },
-            { ACCION_CORRER,        "Penguin_"         }
+            { ACCION_CORRER,        "Penguin_Run"         }
         });
 
         mapAnimaciones.Add("Spider", new Dictionary<int, string>
@@ -188,14 +188,14 @@ public class AnimacionesAnimales : MonoBehaviour
             { ACCION_DORMIR,        "Spider_Death 2" },
             { ACCION_CORRER,        "Spider_Walk"         }
         });
-        //la serpiente no responde, borrar y volver a importar el asset
+        //la serpiente no responde, borrar y volver a importar el asset//done
         mapAnimaciones.Add("Snake", new Dictionary<int, string>
         {
             { ACCION_COMER,         "Snake_Attack"       },
             { ACCION_ACARICIAR,     "Snake_Idle"        },
-            { ACCION_FINGIR_MUERTE, "Snake_Death 3"        },
-            { ACCION_DESPERTAR,     "Snake_Death 1"   },
-            { ACCION_DORMIR,        "Snake_Death 2" },
+            { ACCION_FINGIR_MUERTE, "Snake_Death"        },
+            { ACCION_DESPERTAR,     "Snake_wakeup"   },
+            { ACCION_DORMIR,        "Snake_sleep" },
             { ACCION_CORRER,        "Snake_Slither"         }
         });
 
