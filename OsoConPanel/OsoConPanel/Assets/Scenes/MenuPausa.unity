@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -309,15 +309,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1029970287}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: MainMenuScene
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -326,15 +326,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1029970287}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: '""'
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -745,15 +745,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1953735817}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: AMBIENTE
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -762,9 +762,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1953735817}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1111,15 +1111,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1954688059}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: MenuAyuda
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1128,15 +1128,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1954688059}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: '""'
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1261,15 +1261,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2082015032}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: MenuSeleccion
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1278,15 +1278,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2082015032}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: '""'
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1631,15 +1631,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1283768063}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: MenuOpciones
             m_BoolArgument: 1
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1648,15 +1648,15 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1283768063}
-          m_MethodName: set_enabled
-          m_Mode: 6
+        - m_Target: {fileID: 1464811924}
+          m_MethodName: SetNuevaEscena
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: '""'
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1029970286}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dda58347bf75634f86ee9d25e9c4230, type: 3}
+  m_Script: {fileID: 11500000, guid: 59cf1aa580bff4e4890cae28c8a24a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1029970288
@@ -1839,8 +1839,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1283768061}
-  - component: {fileID: 1283768060}
-  - component: {fileID: 1283768059}
   - component: {fileID: 1283768062}
   - component: {fileID: 1283768063}
   m_Layer: 0
@@ -1850,29 +1848,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1283768059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1283768058}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dda58347bf75634f86ee9d25e9c4230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1283768060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1283768058}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: MenuOpciones
 --- !u!4 &1283768061
 Transform:
   m_ObjectHideFlags: 0
@@ -2254,6 +2229,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 403732, guid: 569de702544af5640a5d0a5be8f24786,
     type: 2}
   m_PrefabInternal: {fileID: 1443735086}
+--- !u!1 &1464811923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1464811925}
+  - component: {fileID: 1464811924}
+  m_Layer: 0
+  m_Name: MenuListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1464811924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464811923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563eb251ceef8cf478d9e2e301dd3c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nuevaEscena: 
+--- !u!4 &1464811925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464811923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 97.190315, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1556459135
 GameObject:
   m_ObjectHideFlags: 0
@@ -3209,8 +3225,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1954688057}
-  - component: {fileID: 1954688056}
-  - component: {fileID: 1954688055}
   - component: {fileID: 1954688059}
   - component: {fileID: 1954688058}
   m_Layer: 0
@@ -3220,29 +3234,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1954688055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1954688054}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dda58347bf75634f86ee9d25e9c4230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1954688056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1954688054}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: MenuAyuda
 --- !u!4 &1954688057
 Transform:
   m_ObjectHideFlags: 0
@@ -3280,6 +3271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4259a0a1848e7241a655cf1f3bb67f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
+  ambiente: 
 --- !u!1 &1989753548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,34 +3447,6 @@ Prefab:
     - {fileID: 114557763894148378, guid: bb8a7fba6e7b0de4da3b4c5b61f7b768, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: bb8a7fba6e7b0de4da3b4c5b61f7b768, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &2082015031 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1583148656563976, guid: bb8a7fba6e7b0de4da3b4c5b61f7b768,
-    type: 2}
-  m_PrefabInternal: {fileID: 2082015030}
---- !u!114 &2082015032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2082015031}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dda58347bf75634f86ee9d25e9c4230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2082015033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2082015031}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: MenuSeleccion
 --- !u!1001 &2116502705
 Prefab:
   m_ObjectHideFlags: 0
