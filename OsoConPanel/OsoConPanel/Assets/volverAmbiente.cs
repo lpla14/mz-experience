@@ -16,7 +16,7 @@ public class volverAmbiente : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(Botones.BOTON_R1))
         {
             var a = FindObjectOfType<LoadScenePausa>();
             Debug.Log(a.ambiente);

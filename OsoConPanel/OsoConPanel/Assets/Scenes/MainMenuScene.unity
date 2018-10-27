@@ -451,7 +451,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 383038273}
-  - component: {fileID: 383038272}
   - component: {fileID: 383038275}
   - component: {fileID: 383038274}
   m_Layer: 0
@@ -461,18 +460,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &383038272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 383038271}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: MenuOpciones
 --- !u!4 &383038273
 Transform:
   m_ObjectHideFlags: 0
@@ -973,7 +960,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -2872,7 +2859,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2037515401}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dda58347bf75634f86ee9d25e9c4230, type: 3}
+  m_Script: {fileID: 11500000, guid: 59cf1aa580bff4e4890cae28c8a24a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2065081293
@@ -2883,8 +2870,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2065081295}
-  - component: {fileID: 2065081294}
-  - component: {fileID: 2065081296}
   - component: {fileID: 2065081297}
   - component: {fileID: 2065081298}
   m_Layer: 0
@@ -2894,18 +2879,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2065081294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2065081293}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: MenuAyuda
 --- !u!4 &2065081295
 Transform:
   m_ObjectHideFlags: 0
@@ -2919,17 +2892,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2065081296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2065081293}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dda58347bf75634f86ee9d25e9c4230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2065081297
 MonoBehaviour:
   m_ObjectHideFlags: 0
