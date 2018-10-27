@@ -52332,9 +52332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1368445862}
-  - component: {fileID: 1368445860}
   - component: {fileID: 1368445861}
-  - component: {fileID: 1368445863}
   m_Layer: 0
   m_Name: MenuPausa
   m_TagString: Untagged
@@ -52342,18 +52340,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1368445860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1368445859}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6129c460f114124c9fc2726f3bdfa24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: MenuPausa
 --- !u!114 &1368445861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52378,19 +52364,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1368445863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1368445859}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d73e738ea1108342b691295274f183c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: MenuPausa
-  ambiente: Bosque 2
 --- !u!1001 &1370234507
 Prefab:
   m_ObjectHideFlags: 0

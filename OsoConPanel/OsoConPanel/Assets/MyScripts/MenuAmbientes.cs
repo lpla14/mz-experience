@@ -37,24 +37,27 @@ public class MenuAmbientes : MonoBehaviour {
 
         if (Input.GetKeyDown(Botones.BOTON_R1) || Input.GetKeyDown(KeyCode.T))
         {
-            var script = GetComponent<LoadScene>();
+            var nuevaEscena = "";
 
             if (imagenAmbiente == ambienteDesierto)
             {
-                script.sceneName = "Desierto 3";
+                nuevaEscena = "Desierto 3";
             }
 
             if (imagenAmbiente == ambienteBosque)
             {
-                script.sceneName = "Bosque 2";
+                nuevaEscena = "Bosque 2";
             }
 
             if (imagenAmbiente == ambienteArtico)
             {
-                script.sceneName = "Artico 1";
+                nuevaEscena = "Artico 1";
             }
 
-            script.enabled = true;
+            var script = FindObjectOfType<ActualizarHistorial>();
+
+            script.ultimoAmbiente = nuevaEscena;
+            script.CambiarEscena(nuevaEscena);
         }
         
         var movimiento = Input.GetAxis("Vertical");
