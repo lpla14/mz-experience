@@ -9,8 +9,7 @@ public class AbrirMenuPausa : MonoBehaviour {
 
         if (Input.GetKeyDown(Botones.BOTON_C) || Input.GetKeyDown(KeyCode.P))
         {
-            var script = GetComponent<LoadScenePausa>();
-            script.enabled = true;
+            FindObjectOfType<ActualizarHistorial>().CambiarEscena("MenuPausa");
         }
 
     }
