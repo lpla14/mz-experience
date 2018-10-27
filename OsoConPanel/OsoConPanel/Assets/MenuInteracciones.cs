@@ -115,7 +115,13 @@ public class MenuInteracciones : MonoBehaviour {
                     GetComponent<EstadoAnimales>().SetDormido(animator.name, false);
                 }
 
-                if ( animator != null && interaccion > -1 )
+                if (interaccion == AnimacionesAnimales.ACCION_ACARICIAR)
+                {
+                    animator.GetComponentInParent<Acariciar>().enabled = true;
+
+                }
+
+                    if ( animator != null && interaccion > -1 )
                 {
                     // Animaciones.Animales es el script que tiene los diccionarios (nombre de animaciones por animal, info de animales)
 
