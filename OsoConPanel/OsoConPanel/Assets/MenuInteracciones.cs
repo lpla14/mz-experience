@@ -139,6 +139,11 @@ public class MenuInteracciones : MonoBehaviour
                             animator.gameObject.GetComponent<comida>().enabled = true;
                         }
                         animator.Play(nombreAnimacion);
+
+                        if (interaccion == AnimacionesAnimales.ACCION_CORRER)
+                        {
+                            animator.gameObject.GetComponent<Correr>().enabled = true;
+                        }
                     }
                 }
             }
