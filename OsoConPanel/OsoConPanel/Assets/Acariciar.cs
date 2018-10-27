@@ -8,31 +8,49 @@ public class Acariciar : MonoBehaviour {
     private float posFinal;
     private bool adelante = true;
     private bool atras = false;
+    private int cont = 0;
 
-	// Use this for initialization
-	void Start () {
-        posInicial = transform.position.z;
+    public GameObject mano;
+
+    // Use this for initialization
+    void Start () {
+
+        mano.SetActive(true);
+        posInicial = mano.transform.position.z;
         posFinal = posInicial - 1.43f;
-        Debug.Log(posInicial);
-        Debug.Log(posFinal);
+
 	}
 
     // Update is called once per frame
     void Update() {
-        if (transform.position.z > posFinal && adelante == true)
-        { 
-            transform.position -= new Vector3(0,0,0.02f);
-         }
+        if (cont < 1000)
+            StartCoroutine("MoverMano");
         else
-        {
-            adelante = false;
-         }
+            mano.SetActive(false);
 
-        if (transform.position.z < posInicial && adelante == false)
+    }
+
+    IEnumerator MoverMano()
+    {
+        for (int f = 0; f < 3; f += 1)
         {
-            transform.position += new Vector3(0, 0, 0.02f);
+            if (mano.transform.position.z > posFinal && adelante == true)
+            { 
+                mano.transform.position -= new Vector3(0,0,0.008f);
+            }
+            else
+            {
+                adelante = false;
+             }
+
+            if (mano.transform.position.z < posInicial && adelante == false)
+            {
+                mano.transform.position += new Vector3(0, 0, 0.008f);
+            }
+            else
+                adelante = true;
+            cont++;
+            yield return null;
         }
-        else
-            adelante = true;
     }
 }
