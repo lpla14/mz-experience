@@ -138,7 +138,12 @@ public class AnimalMenu : MonoBehaviour
         var nombreAnimal = "";
 
         if (animator != null)
-        { 
+        {
+            if (animator.GetComponent<Correr>().enabled)
+            {
+                this.enabled = false;
+            }
+
             this.animator = animator.GetComponent<Animator>();
 
             nombreAnimal = animator.name;
