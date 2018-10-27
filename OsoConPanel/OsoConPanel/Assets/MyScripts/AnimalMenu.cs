@@ -139,7 +139,7 @@ public class AnimalMenu : MonoBehaviour
 
         if (animator != null)
         {
-            if (animator.GetComponent<Correr>().enabled)
+            if (animator.GetComponent<Correr>() != null && animator.GetComponent<Correr>().enabled)
             {
                 this.enabled = false;
             }

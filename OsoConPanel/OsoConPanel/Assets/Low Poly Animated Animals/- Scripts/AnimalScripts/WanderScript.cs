@@ -218,7 +218,7 @@ namespace LowPolyAnimalPack
 
     private void Start()
     {
-      if (AnimalManager.Instance.PeaceTime)
+      if (AnimalManager.Instance != null && AnimalManager.Instance.PeaceTime)
       {
         SetPeaceTime(true);
       }
