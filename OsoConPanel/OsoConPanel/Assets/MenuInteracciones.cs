@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MenuInteracciones : MonoBehaviour {
+
+public class MenuInteracciones : MonoBehaviour
+{
 
     private GameObject bInteractuar;
     private GameObject bComer;
@@ -16,9 +19,11 @@ public class MenuInteracciones : MonoBehaviour {
     private GameObject bDeseleccionar;
     private GameObject bInfo;
     private GameObject bVolver;
-    
+    //public GameObject cjtoFrutas;
+
+
     public bool mostrarMenu = false;
-    
+
     public Animator animator;
 
     public GameObject canvas;
@@ -27,15 +32,17 @@ public class MenuInteracciones : MonoBehaviour {
 
     private int interaccion = -1;
     private bool init = false;
-    
-    void Start () {
+
+    void Start()
+    {
         if (!init) Init();
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         //dejando esta linea afuera el canvas se actualiza su posision
-       canvas.transform.LookAt(myCamera.transform);
+        canvas.transform.LookAt(myCamera.transform);
         if (canvas != null && animTransform != null)
         {
             canvas.transform.position = new Vector3(animTransform.position.x + 1, animTransform.position.y + 3, animTransform.position.z);
@@ -57,20 +64,20 @@ public class MenuInteracciones : MonoBehaviour {
                 MostrarMenu(false);
                 ActionDeseleccionar();
             }
-            
+
         }
 
-        if ( interaccion > -1 && ( Input.GetKeyDown( KeyCode.T ) || Input.GetKeyDown(Botones.BOTON_R1 ) ) )
+        if (interaccion > -1 && (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(Botones.BOTON_R1)))
         {
             MostrarMenu(false);
             bVolver.GetComponent<Button>().interactable = true;
             bDormir.GetComponent<Button>().enabled = true;
 
-            if ( interaccion == AnimacionesAnimales.ACCION_DESELECCIONAR ) 
+            if (interaccion == AnimacionesAnimales.ACCION_DESELECCIONAR)
             {
                 ActionDeseleccionar();
             }
-            if ( interaccion == AnimacionesAnimales.ACCION_VOLVER_VER_INFO )
+            if (interaccion == AnimacionesAnimales.ACCION_VOLVER_VER_INFO)
             {
                 ActionVolverVerInfo();
             }
@@ -92,7 +99,7 @@ public class MenuInteracciones : MonoBehaviour {
                         -120,
                         bVolver.transform.localPosition.z);
                 }
- 
+
                 bInfo.SetActive(true);
                 bVolver.SetActive(true);
                 interaccion = -1;
@@ -115,7 +122,7 @@ public class MenuInteracciones : MonoBehaviour {
                     GetComponent<EstadoAnimales>().SetDormido(animator.name, false);
                 }
 
-                if ( animator != null && interaccion > -1 )
+                if (animator != null && interaccion > -1)
                 {
                     // Animaciones.Animales es el script que tiene los diccionarios (nombre de animaciones por animal, info de animales)
 
@@ -127,22 +134,21 @@ public class MenuInteracciones : MonoBehaviour {
 
                     if (!string.IsNullOrEmpty(nombreAnimacion))
                     {
+                        if (interaccion == AnimacionesAnimales.ACCION_COMER)
+                        {
+                            animator.gameObject.GetComponent<comida>().enabled = true;
+                        }
                         animator.Play(nombreAnimacion);
                     }
-
-                    if (interaccion == AnimacionesAnimales.ACCION_CORRER)
-                    {
-                        animator.gameObject.GetComponent<Correr>().enabled = true;
-                    }
                 }
-
-                GetComponent<MenuInteracciones>().animator = null;
-                GetComponent<MenuInteracciones>().enabled = false;
-                interaccion = -1;
             }
+
+            GetComponent<MenuInteracciones>().animator = null;
+            GetComponent<MenuInteracciones>().enabled = false;
+            interaccion = -1;
         }
     }
-    
+
     public void ActionDeseleccionar()
     {
         interaccion = -1;
@@ -176,7 +182,7 @@ public class MenuInteracciones : MonoBehaviour {
         bVolver = GameObject.Find(Botones.ID_BOTON_VOLVER);
 
         bDespertar.GetComponent<Button>().interactable = false;
-        
+
         AddMenuButtonsEventTriggers();
 
         init = true;
@@ -223,26 +229,26 @@ public class MenuInteracciones : MonoBehaviour {
             // En esas funciones, hacer un split del animator.name, usando el espacio como caracter separador
             var animalDormido = GetComponent<EstadoAnimales>().IsDormido(animator.name);
 
-            bDormir.GetComponent<Button>().interactable       = !animalDormido;
-            bComer.GetComponent<Button>().interactable        = !animalDormido;
-            bAcariciar.GetComponent<Button>().interactable    = !animalDormido;
+            bDormir.GetComponent<Button>().interactable = !animalDormido;
+            bComer.GetComponent<Button>().interactable = !animalDormido;
+            bAcariciar.GetComponent<Button>().interactable = !animalDormido;
             bFingirMuerte.GetComponent<Button>().interactable = !animalDormido;
-            bCorrer.GetComponent<Button>().interactable       = !animalDormido;
+            bCorrer.GetComponent<Button>().interactable = !animalDormido;
 
-            bDespertar.GetComponent<Button>().interactable    = animalDormido;
+            bDespertar.GetComponent<Button>().interactable = animalDormido;
         }
 
         bComer.SetActive(mostrarMenu);
         bDormir.SetActive(mostrarMenu);
         bAcariciar.SetActive(mostrarMenu);
-        bVerInformacion.SetActive(mostrarMenu);        
+        bVerInformacion.SetActive(mostrarMenu);
         bFingirMuerte.SetActive(mostrarMenu);
         bDespertar.SetActive(mostrarMenu);
         bCorrer.SetActive(mostrarMenu);
         bDeseleccionar.SetActive(mostrarMenu);
-        //bInfo.SetActive(mostrarMenu);
-        //bVolver.SetActive(mostrarMenu);
-        
+        bInfo.SetActive(mostrarMenu);
+        bVolver.SetActive(mostrarMenu);
+
         bInfo.SetActive(false);
         bVolver.SetActive(false);
 
@@ -316,7 +322,7 @@ public class MenuInteracciones : MonoBehaviour {
 
     private void OnPointerEnter_bAcariciar()
     {
-        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? -1 : AnimacionesAnimales.ACCION_ACARICIAR ; //ver si vamos a poder acariciar solo cuando esta despierto o no
+        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? -1 : AnimacionesAnimales.ACCION_ACARICIAR; //ver si vamos a poder acariciar solo cuando esta despierto o no
     }
 
     private void OnPointerEnter_bVerInformacion()
@@ -331,7 +337,7 @@ public class MenuInteracciones : MonoBehaviour {
 
     private void OnPointerEnter_bDespertar()
     {
-        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? AnimacionesAnimales.ACCION_DESPERTAR: -1;
+        interaccion = GetComponent<EstadoAnimales>().IsDormido(animator.name) ? AnimacionesAnimales.ACCION_DESPERTAR : -1;
     }
 
     private void OnPointerEnter_bCorrer()
@@ -377,7 +383,7 @@ public class MenuInteracciones : MonoBehaviour {
     }
 
     private void AddMenuButtonsEventTriggers()
-   {
+    {
         var bComerEvtTrigger = bComer.GetComponent<EventTrigger>();
         var bAcariciarEvtTrigger = bAcariciar.GetComponent<EventTrigger>();
         var bVerInformacionEvtTrigger = bVerInformacion.GetComponent<EventTrigger>();
@@ -412,7 +418,8 @@ public class MenuInteracciones : MonoBehaviour {
         AddEventTrigger(OnPointerExit_botones, EventTriggerType.PointerExit, bVolverEvtTrigger);
     }
 
-    public string BuscarInfo(string animal) {
+    public string BuscarInfo(string animal)
+    {
 
         // El parametro animal es el nombre del game object completo en unity. Ej "Low_Bear_v01", "Low_Bear_v01 (1)"
         // En las funciones de buscarInfo del animal y GetNombreAnimacion, hay que usar el nombre base (para los dos osos sería "Low_Bear_v01")
@@ -420,7 +427,7 @@ public class MenuInteracciones : MonoBehaviour {
 
         var nombreBaseAnimator = animal.Split(' ')[0];
         //soy solo un comentario para probar el branch
-        string retorno="";
+        string retorno = "";
         switch (nombreBaseAnimator)
         {
             case "Low_Bear_v01":
@@ -608,10 +615,10 @@ public class MenuInteracciones : MonoBehaviour {
                             "  colmillos. Por suerte, goza actualmente de proteccion, los gobiernos africanos imponen\n" +
                             "  cada vez penas más duras contra el furtivismo.​ Los cazadores que matan a estos animales\n" +
                             "  tienen que pagar una multa de 10.000 € y se les retira la licencia de caza.\n" +
-                            "  Habitos : Las manadas están formadas por hembras emparentadas y sus crías, dirigidas por\n"+
+                            "  Habitos : Las manadas están formadas por hembras emparentadas y sus crías, dirigidas por\n" +
                             "  la hembra de mayor edad. Las acompaña algún macho adulto, los machos suelen llevar una \n" +
                             "  vida solitaria, no obstante, tampoco se alejan en exceso de su familia y la reconocen \n" +
-                            "  perfectamente cuando vuelven a encontrarla.\n" ;
+                            "  perfectamente cuando vuelven a encontrarla.\n";
                 break;
             case "Giraffe":
                 retorno = "\n" +
@@ -629,7 +636,7 @@ public class MenuInteracciones : MonoBehaviour {
                           "  las madres y sus crías. Las jirafas no son territoriales.\n";
                 break;
             case "Wolf":
-                retorno = "\n" + 
+                retorno = "\n" +
                           "  Nombre : Lobo.\n" +
                           "  Especie : Canis Lupus.\n" +
                           "  Habitad : Norteamérica, Eurasia y el Oriente Medio.\n" +
@@ -688,7 +695,7 @@ public class MenuInteracciones : MonoBehaviour {
                          "  huevos eclosionan en un período de incubación de 60 días.\n";
                 break;
             default:
-                retorno="nada";
+                retorno = "nada";
                 break;
         }
 
