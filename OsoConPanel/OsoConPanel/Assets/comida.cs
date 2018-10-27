@@ -5,7 +5,6 @@ using UnityEngine;
 public class comida : MonoBehaviour {
 
     public GameObject cjto_frutas;
-    public Animator animacion;
     private bool init = false;
 
 	// Use this for initialization
