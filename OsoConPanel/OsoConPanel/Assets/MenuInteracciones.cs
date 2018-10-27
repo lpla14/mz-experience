@@ -129,6 +129,11 @@ public class MenuInteracciones : MonoBehaviour {
                     {
                         animator.Play(nombreAnimacion);
                     }
+
+                    if (interaccion == AnimacionesAnimales.ACCION_CORRER)
+                    {
+                        animator.gameObject.GetComponent<Correr>().enabled = true;
+                    }
                 }
 
                 GetComponent<MenuInteracciones>().animator = null;
@@ -235,8 +240,8 @@ public class MenuInteracciones : MonoBehaviour {
         bDespertar.SetActive(mostrarMenu);
         bCorrer.SetActive(mostrarMenu);
         bDeseleccionar.SetActive(mostrarMenu);
-        bInfo.SetActive(mostrarMenu);
-        bVolver.SetActive(mostrarMenu);
+        //bInfo.SetActive(mostrarMenu);
+        //bVolver.SetActive(mostrarMenu);
         
         bInfo.SetActive(false);
         bVolver.SetActive(false);
