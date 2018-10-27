@@ -50,7 +50,7 @@ public class AnimalMenu : MonoBehaviour
                 GetComponent<AnimalMenu>().enabled = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.T)/*Input.GetKeyDown(Botones.BOTON_A)*/)
+            if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(Botones.BOTON_R1))
             {
                 // se activa on pointer enter del animal y se desactiva on pointer exit
                 //bInteractuar.SetActive(false);

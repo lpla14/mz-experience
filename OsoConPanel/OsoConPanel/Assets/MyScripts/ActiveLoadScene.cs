@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class volverAmbiente1 : MonoBehaviour
+public class ActiveLoadScene : MonoBehaviour
 {
 
     // Use this for initialization

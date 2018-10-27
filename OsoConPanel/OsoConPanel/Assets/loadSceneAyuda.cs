@@ -12,7 +12,7 @@ public class loadSceneAyuda : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(Botones.BOTON_C) || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(Botones.BOTON_R1) || Input.GetKeyDown(KeyCode.T))
         {
             var script = GetComponent<LoadScenePausa>();
             script.enabled = true;
