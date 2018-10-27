@@ -38,7 +38,7 @@ public class MenuInteracciones : MonoBehaviour {
        canvas.transform.LookAt(myCamera.transform);
         if (canvas != null && animTransform != null)
         {
-            canvas.transform.position = new Vector3(animTransform.position.x + 2, animTransform.position.y + 3, animTransform.position.z);
+            canvas.transform.position = new Vector3(animTransform.position.x + 1, animTransform.position.y + 3, animTransform.position.z);
 
             if (myCamera != null)
             {
