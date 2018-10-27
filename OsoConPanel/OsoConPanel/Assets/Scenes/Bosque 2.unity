@@ -122,7 +122,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.420002
+      value: 2.400002
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.247449
+      value: 20.95745
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2951,9 +2951,8 @@ GameObject:
   - component: {fileID: 72273045}
   - component: {fileID: 72273044}
   - component: {fileID: 72273043}
-  - component: {fileID: 72273042}
-  - component: {fileID: 72273041}
   - component: {fileID: 72273040}
+  - component: {fileID: 72273041}
   m_Layer: 0
   m_Name: Low_Bear_v01 (1)
   m_TagString: Untagged
@@ -3010,21 +3009,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 72273039}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6907bb9fd9f6740a55700c389d0d51, type: 3}
+  m_Script: {fileID: 11500000, guid: 48038050b42898c4f946d335ce63b231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &72273042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 72273039}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879dd0d2bcbbb8541ac8b31cfa20697d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  morder: {fileID: 72273045}
 --- !u!65 &72273043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8443,7 +8430,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400096, guid: 99376602f2eb1bc4bb5a0f8c26390ea5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.215
+      value: 10.285
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 99376602f2eb1bc4bb5a0f8c26390ea5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33964,9 +33951,8 @@ GameObject:
   - component: {fileID: 957809289}
   - component: {fileID: 957809290}
   - component: {fileID: 957809294}
-  - component: {fileID: 957809293}
-  - component: {fileID: 957809295}
   - component: {fileID: 957809296}
+  - component: {fileID: 957809293}
   m_Layer: 0
   m_Name: Low_Bear_v01
   m_TagString: Untagged
@@ -34044,10 +34030,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 957809288}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879dd0d2bcbbb8541ac8b31cfa20697d, type: 3}
+  m_Script: {fileID: 11500000, guid: 48038050b42898c4f946d335ce63b231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  morder: {fileID: 957809291}
 --- !u!114 &957809294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34060,17 +34045,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frutas: {fileID: 203665561}
---- !u!114 &957809295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 957809288}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6907bb9fd9f6740a55700c389d0d51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &957809296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50368,7 +50342,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400096, guid: 99376602f2eb1bc4bb5a0f8c26390ea5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3999996
+      value: 11.1
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 99376602f2eb1bc4bb5a0f8c26390ea5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -74724,7 +74698,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.42
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -74732,7 +74706,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.49
+      value: 23.2
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalRotation.x

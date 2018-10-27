@@ -2,53 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Correr : MonoBehaviour {
+public class Correr : MonoBehaviour
+{
 
-    int posicionFinal = 10;
+    int posicionFinal;
     int posicionInicial = 0;
-    int anguloGiro = 180;
-    int anguloInicial = 0;
-    bool adelante = true;
-    bool atras = false;
-    bool girar = false;
-    float anguloActual = 0;
-    string orientacion = "";
-    Animator bearAnimator;
-    // Use this for initialization
-    void Start () {
-        posicionInicial =(int) transform.position.z;
-        
-        switch ((int)transform.eulerAngles.y)
-        {
-            case 0:
-                posicionFinal = posicionInicial + 10;
-                orientacion = "ESTE";
-                break;
-            case 180:
-                posicionFinal = posicionInicial - 10;
-                 orientacion = "OESTE";
-                break;
-            case 270:
-                orientacion = "SUR";
-                break;
-            case 90:
-                orientacion = "NORTE";
-                break;
-        }
+    int anguloGiro;
+    int anguloInicial;
 
-        bearAnimator = GetComponent<Animator>();
-    }
+    bool adelante;
+    bool atras;
+    bool girar;
+    bool init = false;
+
+    float anguloActual;
+
+    string orientacion;
+
+    Animator animator;
 
     // Update is called once per frame
     void Update()
     {
+        if (!init) Init();
+
         switch (orientacion)
         {
             case "ESTE":
-               
+
                 if (transform.position.z < posicionFinal && adelante == true)
                 {
-                    bearAnimator.SetBool("run",true);
+                    animator.SetBool("run", true);
                     transform.position += new Vector3(0, 0, 0.1F);
                     if (transform.position.z >= posicionFinal)
                     {
@@ -58,10 +42,10 @@ public class Correr : MonoBehaviour {
                 }
                 if (girar == true && adelante == false && atras == false)
                 {
-                    bearAnimator.SetBool("walk", true);
-                    Debug.Log("gira");
+                    animator.SetBool("walk", true);
+
                     anguloActual = anguloActual + 1f;
-                    if (transform.eulerAngles.y < anguloGiro)
+                    if (transform.eulerAngles.y < anguloActual)
                     {
                         transform.eulerAngles = new Vector3(transform.eulerAngles.x, anguloActual, transform.eulerAngles.z);
                         if (transform.eulerAngles.y >= anguloGiro)
@@ -72,7 +56,7 @@ public class Correr : MonoBehaviour {
                 }
                 if (adelante == false && girar == false && posicionInicial != transform.position.z)
                 {
-                    bearAnimator.SetBool("walk", false);
+                    animator.SetBool("walk", false);
                     transform.position += new Vector3(0, 0, -0.1F);
                     if (transform.position.z < posicionInicial)
                     {
@@ -85,7 +69,7 @@ public class Correr : MonoBehaviour {
                 if (adelante == false && atras == true && girar == true && anguloActual != 0)
                 {
                     anguloActual = anguloActual + 1f;
-                    bearAnimator.SetBool("walk",true);
+                    animator.SetBool("walk", true);
                     if (transform.eulerAngles.y > anguloInicial && transform.eulerAngles.y != 0)
                     {
                         transform.eulerAngles = new Vector3(0, anguloActual, 0);
@@ -93,23 +77,26 @@ public class Correr : MonoBehaviour {
                     }
                     if (anguloActual > 360)
                     {
-                        bearAnimator.SetBool("walk", false);
-                        bearAnimator.SetBool("run", false);
-                        GetComponent<Correr>().enabled = false;
+                        animator.SetBool("walk", false);
+                        animator.SetBool("run", false);
+
                         anguloActual = 0;
                         transform.eulerAngles = new Vector3(0, 0, 0);
                         girar = false;
+
+                        init = false;
+                        GetComponent<Correr>().enabled = false;
                     }
 
                 }
                 break;
-                case "OESTE":
-                 if (transform.position.z > posicionFinal && adelante == true)
+            case "OESTE":
+                if (transform.position.z > posicionFinal && adelante == true)
                 {
                     transform.position -= new Vector3(0, 0, 0.1F);
+
                     if (transform.position.z < posicionFinal)
                     {
-                        Debug.Log("girar");
                         adelante = false;
                         girar = true;
                     }
@@ -150,14 +137,55 @@ public class Correr : MonoBehaviour {
                     if (anguloActual > 360)
                     {
                         anguloActual = 0;
-                        Debug.Log(transform.eulerAngles);
                         transform.eulerAngles = new Vector3(0, 0, 0);
                         girar = false;
                     }
 
                 }
-              
+
                 break;
         }
+
+    }
+
+    public void Init()
+    {
+        if (init) return;
+
+        posicionFinal = 10;
+        anguloGiro = 180;
+        anguloInicial = 0;
+        adelante = true;
+        atras = false;
+        girar = false;
+        anguloActual = 0;
+        orientacion = "";
+
+        posicionInicial = (int)transform.position.z;
+
+        switch ((int)transform.eulerAngles.y)
+        {
+            case 0:
+                posicionFinal = posicionInicial + 10;
+                orientacion = "ESTE";
+                break;
+            case 180:
+                posicionFinal = posicionInicial - 10;
+                orientacion = "OESTE";
+                break;
+            case 270:
+                orientacion = "SUR";
+                break;
+            case 90:
+                orientacion = "NORTE";
+                break;
+            default:
+                this.enabled = false;
+                break;
+        }
+
+        animator = GetComponent<Animator>();
+
+        init = true;
     }
 }
