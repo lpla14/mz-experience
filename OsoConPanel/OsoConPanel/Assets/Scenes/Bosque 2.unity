@@ -25939,7 +25939,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1615970617608962, guid: a12c0dbc4e7f0134691518a09fff6e78, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4485175273070218, guid: a12c0dbc4e7f0134691518a09fff6e78, type: 2}
       propertyPath: m_LocalPosition.y
@@ -34638,7 +34638,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 957809288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a04c277826117247a7bd6720a0796a0, type: 3}
   m_Name: 
