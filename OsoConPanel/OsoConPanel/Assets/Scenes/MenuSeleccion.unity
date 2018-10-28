@@ -958,7 +958,11 @@ Prefab:
       propertyPath: m_Name
       value: Giraffe (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114227993138046618, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
+    - {fileID: 114765271900101312, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
+    - {fileID: 195996188556584748, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
+    - {fileID: 82767794718401554, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0d9eb53229fd4e4428e17f457310aada, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1354968290 stripped
@@ -1362,7 +1366,9 @@ Prefab:
       propertyPath: m_Name
       value: Elephant (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114372793518428314, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
+    - {fileID: 195809942537759200, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: d19dd43872ee43b4896d75d23e9db9e6, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1639290149

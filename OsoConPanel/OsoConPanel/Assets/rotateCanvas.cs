@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotationCanvas : MonoBehaviour
+public class rotateCanvas : MonoBehaviour
 {
     public Camera myCamera;
     
