@@ -173,6 +173,14 @@ public class AnimalMenu : MonoBehaviour
             bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
         }
 
+        if ( bInteractuar.transform.localPosition.y == -1000)
+        { 
+            bInteractuar.transform.localPosition = new Vector3(
+                bInteractuar.transform.localPosition.x,
+                0,
+                bInteractuar.transform.localPosition.z);
+        }
+
         bInteractuar.SetActive(mostrar);
         
         /*
