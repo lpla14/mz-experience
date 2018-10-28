@@ -159,14 +159,14 @@ public class AnimacionesAnimales : MonoBehaviour
             { ACCION_CORRER,        "Giraffe_Run"         }
         });
         //lobo del 2 pack, tiene menos acciones, dormir y despertarse faltan
-        mapAnimaciones.Add("Wolf", new Dictionary<int, string>
+        mapAnimaciones.Add("Low_Wolf_v01", new Dictionary<int, string>
         {
-            { ACCION_COMER,         "Wolf_Eat"       },
-            { ACCION_ACARICIAR,     "Wolf_Howl"        },
-            { ACCION_FINGIR_MUERTE, "Wolf_Death"        },
-            { ACCION_DESPERTAR,     "Wolf_sleep_end"   },
-            { ACCION_DORMIR,        "Wolf_sleep_start" },
-            { ACCION_CORRER,        "Wolf_Run"         }
+            { ACCION_COMER,         "Armature_wolf|eat"       },
+            { ACCION_ACARICIAR,     "Armature_wolf|Attack"        },
+            { ACCION_FINGIR_MUERTE, "Armature_wolf|dead"        },
+            { ACCION_DESPERTAR,     "Armature_wolf|sleep_end"   },
+            { ACCION_DORMIR,        "Armature_wolf|sleep_start" },
+            { ACCION_CORRER,        "Armature_wolf|run"         }
         });
         //ver como reemplazar dormir, y despertarse del penguin//done
         mapAnimaciones.Add("Penguin", new Dictionary<int, string>
