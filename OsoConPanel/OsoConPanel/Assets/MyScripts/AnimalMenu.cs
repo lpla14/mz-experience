@@ -136,12 +136,14 @@ public class AnimalMenu : MonoBehaviour
     public void Init(Animator animator)
     {
         var nombreAnimal = "";
+        var corriendo = false;
 
         if (animator != null)
         {
             if (animator.GetComponent<Correr>() != null && animator.GetComponent<Correr>().enabled)
             {
                 this.enabled = false;
+                corriendo = true;
             }
 
             this.animator = animator.GetComponent<Animator>();
@@ -153,7 +155,11 @@ public class AnimalMenu : MonoBehaviour
         }
 
         GetComponent<MenuInteracciones>().OcultarPanelInfo(nombreAnimal);
-        MostrarBotonInteractuar(true);
+
+        if (!corriendo)
+        { 
+            MostrarBotonInteractuar(true);
+        }
     }
 
     public void MostrarBotonInteractuar(bool mostrar)
@@ -165,6 +171,14 @@ public class AnimalMenu : MonoBehaviour
         if (bInteractuar == null)
         {
             bInteractuar = GameObject.Find(Botones.ID_BOTON_INTERACTUAR);
+        }
+
+        if ( bInteractuar.transform.localPosition.y == -1000)
+        { 
+            bInteractuar.transform.localPosition = new Vector3(
+                bInteractuar.transform.localPosition.x,
+                0,
+                bInteractuar.transform.localPosition.z);
         }
 
         bInteractuar.SetActive(mostrar);

@@ -11,6 +11,8 @@ public class Correr : MonoBehaviour
     int anguloInicial;
     int orientacion = -1;
 
+    Vector3 eulerAnglesInicial;
+    Vector3 vectorPosicionInicial;
 
     bool adelante;
     bool atras;
@@ -82,11 +84,12 @@ public class Correr : MonoBehaviour
                     }
                     if (anguloActual > 360)
                     {
+                        transform.position = vectorPosicionInicial;
                         animator.SetBool("walk", false);
                         animator.SetBool("run", false);
 
                         anguloActual = 0;
-                        transform.eulerAngles = new Vector3(0, 0, 0);
+                        transform.eulerAngles = eulerAnglesInicial;//new Vector3(0, 0, 0);
                         girar = false;
 
                         //para que la proxima vez que se ejecute el correr para este animal, se vuelvan a setear los valores de Init()
@@ -100,6 +103,7 @@ public class Correr : MonoBehaviour
             case SUR:
                 if (transform.position.x > posicionFinal && adelante == true)
                 {
+                    animator.SetBool("run", true);
                     transform.position -= new Vector3(0.1F, 0, 0);
                     if (transform.position.x < posicionFinal)
                     {
@@ -110,6 +114,7 @@ public class Correr : MonoBehaviour
                 }
                 if (girar == true && adelante == false && atras == false)
                 {
+                    animator.SetBool("walk", true);
                     anguloActual = anguloActual + 1f;
                     if (anguloActual > 450)
                     {
@@ -132,6 +137,7 @@ public class Correr : MonoBehaviour
 
                 if (adelante == false && girar == false && posicionInicial != transform.position.z)
                 {
+                    animator.SetBool("walk", false);
                     transform.position += new Vector3(0.1f, 0, 0);
                     if (transform.position.x > posicionInicial)
                     {
@@ -142,17 +148,22 @@ public class Correr : MonoBehaviour
                     }
                 }
 
-                if (adelante == false && atras == true && girar == true && anguloActual != anguloInicial)
+                if (adelante == false && atras == true && girar == true && anguloActual <= anguloInicial)
                 {
                     anguloActual = anguloActual + 1f;
+                    animator.SetBool("walk", true);
                     if (anguloActual < anguloInicial && transform.eulerAngles.y != anguloInicial)
                     {
                         transform.eulerAngles = new Vector3(0, anguloActual, 0);
                     }
-                    if (anguloActual > 360)
+                    if (anguloActual > 270)
                     {
+                        transform.position = vectorPosicionInicial;
+                        animator.SetBool("walk", false);
+                        animator.SetBool("run", false);
+
                         anguloActual = 0;
-                        transform.eulerAngles = new Vector3(0, 0, 0);
+                        transform.eulerAngles = eulerAnglesInicial;//new Vector3(0, 0, 0);
                         girar = false;
 
                         //para que la proxima vez que se ejecute el correr para este animal, se vuelvan a setear los valores de Init()
@@ -165,9 +176,10 @@ public class Correr : MonoBehaviour
             case OESTE:
                 if (transform.position.z > posicionFinal && adelante == true)
                 {
+                    animator.SetBool("run", true);
                     transform.position -= new Vector3(0, 0, 0.1F);
 
-                    if (transform.position.z < posicionFinal)
+                    if (transform.position.z <= posicionFinal)
                     {
                         adelante = false;
                         girar = true;
@@ -175,12 +187,12 @@ public class Correr : MonoBehaviour
                 }
                 if (girar == true && adelante == false && atras == false)
                 {
-
+                    animator.SetBool("walk", true);
                     anguloActual = anguloActual + 1f;
                     if (transform.eulerAngles.y > anguloGiro)
                     {
                         transform.eulerAngles = new Vector3(transform.eulerAngles.x, anguloActual, transform.eulerAngles.z);
-                        if (transform.eulerAngles.y == anguloGiro)
+                        if ( (int)transform.eulerAngles.y == anguloGiro)
                         {
                             girar = false;
                         }
@@ -188,8 +200,9 @@ public class Correr : MonoBehaviour
                 }
                 if (adelante == false && girar == false && posicionInicial != transform.position.z)
                 {
-                    transform.position += new Vector3(0, 0, -0.1F);
-                    if (transform.position.z < posicionInicial)
+                    animator.SetBool("walk", false);
+                    transform.position += new Vector3(0, 0, 0.1F);
+                    if (transform.position.z >= posicionInicial)
                     {
                         adelante = false;
                         girar = true;
@@ -197,19 +210,29 @@ public class Correr : MonoBehaviour
                         atras = true;
                     }
                 }
-                if (adelante == false && atras == true && girar == true && anguloActual != 0)
+                if (adelante == false && atras == true && girar == true && anguloActual != anguloInicial)
                 {
                     anguloActual = anguloActual + 1f;
 
-                    if (transform.eulerAngles.y > anguloInicial && transform.eulerAngles.y != 0)
+                    if (anguloActual >= 360)
+                    {
+                        anguloActual -= 360;
+                    }
+
+                    animator.SetBool("walk", true);
+
+                    if (transform.eulerAngles.y < anguloInicial && transform.eulerAngles.y != anguloInicial)
                     {
                         transform.eulerAngles = new Vector3(0, anguloActual, 0);
-
                     }
-                    if (anguloActual > 360)
+                    if ((int)anguloActual == 180)
                     {
+                        transform.position = vectorPosicionInicial;
+                        animator.SetBool("walk", false);
+                        animator.SetBool("run", false);
+
                         anguloActual = 0;
-                        transform.eulerAngles = new Vector3(0, 0, 0);
+                        transform.eulerAngles = eulerAnglesInicial;//new Vector3(0, 0, 0);
                         girar = false;
 
                         //para que la proxima vez que se ejecute el correr para este animal, se vuelvan a setear los valores de Init()
@@ -224,6 +247,7 @@ public class Correr : MonoBehaviour
             case NORTE:
                 if (transform.position.x < posicionFinal && adelante == true)
                 {
+                    animator.SetBool("run", true);
                     transform.position += new Vector3(0.1F, 0, 0);
                     if (transform.position.x > posicionFinal)
                     {
@@ -234,7 +258,7 @@ public class Correr : MonoBehaviour
                 }
                 if (girar == true && adelante == false && atras == false)
                 {
-
+                    animator.SetBool("walk", true);
                     anguloActual = anguloActual + 1f;
 
                     if (anguloActual <= anguloGiro)
@@ -249,6 +273,7 @@ public class Correr : MonoBehaviour
 
                 if (adelante == false && girar == false && posicionInicial != transform.position.x)
                 {
+                    animator.SetBool("walk", false);
                     transform.position -= new Vector3(0.1f, 0, 0);
                     if (transform.position.x < posicionInicial)
                     {
@@ -259,18 +284,23 @@ public class Correr : MonoBehaviour
                     }
                 }
 
-                if (adelante == false && atras == true && girar == true && anguloActual != anguloInicial)
+                if (adelante == false && atras == true && girar == true && anguloActual >= anguloInicial)
                 {
                     anguloActual = anguloActual - 1f;
+                    animator.SetBool("walk", true);
                     if (anguloActual > anguloInicial && transform.eulerAngles.y != anguloInicial)
                     {
                         transform.eulerAngles = new Vector3(0, anguloActual, 0);
                     }
                     if (anguloActual < 90)
                     {
-                        anguloActual = 0;
-                        
-                        transform.eulerAngles = new Vector3(0, 0, 0);
+                        transform.position = vectorPosicionInicial;
+                        animator.SetBool("walk", false);
+                        animator.SetBool("run", false);
+
+                        anguloActual = 90;
+
+                        transform.eulerAngles = eulerAnglesInicial; //new Vector3(0, 90, 0); originalmente es new Vector3(0, 0, 0);
                         girar = false;
 
                         //para que la proxima vez que se ejecute el correr para este animal, se vuelvan a setear los valores de Init()
@@ -298,6 +328,9 @@ public class Correr : MonoBehaviour
 
         posicionInicial = (int)transform.position.z;
 
+        vectorPosicionInicial = transform.position;
+        eulerAnglesInicial = transform.eulerAngles;
+
         var angulo = GetAngulo(transform.eulerAngles.y);
         
         switch ( angulo )
@@ -305,13 +338,12 @@ public class Correr : MonoBehaviour
             case 0:
                 posicionFinal = posicionInicial + 10;
                 anguloGiro = 180;
-                anguloInicial = 0;
+                anguloInicial = angulo;
                 orientacion = ESTE;
                 break;
             case 180:
                 posicionFinal = posicionInicial - 10;
                 anguloGiro = 0;
-                anguloInicial = 0;
                 
                 anguloActual = angulo; //transform.eulerAngles.y;
                 anguloInicial = angulo;
@@ -321,18 +353,19 @@ public class Correr : MonoBehaviour
             case 270:
                 orientacion = SUR;
                 anguloGiro = 90;
-                anguloInicial = 0;
 
                 posicionInicial = (int)transform.position.x;
+                posicionFinal = posicionInicial - 10;
                 anguloActual = angulo;//transform.eulerAngles.y;
                 anguloInicial = angulo;
                 break;
             case 90:
                 orientacion = NORTE;
                 anguloGiro = 270;
-                anguloInicial = 90;
+                anguloInicial = angulo;
 
                 posicionInicial = (int)transform.position.x;
+                posicionFinal = posicionInicial + 10;
                 anguloActual = angulo;//transform.eulerAngles.y;
 
                 break;

@@ -5,6 +5,8 @@ using UnityEngine;
 public class comida : MonoBehaviour {
 
     public GameObject cjto_frutas;
+    public float shrink_speed = 1f;
+    public float food_scale = 1f;
     private bool init = false;
 
 	// Use this for initialization
@@ -21,14 +23,14 @@ public class comida : MonoBehaviour {
     void Update () {
 
         if (!init) Init();
-        cjto_frutas.transform.localScale -= new Vector3(0.004F, 0.004F, 0.004F);
+        cjto_frutas.transform.localScale -= new Vector3(0.004F, 0.004F, 0.004F) * shrink_speed;
     }
 
     IEnumerator ChauFruta()
     {
         yield return new WaitForSecondsRealtime(3);
         cjto_frutas.SetActive(false);
-        cjto_frutas.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+        cjto_frutas.transform.localScale = new Vector3(1f, 1f, 1f) * food_scale;
         init = false;
         this.enabled = false;
     }

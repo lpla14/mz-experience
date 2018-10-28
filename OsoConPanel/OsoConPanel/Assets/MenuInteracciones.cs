@@ -216,22 +216,10 @@ public class MenuInteracciones : MonoBehaviour
     {
         if (!init) Init();
 
-        //var altura = 0;
-
-        //if (mostrarMenu)
-        //{
-        //    if (bComer.transform.localPosition.y != 90)
-        //    {
-        //        altura = -8000;
-        //    }
-        //}
-        //else
-        //{
-        //    if (bComer.transform.localPosition.y == 90)
-        //    {
-        //        altura = 8000;
-        //    }
-        //}
+        if (mostrarMenu && bComer.transform.localPosition.y == -1000)
+        {
+            MostrarMenuEncimaDelPlano();
+        }
 
         if (mostrarMenu)
         {
@@ -257,69 +245,56 @@ public class MenuInteracciones : MonoBehaviour
         bDespertar.SetActive(mostrarMenu);
         bCorrer.SetActive(mostrarMenu);
         bDeseleccionar.SetActive(mostrarMenu);
-        bInfo.SetActive(mostrarMenu);
-        bVolver.SetActive(mostrarMenu);
-
+                                                  
         bInfo.SetActive(false);
         bVolver.SetActive(false);
 
         this.mostrarMenu = mostrarMenu;
+    }
 
-        /*
+    void MostrarMenuEncimaDelPlano()
+    {
+        
         bComer.transform.localPosition = new Vector3(
             bComer.transform.localPosition.x,
-            bComer.transform.localPosition.y + altura,
+            90,
             bComer.transform.localPosition.z);
+        
+        bAcariciar.transform.localPosition = new Vector3(
+            bAcariciar.transform.localPosition.x,
+            63,
+            bAcariciar.transform.localPosition.z);
+
+        bFingirMuerte.transform.localPosition = new Vector3(
+            bFingirMuerte.transform.localPosition.x,
+            36,
+            bFingirMuerte.transform.localPosition.z);
+        
+        bDespertar.transform.localPosition = new Vector3(
+            bDespertar.transform.localPosition.x,
+            9,
+            bDespertar.transform.localPosition.z);
 
         bDormir.transform.localPosition = new Vector3(
             bDormir.transform.localPosition.x,
-            bDormir.transform.localPosition.y + altura,
+            -18,
             bDormir.transform.localPosition.z);
-
-        bAcariciar.transform.localPosition = new Vector3(
-            bAcariciar.transform.localPosition.x,
-            bAcariciar.transform.localPosition.y + altura,
-            bAcariciar.transform.localPosition.z);
-
-        bVerInformacion.transform.localPosition = new Vector3(
-           bVerInformacion.transform.localPosition.x,
-           bVerInformacion.transform.localPosition.y,
-           bVerInformacion.transform.localPosition.z);
-
-
-        bFingirMuerte.transform.localPosition = new Vector3(
-           bFingirMuerte.transform.localPosition.x,
-           bFingirMuerte.transform.localPosition.y + altura,
-           bFingirMuerte.transform.localPosition.z);
-
-        bDespertar.transform.localPosition = new Vector3(
-            bDespertar.transform.localPosition.x,
-            bDespertar.transform.localPosition.y + altura,
-            bDespertar.transform.localPosition.z);
-
+ 
         bCorrer.transform.localPosition = new Vector3(
             bCorrer.transform.localPosition.x,
-            bCorrer.transform.localPosition.y + altura,
+            -45,
             bCorrer.transform.localPosition.z);
+
+        bVerInformacion.transform.localPosition = new Vector3(
+            bVerInformacion.transform.localPosition.x,
+            -72,
+            bVerInformacion.transform.localPosition.z);
 
         bDeseleccionar.transform.localPosition = new Vector3(
             bDeseleccionar.transform.localPosition.x,
-            bDeseleccionar.transform.localPosition.y + altura,
+            -99,
             bDeseleccionar.transform.localPosition.z);
-
-        bInfo.transform.localPosition = new Vector3(
-             bInfo.transform.localPosition.x,
-            bInfo.transform.localPosition.y ,
-             bInfo.transform.localPosition.z);
-
-        bVolver.transform.localPosition = new Vector3(
-            bVolver.transform.localPosition.x,
-            bVolver.transform.localPosition.y ,
-            bVolver.transform.localPosition.z);
-            */
     }
-
-
     #region pointer enter actions
     private void OnPointerEnter_bDormir()
     {
