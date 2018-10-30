@@ -433,7 +433,7 @@ public class MenuInteracciones : MonoBehaviour
                             "  Hábitos : Pasan el invierno hibernando, guardando en los tejidos adiposos un 75% de\n" +
                             "  la energía obtenida de los alimentos. Ingiere hierbas y tierra para formar un tapón\n" +
                             "  para que los alimentos se vayan amontonando en el intestino grueso, de esta forma no\n" +
-                            " deben ir al baño mientras hibernan, al despertarse de hibernar lo expulsan.\n";
+                            "  deben ir al baño mientras hibernan, al despertarse de hibernar lo expulsan.\n";
                 break;
             case "Low_Boar_v01":
                 retorno = "\n" +
@@ -517,7 +517,7 @@ public class MenuInteracciones : MonoBehaviour
                 retorno = "\n" +
                            "  Nombre : Oso Polar.\n" +
                            "  Especie : Ursidae.\n" +
-                           "  Hábitat : Zona polar y heladas  como el Artico.\n" +
+                           "  Hábitat : Zona polar y heladas  como el Ártico.\n" +
                            "  Dieta : Se alimenta de animales árticos, como crías de focas y renos.\n" +
                            "  No toman agua, ya que en su ambiente es salada y ácida, lo reemplazan\n" +
                            "  con la sangre de sus presas.\n" +
@@ -537,11 +537,11 @@ public class MenuInteracciones : MonoBehaviour
                               "  Dieta : Es herbívoro, ingiere plantas, arbustos, matorrales,  raíces, semillas y bulbos.\n" +
                               "  Físico : El conejo salvaje mide de 34 a 50 cm, las orejas miden de 4 a 8 cm. Su peso varía\n" +
                               "  de 1,2 a 2,5 kg. Posee una piel de color pardo para evitar a sus depredadores\n" +
-                              "  Observaciones : Los dientes de un conejo (sus incisivos, crecen sin cesar), debe\n" +
-                              "  desgastarlos con el fin de evitar que se vuelvan demasiado largos (lo que podría herirle).\n" +
-                              "  Son cazadas por zorros, gatos salvajes, águilas (entre otros depredadores).\n" +
+                              "  Observaciones : Los dientes de un conejo (sus incisivos, crecen sin cesar), deben\n" +
+                              "  desgastarse con el fin de evitar que se vuelvan demasiado largos (lo que podría herirle).\n" +
+                              "  Son cazados por zorros, gatos salvajes, águilas (entre otros depredadores).\n" +
                               "  Hábitos : Animal de hábitos nocturnos y crepusculares. Son muy silenciosos pero emiten\n" +
-                              "  fuertes chillidos cuando están asustados o heridos.Golpean el suelo con sus patas traseras,\n" +
+                              "  fuertes chillidos cuando están asustados o heridos. Golpean el suelo con sus patas traseras,\n" +
                               "  y lo pueden hacer varias veces dependiendo de lo exaltados que estén, cuando se enfadan.\n";
                 break;
             case "Low_doe_v01":
@@ -551,11 +551,11 @@ public class MenuInteracciones : MonoBehaviour
                               "  Sexo : Hembra.\n" +
                               "  Hábitat : Bosques de Europa, Asia, América, norte de África y algunas zonas árticas.\n" +
                               "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
-                              "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                              "  árboles, así como de plantas acuáticas, pudiendo bucear en su busqueda.\n" +
                               "  Físico : Altura de 1,30 a 1,90 m (no tienen astas), peso entre 30 y 200 kg.\n" +
                               "  largo del cuerpo de 1,60 a 2,00 m.\n" +
                               "  Observaciones : Preocupacion menor. Es victima de la caza deportiva. El ciervo común\n" +
-                              "  es presa de múltiples carnívoros (linces, lobos, osos, leopardos y pumas). Los las crias\n" +
+                              "  es presa de múltiples carnívoros (linces, lobos, osos, leopardos y pumas). Las crias\n" +
                               "  son cazadas por zorros, gatos salvajes y águilas.\n" +
                               "  Los venados se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
                               "  Hábitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos.\n";
@@ -567,11 +567,11 @@ public class MenuInteracciones : MonoBehaviour
                               "  Sexo : Macho.\n" +
                               "  Hábitat : Bosques de Europa, Asia, América, norte de África y algunas zonas árticas.\n" +
                               "  Dieta : Es herbívoro, alimentándose de hojas, ramas de árboles y arbustos, corteza de los\n" +
-                              "  árboles, así como de plantas acuáticas, pudien bucear en su busqueda.\n" +
+                              "  árboles, así como de plantas acuáticas, pudiendo bucear en su busqueda.\n" +
                               "  Físico : Altura de 1,50 a 2,10 m (con astas), peso entre 30 y 200 kg.\n" +
                               "  largo del cuerpo de 1,60 a 2,50 m.\n" +
-                              "  Observaciones : Preocupacion menor. Es victima de la caza deportiva. El ciervo común\n" +
-                              "  es presa de múltiples carnívoros (linces, lobos, osos, leopardos y pumas). Los las crias\n" +
+                              "  Observaciones : Preocupacion menor. Es víctima de la caza deportiva. El ciervo común\n" +
+                              "  es presa de múltiples carnívoros (linces, lobos, osos, leopardos y pumas). Las crías\n" +
                               "  son cazadas por zorros, gatos salvajes y águilas.\n" +
                               "  Los venados se orientan sobre todo por el oído y el olfato; su vista es bastante débil." +
                               "  Hábitos : Se reagrupan en pequeños rebaños que comprenden de 5 a 10 individuos.\n";
@@ -588,7 +588,7 @@ public class MenuInteracciones : MonoBehaviour
                             "  capacidades distintas y eran usados como medio de transporte y herramientas militares.\n" +
                             "  Hábitos : Suelen ser curiosos, y cuando se asustan suelen investigar sobre la causa de\n" +
                             "  su miedo y no siempre huyen. Han desarrollado velocidad, agilidad, resistencia y estado de\n" +
-                            "  alerta. Aunque por la cría selectiva algunas razas son más dóciles.\n" +
+                            "  alerta. Aunque por la cría selectiva, algunas razas son más dóciles.\n" +
                             "  Son animales sociales, establecen vínculos con individuos de su especie y con otros animales,\n" +
                             "  incluidos los humanos";
                 break;
@@ -600,7 +600,7 @@ public class MenuInteracciones : MonoBehaviour
                             "  Dieta : Son animales herbívoros, comen hierbas y hojas de árboles o arbustos.\n" +
                             "  Físico : Alcanzan 6 a 7 metros de longitud y de 3 a 3,5 metros de altura,\n" +
                             "  con un peso de 5,4 a 6 toneladas. Poseen 2 colmillos en la mandíbula superior\n" +
-                            "  Observaciones : Una especie se considera vulnerable. Se ha perseguido por sus valiosos\n" +
+                            "  Observaciones : Especie que se considera vulnerable. Se ha perseguido por sus valiosos\n" +
                             "  colmillos. Por suerte, goza actualmente de proteccion, los gobiernos africanos imponen\n" +
                             "  cada vez penas más duras contra el furtivismo.​ Los cazadores que matan a estos animales\n" +
                             "  tienen que pagar una multa de 10.000 € y se les retira la licencia de caza.\n" +
@@ -618,7 +618,7 @@ public class MenuInteracciones : MonoBehaviour
                           "  Físico : Las jirafas adultas pueden alcanzar una altura de 5–6 m (los machos\n" +
                           "  adultos son más grandes que las hembras).​ Un peso promedio de 1192 kg(macho)\n" +
                           "  y 828 kg(hembra). \n" +
-                          "  Observaciones : clasificarla como una especie vulnerable, aunque se observo\n" +
+                          "  Observaciones : No se clasifica como una especie vulnerable, aunque se observó\n" +
                           "  una disminución de la población de hasta el 40 % en el período 1985-2015.\n" +
                           "  Hábitos : Tienen pocos vínculos sociales fuertes y las agrupaciones suelen\n" +
                           "  cambiar de miembros cada pocas horas, los más estables están compuestos de\n" +

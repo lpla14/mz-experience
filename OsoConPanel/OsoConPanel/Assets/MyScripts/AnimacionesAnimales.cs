@@ -19,6 +19,10 @@ public class AnimacionesAnimales : MonoBehaviour
     public static int ACCION_DESELECCIONAR   = 7;
     public static int ACCION_VOLVER_VER_INFO = 8;
 
+
+    //acciones para estados iniciales
+    public static int ACCION_AULLAR = 10;
+
     public static string mostrandoInformacionAnimal = "";
 
     void Start()
@@ -166,7 +170,8 @@ public class AnimacionesAnimales : MonoBehaviour
             { ACCION_FINGIR_MUERTE, "Armature_wolf|dead"        },
             { ACCION_DESPERTAR,     "Armature_wolf|sleep_end"   },
             { ACCION_DORMIR,        "Armature_wolf|sleep_start" },
-            { ACCION_CORRER,        "Armature_wolf|run"         }
+            { ACCION_CORRER,        "Armature_wolf|run"         },
+            { ACCION_AULLAR,        "Armature_wolf|Howl"        }
         });
         //ver como reemplazar dormir, y despertarse del penguin//done
         mapAnimaciones.Add("Penguin", new Dictionary<int, string>
