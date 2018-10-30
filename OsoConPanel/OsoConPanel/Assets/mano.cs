@@ -11,7 +11,7 @@ public class Mano : MonoBehaviour {
     bool cierra = true;
     float posInicialDedo2;
     float posFinalDedo2;
-
+    //
     // Use this for initialization
     void Start () {
         dedo1 = GameObject.Find("hands:b_r_thumb1");
