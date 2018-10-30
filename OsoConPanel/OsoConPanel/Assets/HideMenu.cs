@@ -19,6 +19,15 @@ public class HideMenu : MonoBehaviour {
                 GetComponent<MenuInteracciones>().enabled = false;
             }
 
+            var bInfo = GameObject.Find(Botones.ID_BOTON_INFO);
+
+            if (bInfo != null && bInfo.activeSelf)
+            {
+                GetComponent<MenuInteracciones>().enabled = true;
+
+                GetComponent<MenuInteracciones>().OcultarPanelInfo("");
+            }
+
         }
 
     }

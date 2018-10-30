@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 571061848}
-  m_IndirectSpecularColor: {r: 0.45085448, g: 0.500765, b: 0.5746321, a: 1}
+  m_IndirectSpecularColor: {r: 0.45085436, g: 0.5007645, b: 0.57463205, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3317,11 +3317,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 503152848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26fbe2e640808954e97182a7076b0a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 1226939088}
 --- !u!1001 &510837132
 Prefab:
   m_ObjectHideFlags: 0
@@ -5878,7 +5879,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.z
@@ -5886,7 +5887,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_RootOrder
@@ -5894,7 +5895,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114269604839610384, guid: 6817fd3c5809228498530e5ebe58f46a,
         type: 2}
@@ -6089,15 +6090,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012234704302, guid: 196fe542ad163b149adf1ca04c19c753, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.014
+      value: 0.093
       objectReference: {fileID: 0}
     - target: {fileID: 4000012234704302, guid: 196fe542ad163b149adf1ca04c19c753, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.016
+      value: 0.028
       objectReference: {fileID: 0}
     - target: {fileID: 4000012234704302, guid: 196fe542ad163b149adf1ca04c19c753, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.61
+      value: 0.631
       objectReference: {fileID: 0}
     - target: {fileID: 4000012234704302, guid: 196fe542ad163b149adf1ca04c19c753, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6133,7 +6134,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000011262040222, guid: 196fe542ad163b149adf1ca04c19c753, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000012234704302, guid: 196fe542ad163b149adf1ca04c19c753, type: 2}
       propertyPath: m_LocalScale.x
@@ -10535,6 +10536,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -1000
       objectReference: {fileID: 0}
+    - target: {fileID: 114889477633738042, guid: 5da23109e9df7694cb0011dcf754978d,
+        type: 2}
+      propertyPath: maxReticleDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114363663483265004, guid: 5da23109e9df7694cb0011dcf754978d, type: 2}
     - {fileID: 114749540289015072, guid: 5da23109e9df7694cb0011dcf754978d, type: 2}
@@ -12405,6 +12411,17 @@ MonoBehaviour:
   cjto_frutas: {fileID: 1797007548}
   shrink_speed: 1.8
   food_scale: 1
+--- !u!114 &2027006602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2027006595}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48038050b42898c4f946d335ce63b231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2040188514
 Prefab:
   m_ObjectHideFlags: 0

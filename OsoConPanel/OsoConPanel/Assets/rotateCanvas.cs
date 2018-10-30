@@ -9,8 +9,11 @@ public class rotateCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(transform.position + myCamera.transform.rotation * Vector3.up,
-             myCamera.transform.rotation * Vector3.down
-            );
+        if ( myCamera != null )
+        { 
+            transform.LookAt(transform.position + myCamera.transform.rotation * Vector3.up,
+                 myCamera.transform.rotation * Vector3.down
+                );
+        }
     }
 }
