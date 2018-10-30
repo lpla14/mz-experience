@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class EstadoAnimales : MonoBehaviour {
 
-    private Dictionary<string, bool> mapAnimalesDormidos = new Dictionary<string, bool>();	
-    
+    private Dictionary<string, bool> mapAnimalesDormidos = new Dictionary<string, bool>();
+
+    private void Start()
+    {
+        // set estado inicial de animales
+
+        SetEstadoInicial("Low_PolarBear_v01 (1)", AnimacionesAnimales.ACCION_DORMIR);
+        SetEstadoInicial("Low_Moose_bull_v01 (2)", AnimacionesAnimales.ACCION_DORMIR);
+        SetEstadoInicial("Low_Wolf_v01 (2)", AnimacionesAnimales.ACCION_DORMIR);
+        SetEstadoInicial("Low_Wolf_v01 (1)", AnimacionesAnimales.ACCION_DORMIR);
+
+    }
     public void SetDormido(string id, bool dormido)
     {
         if ( string.IsNullOrEmpty( id ) ) return;
@@ -30,5 +40,28 @@ public class EstadoAnimales : MonoBehaviour {
         mapAnimalesDormidos.TryGetValue(id, out dormido);
 
         return dormido;
+    }
+
+    public void SetEstadoInicial(string id, int accion)
+    {
+        if ( string.IsNullOrEmpty(id) ) return;
+
+        var animal   = GameObject.Find(id);
+        var animator = animal != null ? animal.GetComponent<Animator>() : null;
+
+        if (animator != null && accion > -1)
+        {
+            var nombreAnimacion = AnimacionesAnimales.GetNombreAnimacion(animator.name, accion);
+
+            if (!string.IsNullOrEmpty(nombreAnimacion))
+            {
+                animator.Play(nombreAnimacion);
+
+                if (accion == AnimacionesAnimales.ACCION_DORMIR)
+                {
+                    SetDormido(animator.name, true);
+                }
+            }
+        }
     }
 }
