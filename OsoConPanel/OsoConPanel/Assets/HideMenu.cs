@@ -28,6 +28,7 @@ public class HideMenu : MonoBehaviour {
         }
         else if (bInfo != null && bInfo.activeSelf && (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(Botones.BOTON_R1)) && !GetComponent<MenuInteracciones>().enabled)
         {
+            // to do: ver si se puede conocer el pointer enter
             GetComponent<MenuInteracciones>().enabled = true;
             GetComponent<MenuInteracciones>().OcultarPanelInfo("");   
         }
