@@ -7,7 +7,7 @@ public class Mano : MonoBehaviour {
     GameObject dedo2;
     GameObject dedo3;
     GameObject dedo4;
-    GameObject dedo5;
+    GameObject dedo5; //dedo 5
     bool cierra = true;
     float posInicialDedo2;
     float posFinalDedo2;
