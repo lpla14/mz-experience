@@ -161,8 +161,8 @@ public class AnimacionesAnimales : MonoBehaviour
         //lobo del 2 pack, tiene menos acciones, dormir y despertarse faltan
         mapAnimaciones.Add("Low_Wolf_v01", new Dictionary<int, string>
         {
-            { ACCION_COMER,         "Armature_wolf|eat"       },
-            { ACCION_ACARICIAR,     "Armature_wolf|Attack"        },
+            { ACCION_COMER,         "Armature_wolf|eat"         },
+            { ACCION_ACARICIAR,     "Armature_wolf|Attack"      },
             { ACCION_FINGIR_MUERTE, "Armature_wolf|dead"        },
             { ACCION_DESPERTAR,     "Armature_wolf|sleep_end"   },
             { ACCION_DORMIR,        "Armature_wolf|sleep_start" },
@@ -171,22 +171,22 @@ public class AnimacionesAnimales : MonoBehaviour
         //ver como reemplazar dormir, y despertarse del penguin//done
         mapAnimaciones.Add("Penguin", new Dictionary<int, string>
         {
-            { ACCION_COMER,         "Penguin_Shake"       },
-            { ACCION_ACARICIAR,     "Penguin_Walk2"        },
-            { ACCION_FINGIR_MUERTE, "Penguin_Death"        },
+            { ACCION_COMER,         "Penguin_Shake" },
+            { ACCION_ACARICIAR,     "Penguin_Walk2" },
+            { ACCION_FINGIR_MUERTE, "Penguin_Death" },
             { ACCION_DESPERTAR,     "Penguin_end"   },
             { ACCION_DORMIR,        "Penguin_start" },
-            { ACCION_CORRER,        "Penguin_Run"         }
+            { ACCION_CORRER,        "Penguin_Run"   }
         });
 
         mapAnimaciones.Add("Spider", new Dictionary<int, string>
         {
-            { ACCION_COMER,         "Spider_Attack"       },
-            { ACCION_ACARICIAR,     "Spider_Scared"        },
-            { ACCION_FINGIR_MUERTE, "Spider_Death 3"        },
-            { ACCION_DESPERTAR,     "Spider_Death 1"   },
+            { ACCION_COMER,         "Spider_Attack"  },
+            { ACCION_ACARICIAR,     "Spider_Scared"  },
+            { ACCION_FINGIR_MUERTE, "Spider_Death 3" },
+            { ACCION_DESPERTAR,     "Spider_Death 1" },
             { ACCION_DORMIR,        "Spider_Death 2" },
-            { ACCION_CORRER,        "Spider_Walk"         }
+            { ACCION_CORRER,        "Spider_Walk"    }
         });
         //la serpiente no responde, borrar y volver a importar el asset//done
         mapAnimaciones.Add("Snake", new Dictionary<int, string>
