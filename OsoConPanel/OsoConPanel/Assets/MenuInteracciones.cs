@@ -45,7 +45,17 @@ public class MenuInteracciones : MonoBehaviour
         canvas.transform.LookAt(myCamera.transform);
         if (canvas != null && animTransform != null)
         {
-            canvas.transform.position = new Vector3(animTransform.position.x + 1, animTransform.position.y + 3, animTransform.position.z);
+            var offset_z = 0;
+
+            if (animator.name.Equals("Elephant"))
+            {
+                offset_z = 2;
+            }
+
+            canvas.transform.position = new Vector3(
+                animTransform.position.x + 1,
+                animTransform.position.y + 3,
+                animTransform.position.z + offset_z);
 
             if (myCamera != null)
             {
