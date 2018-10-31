@@ -10,10 +10,17 @@ public class EstadoAnimales : MonoBehaviour {
     {
         // set estado inicial de animales
 
+        //artico
         SetEstadoInicial("Low_PolarBear_v01 (1)", AnimacionesAnimales.ACCION_DORMIR);
         SetEstadoInicial("Low_Moose_bull_v01 (2)", AnimacionesAnimales.ACCION_DORMIR);
         SetEstadoInicial("Low_Wolf_v01 (2)", AnimacionesAnimales.ACCION_DORMIR);
         SetEstadoInicial("Low_Wolf_v01 (1)", AnimacionesAnimales.ACCION_DORMIR);
+
+        //desierto
+        SetEstadoInicial("Elephant (1)", AnimacionesAnimales.ACCION_COMER);
+        SetEstadoInicial("Low_Coyote_v01 (1)", AnimacionesAnimales.ACCION_DORMIR);
+
+        //bosque
 
     }
     public void SetDormido(string id, bool dormido)
