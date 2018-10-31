@@ -186,7 +186,7 @@ public class MenuInteracciones : MonoBehaviour
         MostrarMenu(true);
         interaccion = -1;
 
-        canvas.GetComponent<rotateCanvas>().enabled = false;
+        canvas.GetComponent<rotateCanvas>().enabled = true;
 
         AnimacionesAnimales.mostrandoInformacionAnimal = animator.name;
     }
@@ -599,8 +599,8 @@ public class MenuInteracciones : MonoBehaviour
                             "  Hábitos : Suelen ser curiosos, y cuando se asustan suelen investigar sobre la causa de\n" +
                             "  su miedo y no siempre huyen. Han desarrollado velocidad, agilidad, resistencia y estado de\n" +
                             "  alerta. Aunque por la cría selectiva, algunas razas son más dóciles.\n" +
-                            "  Son animales sociales, establecen vínculos con individuos de su especie y con otros animales,\n" +
-                            "  incluidos los humanos";
+                            "  Son animales sociales, establecen vínculos con individuos de su especie y con otros \n" +
+                            "  animales, incluidos los humanos";
                 break;
             case "Elephant":
                 retorno = "\n" +

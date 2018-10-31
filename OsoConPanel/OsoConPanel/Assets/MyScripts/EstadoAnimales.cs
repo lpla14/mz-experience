@@ -21,7 +21,7 @@ public class EstadoAnimales : MonoBehaviour {
         SetEstadoInicial("Low_Coyote_v01 (1)", AnimacionesAnimales.ACCION_DORMIR);
 
         //bosque
-
+        SetEstadoInicial("Low_Bear_v01 (1)", AnimacionesAnimales.ACCION_DORMIR);
     }
     public void SetDormido(string id, bool dormido)
     {
