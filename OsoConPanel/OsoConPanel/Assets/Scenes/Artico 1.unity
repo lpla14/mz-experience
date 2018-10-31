@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 571061848}
-  m_IndirectSpecularColor: {r: 0.45085436, g: 0.5007645, b: 0.57463205, a: 1}
+  m_IndirectSpecularColor: {r: 0.45085448, g: 0.500765, b: 0.5746321, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1121,15 +1121,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.87
+      value: -30.21
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.063
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 151.31
+      value: 149.62
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 1892323447}
-  shrink_speed: 3.1
+  shrink_speed: 1
   food_scale: 1.4
 --- !u!65 &123190377
 BoxCollider:
@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 332313959}
-  shrink_speed: 0.5
+  shrink_speed: 0.2
   food_scale: 0.3
 --- !u!114 &203878180
 MonoBehaviour:
@@ -1997,6 +1997,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!65 &203878187
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 203878178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.58, z: 0}
 --- !u!1001 &213911337
 Prefab:
   m_ObjectHideFlags: 0
@@ -2744,7 +2756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 1491840112}
-  shrink_speed: 3.1
+  shrink_speed: 1
   food_scale: 1.4
 --- !u!65 &283959500
 BoxCollider:
@@ -4793,7 +4805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 1855089408}
-  shrink_speed: 3.1
+  shrink_speed: 1
   food_scale: 1.4
 --- !u!65 &533393606
 BoxCollider:
@@ -8235,15 +8247,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.24
+      value: -10.825
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 141.02
+      value: 136.42
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -8251,7 +8263,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.z
@@ -8259,7 +8271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_RootOrder
@@ -8267,7 +8279,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 114269604839610384, guid: 6817fd3c5809228498530e5ebe58f46a,
         type: 2}
@@ -9470,7 +9482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 529944236}
-  shrink_speed: 0.5
+  shrink_speed: 0.2
   food_scale: 0.3
 --- !u!1 &1201614627
 GameObject:
@@ -9550,7 +9562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 328804017}
-  shrink_speed: 1.7
+  shrink_speed: 0.6
   food_scale: 1
 --- !u!114 &1211926877
 MonoBehaviour:
@@ -9677,7 +9689,7 @@ Transform:
   - {fileID: 2073910231}
   - {fileID: 328804018}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &1213859273
 GameObject:
@@ -10002,7 +10014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 270315277}
-  shrink_speed: 3.1
+  shrink_speed: 1
   food_scale: 1.4
 --- !u!114 &1240416706
 MonoBehaviour:
@@ -10056,7 +10068,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.72, y: 1.5, z: 1.98}
-  m_Center: {x: 0, y: 1, z: 0.3}
+  m_Center: {x: 0, y: 0.76, z: 0.3}
 --- !u!95 &1240416708 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: 32355c58d1ff4794381057cb17a96e8d,
@@ -10331,7 +10343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 803501204}
-  shrink_speed: 1.7
+  shrink_speed: 0.5
   food_scale: 1
 --- !u!114 &1260594530
 MonoBehaviour:
@@ -10733,7 +10745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 639902744}
-  shrink_speed: 0.5
+  shrink_speed: 0.2
   food_scale: 0.3
 --- !u!1001 &1326102413
 Prefab:
@@ -10843,7 +10855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 1615198232}
-  shrink_speed: 1.8
+  shrink_speed: 1
   food_scale: 1
 --- !u!114 &1326102419
 MonoBehaviour:
@@ -11454,7 +11466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 374000471}
-  shrink_speed: 1.7
+  shrink_speed: 0.6
   food_scale: 1
 --- !u!114 &1389975319
 MonoBehaviour:
@@ -11581,7 +11593,7 @@ Transform:
   - {fileID: 996525697}
   - {fileID: 374000472}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &1391097424
 GameObject:
@@ -13606,15 +13618,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.09
+      value: -11.98
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -0.096
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 140.27
+      value: 137.489
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -13622,7 +13634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.z
@@ -13630,7 +13642,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_RootOrder
@@ -13638,7 +13650,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399031230455582, guid: 6817fd3c5809228498530e5ebe58f46a, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 114269604839610384, guid: 6817fd3c5809228498530e5ebe58f46a,
         type: 2}
@@ -13738,7 +13750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 1371468605}
-  shrink_speed: 0.5
+  shrink_speed: 0.2
   food_scale: 0.3
 --- !u!1001 &1718570016
 Prefab:
@@ -13918,7 +13930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 537225196}
-  shrink_speed: 1.8
+  shrink_speed: 1
   food_scale: 1
 --- !u!114 &1723411255
 MonoBehaviour:
@@ -14984,7 +14996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 2124882669}
-  shrink_speed: 1.8
+  shrink_speed: 1
   food_scale: 1
 --- !u!114 &1802825907
 MonoBehaviour:
@@ -16897,15 +16909,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.193342
+      value: -34.24
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 148.90077
+      value: 152.97
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -16925,7 +16937,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 400100, guid: 32355c58d1ff4794381057cb17a96e8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -18089,7 +18101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cjto_frutas: {fileID: 1797007548}
-  shrink_speed: 1.8
+  shrink_speed: 1
   food_scale: 1
 --- !u!114 &2027006602
 MonoBehaviour:
