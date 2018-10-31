@@ -110,7 +110,6 @@ public class MenuInteracciones : MonoBehaviour
                         bVolver.transform.localPosition.z);
                 }
 
-                canvas.GetComponent<rotateCanvas>().enabled = false;
                 bInfo.SetActive(true);
                 bVolver.SetActive(true);
                 interaccion = -1;
@@ -185,8 +184,6 @@ public class MenuInteracciones : MonoBehaviour
 
         MostrarMenu(true);
         interaccion = -1;
-
-        canvas.GetComponent<rotateCanvas>().enabled = true;
 
         AnimacionesAnimales.mostrandoInformacionAnimal = animator.name;
     }
