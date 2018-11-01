@@ -47,9 +47,9 @@ public class MenuInteracciones : MonoBehaviour
         {
             var offset_z = 0;
 
-            if (animator.name.Equals("Elephant"))
+            if (animator.name.Equals("Elephant") || animator.name.StartsWith("Giraffe"))
             {
-                offset_z = 2;
+                offset_z = 3;
             }
 
             canvas.transform.position = new Vector3(
@@ -98,7 +98,7 @@ public class MenuInteracciones : MonoBehaviour
                 {
                     bInfo.transform.localPosition = new Vector3(
                         bInfo.transform.localPosition.x,
-                        37,
+                        60,
                         bInfo.transform.localPosition.z);
                 }
 
