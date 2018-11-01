@@ -158,7 +158,6 @@ public class MenuInteracciones : MonoBehaviour
                         if (interaccion == AnimacionesAnimales.ACCION_ACARICIAR)
                         {
                             myCamera.GetComponentInParent<Acariciar>().enabled = true;
-
                         }
                     }
                 }

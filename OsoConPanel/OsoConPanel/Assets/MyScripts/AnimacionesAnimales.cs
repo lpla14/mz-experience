@@ -8,7 +8,7 @@ public class AnimacionesAnimales : MonoBehaviour
     private static Dictionary<string, Dictionary<int, string>> mapAnimaciones;
 
     public static bool init = false;
-    //no poner 0 ya que por algun motivo la animacion no se dispara
+    
     public static int ACCION_COMER           = 9;//0;
     public static int ACCION_ACARICIAR       = 1;
     public static int ACCION_FINGIR_MUERTE   = 2;
