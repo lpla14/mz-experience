@@ -47,7 +47,7 @@ public class MenuInteracciones : MonoBehaviour
         {
             var offset_z = 0;
 
-            if (animator.name.Equals("Elephant"))
+            if (animator.name.Equals("Elephant") || animator.name.StartsWith("Giraffe"))
             {
                 offset_z = 3;
             }
