@@ -10,7 +10,7 @@ public class ActiveSettingManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(Botones.BOTON_R1))
+        if (Input.GetKeyDown(Botones.BOTON_R1) || Input.GetKeyDown(KeyCode.T))
         {
             switch (buttonName)
             {
