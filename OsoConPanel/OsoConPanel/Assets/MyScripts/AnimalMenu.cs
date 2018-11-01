@@ -157,6 +157,7 @@ public class AnimalMenu : MonoBehaviour
         {
             var nombreAnimal = "";
             var corriendo = false;
+            var acariciando = false;
 
             if (animator != null)
             {
@@ -164,6 +165,12 @@ public class AnimalMenu : MonoBehaviour
                 {
                     this.enabled = false;
                     corriendo = true;
+                }
+
+                if ( myCamera != null && myCamera.GetComponentInParent<Acariciar>().enabled )
+                {
+                    this.enabled = false;
+                    acariciando = true;
                 }
 
                 this.animator = animator.GetComponent<Animator>();
@@ -176,7 +183,7 @@ public class AnimalMenu : MonoBehaviour
 
             GetComponent<MenuInteracciones>().OcultarPanelInfo(nombreAnimal);
 
-            if (!corriendo)
+            if (!corriendo && !acariciando)
             { 
                 MostrarBotonInteractuar(true);
             }
