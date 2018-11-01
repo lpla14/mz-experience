@@ -49,7 +49,7 @@ public class MenuInteracciones : MonoBehaviour
 
             if (animator.name.Equals("Elephant"))
             {
-                offset_z = 2;
+                offset_z = 3;
             }
 
             canvas.transform.position = new Vector3(
@@ -98,7 +98,7 @@ public class MenuInteracciones : MonoBehaviour
                 {
                     bInfo.transform.localPosition = new Vector3(
                         bInfo.transform.localPosition.x,
-                        37,
+                        60,
                         bInfo.transform.localPosition.z);
                 }
 

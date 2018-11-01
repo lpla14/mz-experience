@@ -14,6 +14,7 @@ public class AnimalMenu : MonoBehaviour
 
     private Transform animTransform;
     private GameObject bInteractuar;
+    private Animator ultimoAnimator;
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class AnimalMenu : MonoBehaviour
 
             if (animator.name.Equals("Elephant"))
             {
-                offset_z = 2;
+                offset_z = 3;
             }
 
             canvas.transform.position = new Vector3(
@@ -66,6 +67,8 @@ public class AnimalMenu : MonoBehaviour
                 //bInteractuar.SetActive(false);
                 
                 MostrarBotonInteractuar(false);
+
+                this.ultimoAnimator = animator;
 
                 GetComponent<MenuInteracciones>().mostrarMenu = true;
                 GetComponent<MenuInteracciones>().animator    = animator;
@@ -145,30 +148,38 @@ public class AnimalMenu : MonoBehaviour
 
     public void Init(Animator animator)
     {
-        var nombreAnimal = "";
-        var corriendo = false;
-
-        if (animator != null)
+        if (this.ultimoAnimator != null && this.ultimoAnimator.name.Equals(animator.name) && GetComponent<MenuInteracciones>().mostrarMenu)
         {
-            if (animator.GetComponent<Correr>() != null && animator.GetComponent<Correr>().enabled)
+            GetComponent<MenuInteracciones>().enabled = true;
+            this.enabled = false;
+        }
+        else
+        {
+            var nombreAnimal = "";
+            var corriendo = false;
+
+            if (animator != null)
             {
-                this.enabled = false;
-                corriendo = true;
+                if (animator.GetComponent<Correr>() != null && animator.GetComponent<Correr>().enabled)
+                {
+                    this.enabled = false;
+                    corriendo = true;
+                }
+
+                this.animator = animator.GetComponent<Animator>();
+
+                nombreAnimal = animator.name;
+
+                this.animTransform = animator.transform;
+                AddMenuButtonsEventTriggers();
             }
 
-            this.animator = animator.GetComponent<Animator>();
+            GetComponent<MenuInteracciones>().OcultarPanelInfo(nombreAnimal);
 
-            nombreAnimal = animator.name;
-
-            this.animTransform = animator.transform;
-            AddMenuButtonsEventTriggers();
-        }
-
-        GetComponent<MenuInteracciones>().OcultarPanelInfo(nombreAnimal);
-
-        if (!corriendo)
-        { 
-            MostrarBotonInteractuar(true);
+            if (!corriendo)
+            { 
+                MostrarBotonInteractuar(true);
+            }
         }
     }
 
